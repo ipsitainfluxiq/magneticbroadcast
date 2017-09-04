@@ -5,6 +5,7 @@ import {CookieService} from 'angular2-cookie/core';
 import { FormGroup, Validators, FormControl, FormBuilder} from '@angular/forms';
 import {Commonservices} from '../app.commonservices' ;
 import { FacebookService, InitParams, LoginResponse } from 'ngx-facebook';
+import { TwitterService } from 'ng2-twitter';
 
 @Component({
   selector: 'app-dashboard',

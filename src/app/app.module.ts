@@ -29,7 +29,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { Leadpage1Component } from './leadpage1/leadpage1.component';
 import { FacebookModule } from 'ngx-facebook';
 import { Leadpage2Component } from './leadpage2/leadpage2.component';
-
+import { TwitterService } from 'ng2-twitter';
 
 @NgModule({
   declarations: [
@@ -66,7 +66,7 @@ import { Leadpage2Component } from './leadpage2/leadpage2.component';
     Ng2UploaderModule,
     FacebookModule.forRoot(),
   ],
-  providers: [appRoutingProviders, CookieService],
+  providers: [appRoutingProviders, CookieService, TwitterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
