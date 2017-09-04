@@ -1,0 +1,49 @@
+<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 dashboard_left">
+  <h2>Welcome {{name}}</h2>
+
+  <ul>
+
+
+    <li><a [routerLink]="['/dashboard']">DashBoard</a>
+    </li>
+
+    <li><a>Admin Management</a>
+      <ul>
+        <li><a [routerLink]="['/addadmin']">Add admin</a></li>
+        <li><a [routerLink]="['/adminlist']">Admin List</a></li>
+      </ul>
+    </li>
+
+
+
+    <li><a>Dealership Management</a>
+      <ul>
+        <li><a [routerLink]="['/adddealership']">Add dealership</a></li>
+        <li><a [routerLink]="['/dealershiplist']">Dealership List</a></li>
+      </ul>
+    </li>
+
+
+
+    <li><a>Post Category Management</a>
+      <ul>
+        <li><a [routerLink]="['/addpostcategory']">Add Post Category</a></li>
+        <li><a [routerLink]="['/postcategorylist']">Post Category List</a></li>
+      </ul>
+    </li>
+
+    <li><a>Post Management</a>
+      <ul>
+        <li><a [routerLink]="['/postmanagement']">Add Post</a></li>
+        <li><a [routerLink]="['/postmanagementlist']">Post List</a></li>
+      </ul>
+    </li>
+
+
+
+    <li><a (click)="logout()">Log out</a></li>
+
+
+
+  </ul>
+</div>

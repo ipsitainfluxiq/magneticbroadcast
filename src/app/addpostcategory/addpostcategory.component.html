@@ -1,0 +1,40 @@
+<app-adminheader></app-adminheader>
+<app-adminleftsidebar></app-adminleftsidebar>
+<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 dashboard_right">
+  <div class="dashboard_right_wrapper">
+    <div class="dashboard1_div1 ">
+      <h4> Add Post category</h4>
+      <div class="dashboard1form">
+
+        <form role="form" novalidate [formGroup]="dataForm" (ngSubmit)="dosubmit(dataForm.value)">
+
+          <label>Title</label>
+          <input type="text" class="form-control" placeholder="Title" [formControl]="dataForm.controls['title']">
+          <span class="has-error" *ngIf ="dataForm.controls['title'].touched && !dataForm.controls['title'].valid">Title is Required !</span>
+
+         <!-- <label>Last Name</label>
+          <input type="text" class="form-control" placeholder="Last Name" [formControl]="dataForm.controls['lastname']">
+          <span class="has-error" *ngIf ="dataForm.controls['lastname'].touched && !dataForm.controls['lastname'].valid">Last Name is Required !</span>-->
+
+          <label>Description</label>
+          <input type="text" class="form-control" placeholder="Description" [formControl]="dataForm.controls['description']">
+          <span class="has-error" *ngIf ="dataForm.controls['description'].touched && !dataForm.controls['description'].valid">Description is Required !</span>
+
+          <label>Priority</label>
+          <input type="text" appOnlyNumber="true" class="form-control" placeholder="Priority" [formControl]="dataForm.controls['priority']">
+          <span class="has-error" *ngIf ="dataForm.controls['priority'].touched && !dataForm.controls['priority'].valid">Priority is Required !</span>
+          <br/>
+          <label> <input type="checkbox" [formControl]="dataForm.controls['status']"> Make this category active ?</label>
+
+          <br><input type="submit" value="Save" class="loginbtn2">
+        </form>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--<app-footer></app-footer>-->

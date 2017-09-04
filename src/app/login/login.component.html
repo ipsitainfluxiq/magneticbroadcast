@@ -1,0 +1,43 @@
+
+<div class="container-fluid login_bgnewwrapper">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td valign="middle">
+        <img src="../assets/images/newlogo.png"  alt="#" class="loginlogo"/>
+
+        <div class="loginlockicon"> <img src="../assets/images/lockicon.png"  alt="#" /></div>
+
+        <div class="login_wrapper_body">
+          <div class="login_heading">
+            <div class="login_heading_sub">
+              <h2> Login to private area </h2>
+              <h3>Enter into your account</h3>
+            </div>
+          </div>
+
+          <div class="login_formbox_wrapper">
+            <form  role="form" novalidate [formGroup]="dataForm" (ngSubmit)="dosubmit(dataForm.value)">
+               <div class="error_class2" *ngIf="is_error">{{is_error}}</div>
+
+              <label>Login:</label>
+              <input  class="inputtext" type="email"  [formControl]="dataForm.controls['email']">
+              <span class="errortext" *ngIf ="dataForm.controls['email'].touched && !dataForm.controls['email'].valid">Email id is Required !</span>
+
+              <label>Password:</label>
+              <input class="inputtext" type="password" [formControl]="dataForm.controls['password']">
+              <span class="errortext" *ngIf ="dataForm.controls['password'].touched && !dataForm.controls['password'].valid">Password is Required !</span>
+
+              <input type="submit" value="login" class="loginbtnnew">
+
+              <div class="clearfix"></div>
+
+              <div class="newforgotpassword"> <a [routerLink]="['/forgetpassword']">Forgot Password?</a></div>
+            </form>
+
+
+
+          </div>
+        </div></td>
+    </tr>
+  </table>
+</div>

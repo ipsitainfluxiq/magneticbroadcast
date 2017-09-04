@@ -1,0 +1,706 @@
+/*---FinancePage-----*/
+
+@media (max-width: 1520px){
+
+.block1box1 vcenter{ padding-left: 5px; padding-right: 5px;}
+}
+@media (max-width: 1300px){
+	.page-wrapper{ width: 79%;}
+}
+
+
+@media (max-width: 991px){
+	.btnemail{margin-bottom: 7px;}
+	.homeblock1innerwrapperrightcontent {margin-top: 20px; margin-bottom: 20px;}
+	.homeblock1innerwrapper{padding-top: 19px;}
+    .homeblock1innerwrapperright h2 {margin-top: 20px;}
+    .homeblock1innerwrapperleft img{text-align: center; float: none; margin-left: auto; margin-right: auto;width: 100%;}
+    .homeblock1innerwrapperrightcontentleft{border-right: 0px solid #d6d8d9; height: auto; width: 100%; border-bottom: 1px solid #d6d8d9; padding-bottom: 23px;text-align: center;padding-top: 4px;}
+    .homeblock1innerwrapperrightcontentright {padding-top: 20px; text-align: center;}
+    .homeblock1innerwrapperrightcontentright h3 span{display: block;}
+    .homeblock1innerwrapperrightcontent { margin-top: 20px; margin-bottom: 20px;}
+	.financingblock2wrapperinner {max-width: 96%;margin: 0px auto;padding-top: 0px;padding-bottom: 30px;}
+	.financingblock2wrapper [class*="col-"] {padding-left: 0px !important; padding-right: 0px !important; margin-bottom:10px;}
+
+	.financingblock2wrapperinner .form-group {margin: 0px;}
+	
+	.financingblock2 .financingblock2wrapper h3 {padding: 7px 20px 10px 20px; height: auto;}
+	.checkplease{margin: 0 auto; float: none; width: 100% !important;}
+	.checkplease .currentemploymentthird2 label>label{margin-left: 0px !important;}
+	.lbltext{text-align:left !important;}
+	.applicantclient label > label{height: 30px;}
+	.financingblock2wrapperinner label.smalltxt {width: 98%; text-align: left;}
+	.applicantclient input[type=checkbox]:not(old) + label{padding-left: 0px;}
+	.currentemploymenthalf2 .txtpad{margin-left:13px;}
+	
+}
+
+@media(max-width:768px){
+.ftrfinance img{max-width:100%;}
+}
+
+
+@media(max-width:600px){	
+
+	.homelogowrapper .logo1 { margin: 0px; display: inline-block; float: left; margin-bottom: 15px; max-width: 100%;}
+	.homelogowrapper .logo2 {
+    margin: 15px 0 0 0;
+    display: inline-block;
+    float: left;
+	 max-width: 100%;
+}
+	.homelogowrapper {float: none;max-width: 90%;margin-left: auto;margin-right: auto;padding-bottom: 10px;}
+	.homelogowrapper .logo1 {margin: 0px;display: inline-block;float: left;margin-bottom: 15px;}
+	.homelogowrapper .logodevider {width: 100%;height: 1px;margin: 0px;display: block;float: left;}
+	.checkplease .currentemploymentthird1 {padding-left: 0px !important;display: block;float: none;	text-align: left;}
+	.ftrfinance input {width: 100%;margin: 0 auto;}
+	.ftrfinance {max-width: 96%;}
+}
+@media(max-width:480px){
+	.financialshalf2 .financialshalf2{width: 100%; margin-left: 0px;}
+	.btnemail {width: 100%;}
+	.btnfinacefooterlist {width: 100%;display: block;margin: 30px auto;	}
+	.btnfinacefooterlist .bo_btn2{margin:0px;}
+}
+
+@media(max-width:320px){
+	.financialshalf2 .financialshalf2 input[type=text]{margin-left: 0px !important;}
+	.btnfinacefooterlist .bo_btn2 {width: 100%;margin:0px;margin-bottom: 20px;}
+	.btnfinacefooterlist .bo_btn3 {width: 100%;	margin:0px;}
+}
+/*---end of FinancePage-----*/
+
+
+/*---Dealerdashboardpage-----*/
+@media screen and (max-width:1900px){
+	.bannerbottomblockright h2 {font-size: 34px;line-height: 46px;}
+}
+@media screen and (max-width:1680px){
+  	.page-wrapper .blockmaininner{margin: 0 auto;width: 100%;}
+	.bannerbottomblockrightwrapper {background-color: #fb4a32;height: 398px;width: 610px;position: relative;float: right;}
+	.sharelinks .sharelinksimgwarpper {width: 100%;}
+}
+
+@media screen and (max-width: 1460px){
+	.inventorysinglelistblock2 .customerstatus label {font-size: 11px;}
+	.inventorysinglelist .imgouter .imgwrapper {width: 225px;}
+}
+@media screen and (max-width: 1300px){
+	.inventorysinglelist .imgouter .imgwrapper {width: 200px;}
+}
+
+@media screen and (max-width: 1366px){
+	.block1box1 h4 {font-size: 15px;}
+	.inventorysinglelistblock3col1 {padding-right: 15px;padding-left: 15px;width: 100%;}
+	.inventorysinglelistblock3 .imgouter {float: none;	margin:0 auto;}
+}
+@media screen and (min-width:1200px) and (max-width:1366px) {
+	.inventorysinglelistblock2 .customerstatus label {
+    font-size: 11px;
+}
+	.inventorysinglelistblock3col3 .actionbtns {
+    text-align: center;
+    width: 100%;
+}
+.inventorysinglelistblock3col2 .example {
+    display: block !important;
+    float: none !important;
+    margin-top: 10px;
+    width: 213px !important;
+    text-align: center;
+    margin: 0 auto !important;
+}
+
+.inventorysinglelistblock3col3 .actionbtns button {
+    margin-bottom: 10px;
+    width: 49%;
+	font-size: 15px !important;
+}
+
+
+.inventorysinglelistblock3col1 .actionbtns {
+    text-align: center;
+    width: 100%;
+}
+
+.inventorysinglelistblock3col1 .actionbtns button {
+    margin-bottom: 10px;
+    width: 49%;
+}
+
+	
+.inventorysinglelistblock3col3 .actionbtns{
+    text-align: center;
+}
+  .inventorysinglelistblock3col2 {
+    width: 96%;
+	margin: 0 auto;
+  }
+  .inventorysinglelistblock3col2 .example {
+    width: 192px;
+    display: block;
+    margin: 0 auto;
+    float: none;
+    text-align: center;
+  }
+  .inventorysinglelistblock3col3{
+	  width:100%;
+  }
+  
+}
+
+
+@media screen and (max-width:1280px){	
+	.inventorysinglelist .imgouter .imgwrapper {
+		width: 190px;
+	}
+	.inventorylistswrapper .bootstrap-select.makedropdown {
+		position: inherit;
+		top: 0;
+		right: 0;
+		margin: 0px 0px 15px 0px;
+	}
+	.inventorylistswrapper .bootstrap-select.modeldropdown {
+		position: inherit;
+		top: 0;
+		right: 0;
+		margin: 0px 0px 15px 0px;
+	}
+	.inventorylistswrapper .bootstrap-select.auctiondropdown {
+		position: inherit;
+		top: 0;
+		right: 0;
+		margin: 0px 0px 15px 0px;
+	}
+	.inventorylistswrapper .bootstrap-select.yeardropdown {
+		position: inherit;
+		top: 0;
+		right: 0;
+		margin: 0px 0px 15px 0px;
+	}
+	.auctioninventoryblock .inventorylistswrapper input {
+		position: inherit;
+		top: 0;
+		right: 0;
+		margin: 0px 0px 15px 0px;
+	}
+
+	.auctioninventoryblock .inventorylistswrapper .searchbox input {
+		width: 100%;
+	}
+
+	.postauctionactivitylist .list-group-item {
+		display: inline-flex;
+	}
+	.postauctionactivitylist .list-group-item p {
+		line-height: 22px;
+	}
+}
+
+
+@media screen and (max-width:1199px) {
+
+	.inventorysinglelistblock3col2 .example {
+		padding-left: auto;
+		margin: 0 auto;
+		width: 98%;
+	}
+
+	.inventorysinglelist .imgouter .imgwrapper {
+		width: 260px;
+	}
+
+	.block1box {
+		margin-bottom: 30px;
+	}
+
+	.cusdashboardblock3 {
+		margin-top: 0px;
+	}
+
+	.recentrsvpsinglelist, .recentcussinglelist {
+		padding-left: 9px;
+		padding-right: 9px;
+	}
+
+	.recentrsvpsinglelist .imgwrapper {
+		width: auto;
+		height: 50px;
+	}
+
+	.recentcussinglelist .imgwrapper {
+		width: auto;
+		height: 50px;
+	}
+
+	.inventorysinglelist:nth-child(2n+2) {
+		margin-bottom: 9px;
+	}
+
+	.inventorysinglelistblock3col2 {
+		padding-left: 15px;
+	}
+
+	.inventorysinglelistblock3col2 .example {
+		display: block !important;
+		float: none !important;
+		margin-top: 10px;
+		width: 211px !important;
+		text-align: center;
+		margin: 0 auto !important;
+	}
+
+	.bannerbottomblock {
+		height: auto;
+	}
+
+	.dealerlists .adminlistlists input {
+		position: absolute;
+	}
+}
+	@media screen and (max-width: 1100px) {
+
+		.RSVPActivity .daterange {
+			position: inherit;
+			top: 0px;
+			right: 0px;
+		}
+
+		.RSVPActivity .adminlistlists input {
+			position: inherit;
+			top: 0px;
+			right: 0px;
+			margin-bottom: 15px;
+			margin-left: 12px;
+		}
+	}
+
+
+	@media (max-width: 991px) {
+		.postauctionamain .postauctioncctivityheader .daterange {
+			position: inherit;
+			top: 0px;
+			right: 0px;
+		}
+
+		.postauctionamain .postauctioncctivityheader .addbtnwrapper2 {
+			position: absolute;
+			top: 77px;
+			right: 15px;
+		}
+
+		.daterange {
+			position: absolute;
+			top: 18px;
+		}
+
+		.adminlistlists input {
+			top: 17px;
+		}
+
+		.equal, .equal > div[class*="col-"] {
+			display: block;
+		}
+
+		.recentrsvpsinglelist .imgwrapper {
+			width: 65px;
+			height: 65px;
+		}
+
+		.recentcussinglelist .imgwrapper {
+			width: 65px;
+			height: 65px;
+		}
+
+		.inventorysinglelist .table {
+			margin-bottom: 19px;
+		}
+
+		.inventorylistswrapper .bootstrap-select.matchesdropdown {
+			position: relative;
+			top: 0;
+			right: 0;
+			margin: 0px 0px 15px 0px;
+		}
+
+		.inventorymatchblock .inventorylistswrapper .searchbox input {
+			width: 100%;
+			position: inherit;
+			top: 0;
+			margin: 0px 0px 15px 0px;
+		}
+
+		.inventorymatchblock .inventorysinglelist .inventorysinglelistblock3col1 .imgouter {
+			margin: 0 auto;
+			float: none;
+			width: 66px !important;
+		}
+
+		.inventorymatchblock .inventorysinglelist .imgouter {
+			margin: 0 auto;
+			float: none;
+			width: 100%;
+		}
+
+		.inventorysinglelistblock .imgbox {
+			padding-right: 0px !important;
+			padding-left: 0px !important;
+		}
+
+		.inventorylistswrapper input {
+			top: 17px;
+		}
+
+		.postauctionactivitylist .list-group-item {
+			line-height: 44px;
+		}
+
+		.bannerbottomblockright {
+			padding: 10px 40px 10px 40px;
+		}
+
+		.bannerbottomblockright h4 {
+			margin-top: 20px;
+		}
+
+		.bannerbottomblockrightwrapper {
+			padding-top: 19px !important;
+		}
+
+		.bannerbottomblockright {
+			height: auto;
+			background-image: none;
+			background: #fb4a32;
+			position: inherit;
+			left: 0px;
+			right: 0px;
+			width: 100%;
+		}
+
+		.bannerbottomblockleft {
+			overflow: inherit;
+		}
+
+		.bannerbottomblockrightwrapper {
+			position: inherit;
+			float: none;
+			padding-top: 400px !important;
+			color: #fff;
+			display: block;
+			background-color: transparent;
+		}
+
+		.bannerbottomblockrightwrapper {
+			height: auto;
+			width: 100%;
+			position: relative;
+			float: right;
+		}
+
+		.blockcontentinfo .imgbox .imgouter {
+			margin-right: auto;
+			margin-left: auto;
+		}
+		
+		.sharelinkssinglelistleft {
+		padding-left: 15px;
+	}
+	.sharelinks .sharelinksimgwarpper {
+		display: block;
+		margin: 0 auto;
+	}
+	.sharelinkssinglelistright {
+		padding-right: 0px;
+		text-align: center;
+	}
+	.sharelinks .btnsend {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.sharelinks .btnedit {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.sharelinks h2 {
+		margin-top: 10px;
+	}
+	.sharelinks .sharelinksimgwarpper {
+		height: auto;
+	}
+	.sharelinkssinglelistright ul{width: 90%; margin-left:auto; margin-right:auto; display:block}
+	.sharelinkssinglelistright ul li{float:none; display:block; margin-bottom:20px;}
+	.inventorymatch .inventorylistswrapper .bootstrap-select.matchesdropdown {right: 0;}
+.inventorylistswrapper .bootstrap-select.matchesdropdown {position: inherit; top: 0px; right: 0px;}
+	}
+
+	@media (max-width: 860px) {
+		.daterange {
+			position: inherit;
+			top: 0px;
+			right: 0px;
+			margin-top: 15px;
+		}
+
+		.postauctioncctivityheader .addbtnwrapper2 {
+			float: left;
+		}
+	}
+
+
+	@media (max-width: 768px) {
+	
+	.upcomingauctions .adminlistlists input {
+			position: inherit;
+			top: 0px;
+			right: 0px;
+			margin-bottom: 15px;
+			margin-left: 0px;
+			width:100%;
+		}
+		
+		.inventoryrecentbidblock .inventorylistswrapper .searchbox input {
+			position: inherit;
+			top: 0;
+			width: 100%;
+			margin: 0px 0px 15px 0px;
+		}
+
+		.inventoryrecentbidblock .inventorylistswrapper .searchbox input {
+			width: 100% !important;
+		}
+
+		.inventorylistswrapper input {
+			position: inherit;
+		}
+
+		.ftrfinance img {
+			max-width: 100%;
+		}
+
+		.inventorysinglelist:nth-child(n+1) {
+			margin-bottom: 9px;
+		}
+
+		.inventorysinglelist .imgouter {
+			margin: 0 auto;
+			float: none !important;
+			width: 206px !important;
+			margin-bottom: 6px;
+		}
+
+		.inventorysinglelistblock3col3 .actionbtns button {
+			margin-bottom: 10px;
+			width: 49%;
+		}
+
+		.inventorysinglelistblock3col4 .actionbtns button {
+			margin-bottom: 10px;
+			width: 49%;
+		}
+
+		.inventorysinglelistblock3col1 .actionbtns button {
+			margin-bottom: 10px;
+			width: 49%;
+		}
+
+		.bannerbottomblock {
+			background-color: #fb4a32;
+			height: auto;
+			width: 100%;
+			margin-top: 30px;
+		}
+
+		.bannerbottomblockrightwrapper {
+			position: relative;
+			float: left;
+			padding-top: 395px;
+		}
+
+		.bannerbottomblockrightwrapper {
+			background: none !important;
+		}
+
+		.bannerbottomblockrightwrapper {
+			width: 100%;
+		}
+
+		.bannerbottomblockright {
+			width: 100%;
+			height: auto;
+			background-image: none;
+			position: inherit;
+			left: 0px;
+			background-color: #fb4a32;
+		}
+
+		.RSVPActivity .searchbox input {
+			position: inherit;
+			top: 0;
+			margin: 0px 0px 15px 0px;
+		}
+
+		.RSVPActivity .adminlistlists input {
+			width: 100%;
+		}
+	}
+
+
+	@media (min-width: 730px) {
+		.daterangepicker .ranges {
+			width: auto;
+		}
+
+		.daterangepicker.ltr .ranges {
+			float: left;
+		}
+
+		.daterangepicker.rtl .ranges {
+			float: right;
+		}
+
+		.daterangepicker .calendar.left {
+			clear: none !important;
+		}
+	}
+
+
+
+	@media (max-width: 600px) {
+		.customerstatus .example.list-inline > li {
+			font-size: 13px;
+			width: 100%;
+		}
+
+		.inventorysinglelist .imgouter {
+			width: 180px !important;
+		}
+
+		.postauctionamain .postauctioncctivityheader .addbtnwrapper2 {
+			position: inherit;
+			top: 0px;
+			right: 0px;
+		}
+
+		.postauctionamain .postauctionactivitylist {
+			margin-top: 23px;
+		}
+
+	}
+
+
+
+	@media (max-width: 540px) {
+		.inventorysinglelist .imgouter {
+			width: 168px !important;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.postauctionactivitylist .list-group-item img {
+			max-width: 100%;
+			height: 43px;
+		}
+
+		.postauctioncctivityheader .addbtnwrapper2 .viewallblack {
+			padding: 6px 0px;
+		}
+
+		.inventoryrecentbidheader h2 {
+			font-size: 15px;
+		}
+
+		.adminlistheader h2 {
+			font-size: 15px;
+		}
+
+		.inventorymatchheader h2 {
+			font-size: 15px;
+		}
+
+		.auctioninventoryheader h2 {
+			font-size: 15px;
+		}
+
+		.recentcusheader h2 {
+			font-size: 15px;
+		}
+
+		.recentrsvpheader h2 {
+			font-size: 15px;
+		}
+
+		.yourinboxheader h2 {
+			font-size: 15px;
+		}
+
+		.cusdashboardblock3 h2 {
+			font-size: 15px;
+		}
+
+		.postauctioncctivityheader h2 {
+			font-size: 15px;
+		}
+
+		.customeractivity h2 {
+			font-size: 15px;
+		}
+
+		.inventoryrecentbidblock .inventorysinglelist .imgbox ul li {
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			margin-bottom: 19px;
+		}
+
+		.inventoryrecentbidblock .inventorysinglelist .imgbox ul li:last-of-type {
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			margin-bottom: 0px;
+		}
+
+		.blockcontentinfo .imgbox .imgouter {
+			margin: 0 auto 15px auto;
+		}
+
+		.cusdashboardblock3links a {
+			font-family: 'open_sanssemibold';
+			font-size: 14px;
+			line-height: 16px;
+			display: block;
+			margin: 0 0 2px 0px;
+			text-align: center;
+		}
+
+		.inventorysinglelistblock3col3 .actionbtns button {
+			margin-bottom: 10px;
+			width: 100%;
+		}
+
+		.inventorysinglelistblock3col1 .actionbtns button {
+			margin-bottom: 10px;
+			width: 100%;
+		}
+
+		.inventorysinglelist .imgouter {
+			width: 180px !important;
+		}
+
+		.preogressright {
+			padding-left: 5px;
+		}
+
+		.cusdashboardblock3links a {
+			margin-bottom: 10px;
+		}
+
+		.cusdashboardblock3links a:last-of-type {
+			margin-bottom: 10px;
+		}
+	}
+
+
+
+
+/*@media(max-width:320px){}*/
+/*---end of Dealerdashboardpage-----*/

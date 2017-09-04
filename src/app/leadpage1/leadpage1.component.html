@@ -1,0 +1,193 @@
+
+<div class="container-fluid landing_top1">
+
+  <div class="container">
+    <img src="../assets/images/logo2.png" alt="#" class="landing_logo1">
+
+    <h2>
+      24/7 customer service
+      <span>1-000-123-0000</span>
+    </h2>
+
+
+    <div class="clearfix"></div>
+
+  </div>
+
+
+</div>
+
+
+<div class="container-fluid landing_banner">
+
+
+  <div class="container">
+
+    <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12">
+      <div class="landing_bannertext">
+        <h2>Lorem Ipsum is simply </h2>
+        <h3>Lorem Ipsum is simply dummy text of the printing </h3>
+
+
+      </div>
+    </div>
+
+
+    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
+
+      <div class="landing_bannerform">
+        <div class="landingtopheding">
+          Get A Quote
+
+        </div>
+
+        <h3>Lorem Ipsum is simply dummy text</h3>
+        <form role="form" novalidate [formGroup]="dataForm" (ngSubmit)="dosubmit(dataForm.value)">
+
+          <input type="text" placeholder="Name" [formControl]="dataForm.controls['name']">
+          <span class="has-error" *ngIf ="dataForm.controls['name'].touched && !dataForm.controls['name'].valid">Name is Required !</span>
+
+          <input type="text" placeholder="Email" [formControl]="dataForm.controls['email']">
+          <span class="has-error" *ngIf ="dataForm.controls['email'].touched && getemail('blank')==true">Email is Required !</span>
+          <span class="has-error" *ngIf ="dataForm.controls['email'].touched && getemail('invalid')==true">Email is not valid!</span>
+
+          <input type="text" placeholder="Phone No" [formControl]="dataForm.controls['phone']">
+          <input type="text" placeholder="Zip Code" [formControl]="dataForm.controls['zip']">
+
+          <input type="submit" value="Click For A Quote" class="lformbtn">
+
+        </form>
+
+
+      </div>
+
+
+
+
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+
+
+</div>
+
+
+<div class="container-fluid landing_conblock1">
+
+  <div class="container">
+
+    <h2>Lorem Ipsum is simply dummy text</h2>
+    <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
+
+    <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h4>
+
+    <a href="javascript:void(0)" id="lanconlink">Get A Quote</a>
+
+  </div>
+</div>
+
+
+<div class="container-fluid landing_conblock2">
+
+  <div class="container">
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      <img src="../assets/images/carimg1.jpg" alt="#">
+
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      <div class="landing_conblock2_text">
+        <h2>Lorem Ipsum is simply</h2>
+        <h3>Lorem Ipsum is simply dummy text of the.</h3>
+
+        <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h4>
+
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+  </div>
+
+</div>
+
+
+<div class="container-fluid landing_conblock3">
+
+  <div class="container">
+
+
+
+    <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h2>
+
+    <h3>Lorem Ipsum </h3>
+    <h4>Lorem Ipsum is simply dummy text</h4>
+
+  </div>
+</div>
+
+
+<div class="container-fluid landing_conblock2 landing_conblock4">
+
+  <div class="container">
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      <div class="landing_conblock2_text">
+        <h2>Lorem Ipsum is simply</h2>
+        <h3>Lorem Ipsum is simply dummy text of the.</h3>
+
+        <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h4>
+
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      <img src="../assets/images/carimg2.jpg" alt="#">
+
+    </div>
+
+
+
+    <div class="clearfix"></div>
+
+  </div>
+
+</div>
+
+<div class="container-fluid landing_conblock5">
+
+  <div class="container">
+
+    <h2>Lorem Ipsum is simply dummy text</h2>
+    <h3>Lorem Ipsum</h3>
+
+    <h4>Lorem Ipsum is simply dummy text.</h4>
+
+    <a href="javascript:void(0)" id="lanconlink">Get A Quote</a>
+
+  </div>
+</div>
+
+
+<div class="container-fluid landingfooter">&copy; 2017 Magnetic Broadcast. All rights reserved</div>
+
+<div *ngIf="isModalShown" class="modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h4 class="modal-title pull-left">Show Details</h4>-->
+        <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="popupimg"><img src="../assets/images/newlogo.png"></div>
+        <h2>Successfully completed!</h2>
+      </div>
+    </div>
+  </div>
+</div>

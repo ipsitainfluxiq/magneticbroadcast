@@ -1,0 +1,1023 @@
+/**
+ * Created by kta pc on 7/18/2017.
+ */
+
+var express = require('express');
+var app = express();
+var port = process.env.PORT || 3005;
+var request = require('request');
+var cheerio = require('cheerio');
+var http = require('http').Server(app);
+var mailer = require("nodemailer");
+//var mzsadielink='http://mzsadie.influxiq.com/#/';
+var bodyParser = require('body-parser');
+app.use(bodyParser.json({ parameterLimit: 10000000,
+    limit: '90mb'}));
+app.use(bodyParser.urlencoded({ parameterLimit: 10000000,
+    limit: '90mb', extended: false}));
+
+var EventEmitter = require('events').EventEmitter;
+const emitter = new EventEmitter()
+emitter.setMaxListeners(0)
+
+
+var multer  = require('multer');
+var datetimestamp='';
+var filename='';
+var storage = multer.diskStorage({ //multers disk storage settings
+    destination: function (req, file, cb) {
+      //  cb(null, '../uploads/');
+        cb(null, '../src/assets/images/uploads/');
+    },
+    filename: function (req, file, cb) {
+        //console.log(cb);
+
+        console.log('file.originalname'+file.originalname);
+        filename=file.originalname.split('.')[0].replace(/ /g,'') + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1];
+       // console.log(filename);
+        cb(null, filename);
+    }
+});
+
+
+
+var upload = multer({ //multer settings
+    storage: storage
+}).single('file');
+
+app.use(bodyParser.json({type: 'application/vnd.api+json'}));
+
+app.use(function(req, res, next) { //allow cross origin requests
+    res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+
+app.post('/uploads', function(req, res) {
+    datetimestamp = Date.now();
+    upload(req,res,function(err){
+        /*console.log(1);
+        console.log(err);
+        console.log(filename);*/
+
+        if(err){
+            res.json({error_code:1,err_desc:err});
+            return;
+        }
+
+        res.json(filename);
+
+
+    });
+});
+
+
+var mongodb = require('mongodb');
+var db;
+var url = 'mongodb://localhost:27017/magneticbroadcast';
+
+var MongoClient = mongodb.MongoClient;
+
+MongoClient.connect(url, function (err, database) {
+    if (err) {
+        console.log(err);
+
+    }else{
+        db=database;
+
+    }});
+
+var multer1  = require('multer');
+var datetimestamp1='';
+var filename1='';
+var storage1 = multer1.diskStorage({ //multers disk storage settings
+    destination: function (req, file, cb) {
+        //  cb(null, '../uploads/');
+        cb(null, '../src/assets/images/newsimageuploads/');
+    },
+    filename: function (req, file, cb) {
+        //console.log(cb);
+         console.log('file.originalname------ '+file.originalname);
+        filename1=file.originalname.split('.')[0].replace(/ /g,'') + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1];
+         console.log('filename---------- '+filename);
+        cb(null, filename1);
+    }
+});
+
+var upload1 = multer1({ //multer settings
+    storage: storage1
+}).single('file');
+
+app.post('/newsuploads', function(req, res) {
+    console.log('newsuploads');
+    datetimestamp = Date.now();
+    upload1(req,res,function(err){
+        /*console.log(1);
+         console.log(err);
+         console.log(filename);*/
+
+        if(err){
+            res.json({error_code:1,err_desc:err});
+            return;
+        }
+
+        res.json(filename1);
+        console.log('filename1'+filename1);
+
+    });
+});
+/*-----------------------------------EXAMPLES_START------------------------------------------*/
+app.get('/addpeople',function(req,resp){
+
+    var collection = db.collection('information');
+    collection.insert([{
+        firstname: "Ipsita",
+        lastname: "Ghosal",
+        email: "ips@gmail.com",
+    }], function (err, result) {
+        if (err) {
+            resp.send(JSON.stringify({'status':'error'}));
+        } else {
+            resp.send(JSON.stringify(result));
+        }
+    });
+});
+
+
+app.get('/update',function (req,resp) {
+
+    var collection = db.collection('information');
+    collection.update({firstname: 'Ipsita'}, {$set: {
+
+        firstname: "Ipsitayyyyy",
+        lastname: "Ghosal",
+        email: "ips@gmail.com",
+        addnew: "newly_added_after_update"
+
+    }},function(err, results) {
+        if (err){
+            resp.send("failed");
+            throw err;
+        }
+        else {
+            resp.send("success");
+            //db.close();
+
+        }
+    });
+
+});
+app.get('/addnewcolumnpeople',function(req,resp){
+
+    var collection = db.collection('information');
+    collection.insert([{
+        firstname: "Ipsita",
+        lastname: "Ghosal",
+        email: "ips@gmail.com",
+        add2: "added_successfully",
+    }], function (err, result) {
+        if (err) {
+            resp.send(JSON.stringify({'status':'error'}));
+        } else {
+            resp.send(JSON.stringify(result));
+        }
+    });
+});
+app.get('/peoplelist', function (req, resp) {
+    var collection = db.collection('information');
+    collection.find().toArray(function(err, items) {
+        resp.send(JSON.stringify(items));
+    });
+});
+/*-----------------------------------EXAMPLES_END------------------------------------------*/
+
+
+/*--------------------------------------ADMIN_START--------------------------------------------*/
+
+app.post('/addadmin',function(req,resp){
+    console.log('call');
+    var collection = db.collection('admin');
+    var crypto = require('crypto');
+    var secret = req.body.password;
+    var hash = crypto.createHmac('sha256', secret)
+        .update('password')
+        .digest('hex');
+    collection.insert([{
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        password: hash,
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip,
+        phone: req.body.phone,
+        type:1,
+    }], function (err, result) {
+        if (err) {
+            console.log('error'+err);
+            resp.send(JSON.stringify({'status':'error','id':0}));
+        } else {
+            console.log(result);
+            resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id}));
+        }
+    });
+});
+
+app.get('/adminlist',function (req,resp) {
+
+    var collection = db.collection('admin');
+
+    collection.find({type:1}).toArray(function(err, items) {
+        //  collection.drop(function(err, items) {
+        if (err) {
+            console.log(err);
+            resp.send(JSON.stringify({'res':[]}));
+        } else {
+            resp.send(JSON.stringify({'res':items}));
+        }
+
+    });
+
+});
+
+
+
+app.post('/details',function(req,resp){        // this is for editadmin page
+    console.log("details from server.js called");
+    var resitem = {};
+    var collection = db.collection('admin');
+    var o_id = new mongodb.ObjectID(req.body._id);
+
+    collection.find({_id:o_id}).toArray(function(err, items) {
+        if (err) {
+            resp.send(JSON.stringify({'status':'error','id':0}));
+        } else {
+            resitem = items[0];
+            resp.send(JSON.stringify({'status':'success','item':resitem}));
+        }
+    });
+});
+
+app.post('/editadmin',function(req,resp){
+    var collection = db.collection('admin');
+    var data = {
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        phone: req.body.phone,
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip
+    }
+    var o_id = new mongodb.ObjectID(req.body.id);
+    collection.update({_id:o_id}, {$set: data}, true, true);
+
+    resp.send(JSON.stringify({'status':'success'}));
+});
+
+app.post('/deleteadmin', function (req, resp) {
+
+    var o_id = new mongodb.ObjectID(req.body.id);
+
+    var collection = db.collection('admin');
+    collection.deleteOne({_id: o_id}, function(err, results) {
+        if (err){
+            resp.send("failed");
+            throw err;
+        }
+        else {
+            resp.send("success");
+            //   db.close();
+        }
+    });
+});
+
+/*--------------------------------------Dealership_START--------------------------------------------*/
+
+app.post('/adddealership',function(req,resp){
+    var collection = db.collection('admin');
+    var crypto = require('crypto');
+    var secret = req.body.password;
+    var hash = crypto.createHmac('sha256', secret)
+        .update('password')
+        .digest('hex');
+    collection.insert([{
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        password: hash,
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip,
+        phone: req.body.phone,
+        image: req.body.image,
+        link: req.body.link,
+        type:2,
+    }], function (err, result) {
+        if (err) {
+            console.log('error'+err);
+            resp.send(JSON.stringify({'status':'error','id':0}));
+        } else {
+            console.log(result);
+            resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id}));
+        }
+    });
+});
+
+
+app.get('/dealershiplist',function (req,resp) {
+    var collection = db.collection('admin');
+    collection.find({type:2}).toArray(function(err, items) {
+        if (err) {
+            console.log(err);
+            resp.send(JSON.stringify({'res':[]}));
+        } else {
+            resp.send(JSON.stringify({'res':items}));
+        }
+    });
+
+});
+
+
+app.post('/deletedealer', function (req, resp) {
+    var o_id = new mongodb.ObjectID(req.body.id);
+    var collection = db.collection('admin');
+    collection.deleteOne({_id: o_id}, function(err, results) {
+        if (err){
+            resp.send("failed");
+            throw err;
+        }
+        else {
+            resp.send("success");
+        }
+    });
+});
+
+/*--------------------------------------Post_Category_START--------------------------------------------*/
+
+
+app.post('/addpost',function(req,resp){
+    var collection = db.collection('postcategory');
+    collection.insert([{
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        description: req.body.description,
+        priority: req.body.priority,
+        status: req.body.status,
+    }], function (err, result) {
+        if (err) {
+            console.log('error'+err);
+            resp.send(JSON.stringify({'status':'error','id':0}));
+        } else {
+            console.log(result);
+            resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id}));
+        }
+    });
+});
+
+
+
+app.post('/details1',function(req,resp){   // this is for edit post category page
+    var resitem = {};
+    var collection = db.collection('postcategory');
+    var o_id = new mongodb.ObjectID(req.body._id);
+
+    collection.find({_id:o_id}).toArray(function(err, items) {
+        if (err) {
+            resp.send(JSON.stringify({'status':'error','id':0}));
+        } else {
+            resitem = items[0];
+            resp.send(JSON.stringify({'status':'success','item':resitem}));
+        }
+    });
+
+});
+
+
+
+app.post('/editpostcategory',function(req,resp){
+    var collection = db.collection('postcategory');
+    var data = {
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        description: req.body.description,
+        priority: req.body.priority,
+        status: req.body.status
+    }
+    var o_id = new mongodb.ObjectID(req.body.id);
+    collection.update({_id:o_id}, {$set: data}, true, true);
+    resp.send(JSON.stringify({'status':'success'}));
+});
+
+
+app.get('/postcategorylist',function (req,resp) {
+    var collection = db.collection('postcategory');
+    collection.find().toArray(function(err, items) {
+        if (err) {
+            console.log(err);
+            resp.send(JSON.stringify({'res':[]}));
+        } else {
+            resp.send(JSON.stringify({'res':items}));
+        }
+    });
+});
+
+
+app.post('/deletepostcategory', function (req, resp) {
+    var o_id = new mongodb.ObjectID(req.body.id);
+    var collection = db.collection('postcategory');
+    collection.deleteOne({_id: o_id}, function(err, results) {
+        if (err){
+            resp.send("failed");
+            throw err;
+        }
+        else {
+            resp.send("success");
+        }
+    });
+});
+
+
+
+
+app.post('/postcategorymanagement',function(req,resp){
+    var collection = db.collection('postcategorymanagement');
+    var o_id_postlist = new mongodb.ObjectID(req.body.postlist);
+
+    collection.insert([{
+        title: req.body.title,
+        postlist: o_id_postlist,
+        content: req.body.content,
+        link: req.body.link,
+        priority: req.body.priority,
+        status: req.body.status,
+    }], function (err, result) {
+        if (err) {
+            console.log('error'+err);
+            resp.send(JSON.stringify({'status':'error','id':0}));
+        } else {
+            console.log(result);
+            resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id}));
+        }
+    });
+});
+
+app.post('/detailsformanagement',function(req,resp){   // this is for edit post category page
+    var resitem = {};
+    var collection = db.collection('postcategorymanagement');
+    var o_id = new mongodb.ObjectID(req.body._id);
+
+    collection.find({_id:o_id}).toArray(function(err, items) {
+        if (err) {
+            resp.send(JSON.stringify({'status':'error','id':0}));
+        } else {
+            resitem = items[0];
+            resp.send(JSON.stringify({'status':'success','item':resitem}));
+        }
+    });
+
+});
+
+app.post('/editpostmanagement',function(req,resp){
+    console.log('editpostmanagement');
+    var collection = db.collection('postcategorymanagement');
+    var o_id = new mongodb.ObjectID(req.body.id);
+    var o_id_postlist = new mongodb.ObjectID(req.body.postlist);
+    var data = {
+        title: req.body.title,
+        postlist: o_id_postlist,
+        content: req.body.content,
+        link: req.body.link,
+        priority: req.body.priority,
+        status: req.body.status
+    }
+    console.log(data);
+    console.log(o_id);
+    collection.update({_id:o_id}, {$set: data}, true, true);
+    resp.send(JSON.stringify({'status':'success'}));
+});
+
+
+app.post('/deletepostmanagement', function (req, resp) {
+    var o_id = new mongodb.ObjectID(req.body.id);
+    var collection = db.collection('postcategorymanagement');
+    collection.deleteOne({_id: o_id}, function(err, results) {
+        if (err){
+            resp.send("failed");
+            throw err;
+        }
+        else {
+            resp.send("success");
+        }
+    });
+});
+
+
+
+
+/*app.get('/postmanagementlist',function (req,resp) {
+    var collection = db.collection('postcategorymanagement');
+    collection.find().toArray(function(err, items) {
+        if (err) {
+            console.log(err);
+            resp.send(JSON.stringify({'res':[]}));
+        } else {
+            resp.send(JSON.stringify({'res':items}));
+        }
+    });
+});*/
+
+
+
+app.get('/postmanagementlist', function (req, resp) {
+    var collection1 = db.collection('postcategorymanagement');
+    var collection = db.collection('postcategorymanagement').aggregate([
+
+        {
+            $lookup: {
+                from: "postcategory",
+                localField: "postlist",   // localfield of postcategorymanagement
+                foreignField: "_id",   //localfield of postcategory
+                as: "PostManegementdata"
+            }
+        },
+        { "$unwind": "$PostManegementdata" },
+
+    ]);
+
+
+    collection.toArray(function (err, items) {
+       // console.log(items);
+        resp.send(JSON.stringify(items));
+    });
+
+});
+
+
+app.get('/getcategorylist', function (req, resp) {
+    var collection1 = db.collection('postcategory');
+    var collection = db.collection('postcategory').aggregate([
+
+        {
+            $lookup: {
+                from: "postcategorymanagement",
+                localField: "_id",
+                foreignField: "postlist",
+                as: "Postcategorydetail"
+            }
+        },
+    ]);
+
+
+    collection.toArray(function (err, items) {
+       // console.log(items);
+        resp.send(JSON.stringify(items));
+    });
+
+});
+
+/*--------------------------------------Call_START--------------------------------------------*/
+
+app.post('/fbcall',function(req,resp){
+    var token = req.body.token;
+    var client_id = req.body.client_id;
+    var client_secret = req.body.client_secret;
+    var userid = req.body.userid;
+    var loginid = new mongodb.ObjectID(req.body.loginid);
+
+
+    var graph_url = "https://graph.facebook.com/oauth/access_token?client_id="+client_id+"&client_secret="+client_secret+"&grant_type=fb_exchange_token&fb_exchange_token="+token;
+    request( graph_url, function(error2, response, html2){
+        console.log('callllllllllllllllllllllllllllllllllllllllll.');
+            if(!error2) {
+                console.log('html2----------------');
+                html2 = JSON.parse(html2); // these are the long access tokens
+                   var collection = db.collection('usersocialdata');
+                collection.find({loginid:loginid}).toArray(function(err, items) {
+                    if (err) {
+                        collection.insert([{
+                            long_access_token: html2.access_token,
+                            expires_in: html2.expires_in,
+                            app_id: client_id,
+                            loginid: loginid,
+                            userid: userid,
+
+
+                        }], function (err, result) {
+                            if (err) {
+                                console.log('error'+err);
+                                resp.send(JSON.stringify({'status':'error'}));
+                            } else {
+                                console.log(result);
+                                resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id,htmlval:html2}));
+                            }
+                        });
+                    } else {
+                        var data = {
+                            long_access_token: html2.access_token,
+                            expires_in: html2.expires_in,
+                            app_id: client_id,
+                            userid: userid,
+                        }
+                        collection.update({loginid:loginid}, {$set: data}, true, true);
+                      //  resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id,htmlval:html2}));
+                        resp.send(JSON.stringify({'status':'success','htmlval':html2}));
+                    }
+                });
+            }
+        });
+});
+
+app.post('/socialmedialist',function (req,resp) {
+  //  console.log('socialmedialist');
+    var collection = db.collection('usersocialdata');
+    var id = new mongodb.ObjectID(req.body.id);
+    collection.find({loginid:id}).toArray(function(err, items) {
+        //  collection.drop(function(err, items) {
+        if (err) {
+            console.log(err);
+            resp.send(JSON.stringify({'res':[]}));
+        } else {
+            //console.log(id);
+            //console.log(items);
+            resp.send(JSON.stringify(items[0]));
+        }
+    });
+});
+/*--------------------------------------Call_END--------------------------------------------*/
+
+
+/*--------------------------------------Leadpage_Start--------------------------------------------*/
+app.post('/lead',function(req,resp){
+    console.log('call lead');
+    var collection = db.collection('lead');
+    collection.insert([{
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        zip: req.body.zip,
+    }], function (err, result) {
+        if (err) {
+            console.log('error'+err);
+            resp.send(JSON.stringify({'status':'error'}));
+        } else {
+            resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id}));
+        }
+    });
+});
+/*--------------------------------------Leadpage_End--------------------------------------------*/
+
+
+/*--------------------------------------Common_START--------------------------------------------*/
+
+app.post('/login', function (req, resp) {
+    console.log('callloginnn');
+    console.log(req.body.email);
+    console.log(req.body.password);
+    var crypto = require('crypto');
+    var secret = req.body.password;
+    var hash = crypto.createHmac('sha256', secret)
+        .update('password')
+        .digest('hex');
+    var collection = db.collection('admin');
+    collection.find({ email:req.body.email }).toArray(function(err, items){
+        console.log('items[0]');
+        console.log(items[0]); //admin_login details shown here
+        if(items.length==0){
+            resp.send(JSON.stringify({'status':'error','msg':'Username invalid...'}));
+            return;
+        }
+        if(items.length>0 && items[0].password!=hash){
+            resp.send(JSON.stringify({'status':'error','msg':'Password Doesnot match'}));
+            return;
+        }
+        /* if(items.length>0 && items[0].status!=1){
+            resp.send(JSON.stringify({'status':'error','msg':'You are Blocked..'}));
+            return;
+        }*/
+        if(items.length>0 && items[0].password==hash){
+            resp.send(JSON.stringify({'status':'success','msg':items[0]}));
+            return;
+        }
+    });
+});
+
+
+/*--------------------------------------Common_END--------------------------------------------*/
+
+
+
+
+
+
+
+
+
+app.get('/showsubscribe', function(req,resp){
+    var collection = db.collection('subscribe');
+    collection.find().toArray(function(err,items){
+        if(err){
+            console.log(err);
+            resp.send(JSON.stringify());
+        } else{
+            resp.send(JSON.stringify(items));
+        }
+    });
+});
+
+app.get('/showcontact', function(req,resp){
+    var collection = db.collection('contactus');
+    collection.find().toArray(function(err,items){
+        if(err){
+            console.log(err);
+            resp.send(JSON.stringify());
+        } else{
+            resp.send(JSON.stringify(items));
+        }
+    });
+});
+
+
+/*--------------------------------------ADMIN_END--------------------------------------------*/
+
+/*--------------------------------------MANAGER_START--------------------------------------------*/
+
+
+app.post('/addmanager',function(req,resp){
+    console.log('call addmanager');
+    var collection = db.collection('addmanager');
+    collection.insert([{
+        name: req.body.name,
+        image: req.body.image,
+        link: req.body.link,
+        priority: req.body.priority,
+        status: req.body.status,
+    }], function (err, result) {
+        if (err) {
+            console.log('error'+err);
+            resp.send(JSON.stringify({'status':'error'}));
+        } else {
+            console.log(result);
+            resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id}));
+        }
+    });
+});
+
+
+app.get('/managerlist',function (req,resp) {
+
+    var collection = db.collection('addmanager');
+
+    collection.find().toArray(function(err, items) {
+        if (err) {
+            console.log(err);
+            resp.send(JSON.stringify({'res':[]}));
+        } else {
+            resp.send(JSON.stringify({'res':items}));
+        }
+
+    });
+
+});
+
+app.post('/deleteimage', function (req, resp) {
+    if (req.body.id != ''){
+        var o_id = new mongodb.ObjectID(req.body.id);
+        var collection = db.collection('addmanager');
+        var data = {
+            image: ''
+        }
+        collection.update({_id: o_id}, {$set: data}, true, true);
+    }
+
+    var fs = require('fs');
+    // var filePath = "/home/influxiq/public_html/projects/mzsadie/uploads/" +req.body.image;
+    var filePath = "../src/assets/images/uploads/" +req.body.image; // Path set //
+    console.log('filepath is  ' +filePath);
+    fs.unlinkSync(filePath);
+    resp.send(JSON.stringify({'status': 'success', 'msg': ''}));
+
+});
+
+app.post('/managerdetails',function(req,resp){
+    var resitem = {};
+    var collection = db.collection('addmanager');
+    var o_id = new mongodb.ObjectID(req.body._id);
+
+    collection.find({_id:o_id}).toArray(function(err, items) {
+
+        if (err) {
+            resp.send(JSON.stringify({'status':'error','id':0}));
+        } else {
+            resitem = items[0];
+            resp.send(JSON.stringify({'status':'success','item':resitem}));
+        }
+    });
+});
+
+app.post('/editmanager',function(req,resp){
+    var collection = db.collection('addmanager');
+    var data = {
+        name: req.body.name,
+        image: req.body.image,
+        link: req.body.link,
+        priority:req.body.priority,
+        status:req.body.status,
+    }
+    var o_id = new mongodb.ObjectID(req.body.id);
+    collection.update({_id:o_id}, {$set: data}, true, true);
+    resp.send(JSON.stringify({'status':'success'}));
+});
+
+
+app.post('/deletemanager', function (req, resp) {
+
+    var o_id = new mongodb.ObjectID(req.body.id);
+
+    var collection = db.collection('addmanager');
+    collection.deleteOne({_id: o_id}, function(err, results) {
+        if (err){
+            resp.send("failed");
+            throw err;
+        }
+        else {
+            resp.send("success");
+            //   db.close();
+        }
+    });
+});
+/*--------------------------------------MANAGER_END--------------------------------------------*/
+/*--------------------------------------News_START--------------------------------------------*/
+app.post('/addnews',function(req,resp){
+    console.log('call addnews');
+    var collection = db.collection('addnews');
+    collection.insert([{
+        name: req.body.name,
+        image: req.body.image,
+        details: req.body.details,
+        date: req.body.date,
+        priority: req.body.priority,
+        status: req.body.status,
+    }], function (err, result) {
+        if (err) {
+            console.log('error'+err);
+            resp.send(JSON.stringify({'status':'error'}));
+        } else {
+            console.log(result);
+            resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id}));
+        }
+    });
+});
+
+app.post('/deleteimagefromnews', function (req, resp) {
+    if (req.body.id != ''){
+        var o_id = new mongodb.ObjectID(req.body.id);
+        var collection = db.collection('addnews');
+        var data = {
+            image: ''
+        }
+        collection.update({_id: o_id}, {$set: data}, true, true);
+    }
+
+    var fs = require('fs');
+    var filePath1 = "../src/assets/images/newsimageuploads/" +req.body.image; // Path set //
+    console.log('filepath is  ' +filePath1);
+    fs.unlinkSync(filePath1);
+    resp.send(JSON.stringify({'status': 'success', 'msg': ''}));
+
+});
+
+app.get('/newslist',function (req,resp) {
+    var collection = db.collection('addnews');
+    collection.find().toArray(function(err, items) {
+        if (err) {
+            console.log(err);
+            resp.send(JSON.stringify({'res':[]}));
+        } else {
+            resp.send(JSON.stringify({'res':items}));
+        }
+    });
+});
+
+app.post('/deletenews', function (req, resp) {
+    var o_id = new mongodb.ObjectID(req.body.id);
+    var collection = db.collection('addnews');
+    collection.deleteOne({_id: o_id}, function(err, results) {
+        if (err){
+            resp.send("failed");
+            throw err;
+        }
+        else {
+            resp.send("success");
+            //   db.close();
+        }
+    });
+});
+
+app.post('/newsdetails',function(req,resp){
+    var resitem = {};
+    var collection = db.collection('addnews');
+    var o_id = new mongodb.ObjectID(req.body._id);
+
+    collection.find({_id:o_id}).toArray(function(err, items) {
+
+        if (err) {
+            resp.send(JSON.stringify({'status':'error','id':0}));
+        } else {
+            resitem = items[0];
+            resp.send(JSON.stringify({'status':'success','item':resitem}));
+        }
+    });
+});
+
+app.post('/editnews',function(req,resp){
+    var collection = db.collection('addnews');
+    var data = {
+        name: req.body.name,
+        image: req.body.image,
+        details: req.body.details,
+        date: req.body.date,
+        priority: req.body.priority,
+        status: req.body.status,
+    }
+    var o_id = new mongodb.ObjectID(req.body.id);
+    collection.update({_id:o_id}, {$set: data}, true, true);
+    resp.send(JSON.stringify({'status':'success'}));
+});
+
+app.post('/deleteimagefornews', function (req, resp) {
+    if (req.body.id != ''){
+        var o_id = new mongodb.ObjectID(req.body.id);
+        var collection = db.collection('addnews');
+        var data = {
+            image: ''
+        }
+        collection.update({_id: o_id}, {$set: data}, true, true);
+    }
+
+    var fs = require('fs');
+    var filePath = "../src/assets/images/newsimageuploads/" +req.body.image; // Path set //
+    console.log('filepath is  ' +filePath);
+    fs.unlinkSync(filePath);
+    resp.send(JSON.stringify({'status': 'success', 'msg': ''}));
+
+});
+/*--------------------------------------News_END--------------------------------------------*/
+/*--------------------------------------USER_START--------------------------------------------*/
+
+app.post('/subscribe', function(req, resp){
+    var collection = db.collection('subscribe');
+    collection.insert([{
+        name: req.body.name,
+        dealership: req.body.dealership,
+        state: req.body.state,
+        city: req.body.city,
+        email: req.body.email,
+    }], function (err, result) {
+        if(err){
+            console.log('error'+err);
+            resp.send(JSON.stringify({'status':'error'}));
+        } else {
+            resp.send(JSON.stringify({'status':'success'}));
+        }
+    });
+});
+
+app.post('/contactus', function(req, resp){
+    var collection = db.collection('contactus');
+    collection.insert([{
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        phone: req.body.phone,
+        email: req.body.email,
+        subject: req.body.subject,
+        message: req.body.message,
+    }], function (err, result) {
+        if(err){
+            console.log('error'+err);
+            resp.send(JSON.stringify({'status':'error'}));
+        } else {
+            resp.send(JSON.stringify({'status':'success'}));
+        }
+    });
+});
+
+
+/*--------------------------------------USER_END--------------------------------------------*/
+
+
+
+
+
+var server = app.listen(port, function () {
+
+    var host = server.address().address
+    var port = server.address().port
+
+    //  console.log("Example app listening at http://%s:%s", host, port)
+
+})

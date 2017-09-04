@@ -1,0 +1,143 @@
+
+
+
+
+<div class="new_signup_body">
+
+
+  <table width="100%">
+
+    <tr>
+
+      <td>
+
+        <div class="signuptable_top">
+
+         <img src="../assets/images/logo2.png"  alt="#" />
+        </div>
+
+        <img src="../assets/images/signupcar.jpg"  alt="#"  class="signupcar"/>
+
+
+        <div class="signuptable_bottom">
+          <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+
+          <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. </h3>
+        </div>
+
+      </td>
+      <td>
+
+
+          <div class="signup_textbody">
+
+            <div class="signupbodyheading">
+        <h2> Dealership Signup</h2>
+
+            </div>
+
+            <div class="signupformbody">
+
+        <form role="form" novalidate [formGroup]="dataForm" (ngSubmit)="dosubmit(dataForm.value)">
+
+       <div class="formgroup2">
+        <input type="text" class="form-control inputtext" placeholder="First Name" [formControl]="dataForm.controls['firstname']">
+        <span class="has-error" *ngIf ="dataForm.controls['firstname'].touched && !dataForm.controls['firstname'].valid">First Name is Required !</span>
+       </div>
+
+          <div class="formgroup2">
+        <input type="text" class="form-control inputtext" placeholder="Last Name" [formControl]="dataForm.controls['lastname']">
+        <span class="has-error" *ngIf ="dataForm.controls['lastname'].touched && !dataForm.controls['lastname'].valid">Last Name is Required !</span>
+          </div>
+          <div class="formgroup2">
+        <input type="text" class="form-control inputtext" placeholder="Email" [formControl]="dataForm.controls['email']">
+        <span class="has-error" *ngIf ="dataForm.controls['email'].touched && getemail('blank')==true">Email is Required !</span>
+        <span class="has-error" *ngIf ="dataForm.controls['email'].touched && getemail('invalid')==true">Email is not valid!</span>
+          </div>
+          <div class="formgroup2">
+        <input type="password" class="form-control inputtext" placeholder="Password" [formControl]="dataForm.controls['password']">
+        <span class="has-error" *ngIf ="dataForm.controls['password'].touched && !dataForm.controls['password'].valid">Minimum length for password is 8!</span>
+          </div>
+
+          <div class="formgroup2">
+        <input type="password" class="form-control inputtext" placeholder="Confirm Password"  [formControl]="dataForm.controls['confpassword']">
+        <span class="has-error" *ngIf ="dataForm.controls['confpassword'].touched && !dataForm.controls['confpassword'].valid">Please fill in the required field.</span>
+        <div class="has-error" *ngIf ="dataForm.hasError('mismatchedPasswords') && dataForm.controls['confpassword'].valid ">
+          <strong>Passwords must match</strong>
+        </div>
+          </div>
+
+          <div class="formgroup2">
+        <input type="text" class="form-control inputtext" placeholder="Address" [formControl]="dataForm.controls['address']">
+        <span class="has-error" *ngIf ="dataForm.controls['address'].touched && !dataForm.controls['address'].valid">Address is Required !</span>
+          </div>
+
+
+          <div class="formgroup2">
+        <input type="text" class="form-control inputtext" placeholder="City" [formControl]="dataForm.controls['city']">
+        <span class="has-error" *ngIf ="dataForm.controls['city'].touched && !dataForm.controls['city'].valid">City is Required !</span>
+          </div>
+          <div class="formgroup2">
+        <input type="text" class="form-control inputtext" placeholder="State" [formControl]="dataForm.controls['state']">
+        <span class="has-error" *ngIf ="dataForm.controls['state'].touched && !dataForm.controls['state'].valid">State is Required !</span>
+
+          </div>
+
+          <div class="formgroup2">
+        <input type="text" class="form-control inputtext" placeholder="Zip" [formControl]="dataForm.controls['zip']">
+        <span class="has-error" *ngIf ="dataForm.controls['zip'].touched && !dataForm.controls['zip'].valid">Zip is Required !</span>
+          </div>
+
+          <div class="formgroup2">
+
+        <input type="text" appOnlyNumber="true" class="form-control inputtext" placeholder="Phone No" [formControl]="dataForm.controls['phone']">
+        <span class="has-error" *ngIf ="dataForm.controls['phone'].touched && !dataForm.controls['phone'].valid">Give the phone number correctly !</span>
+
+          </div>
+
+          <div class="formgroup">
+        <input type="hidden" class="form-control inputtext" [formControl]="dataForm.controls['image']">
+        <div class="col-md-12">
+          <div class="browsefileblock">
+            <input type="file" accept="image/*" ngFileSelect [options]="basicOptions" (onUpload)="handleUpload($event)">
+            <div *ngIf="progress">
+              Uploading: {{ progress }}%
+            </div>
+            <div *ngIf="uploadedfilesrc" class="browsefileblockimg">
+              <img src="{{uploadedfilesrc}}" >
+              <input type="button" value="Delete" (click)="deleteimage(imagename)">
+            </div>
+          </div>
+          <!--<span class="input-sm">The maximum dimensions are 800x800 pixels</span>-->
+        </div>
+          </div>
+          <div class="clearfix"></div>
+
+          <div class="formgroup2">
+        <input type="text" class="form-control inputtext" placeholder="Link" [formControl]="dataForm.controls['link']">
+        <span class="has-error" *ngIf ="dataForm.controls['link'].touched && !dataForm.controls['link'].valid">Link is Required !</span>
+          </div>
+<input type="submit" value="Signup" class="signupbtn2">
+      </form>
+        </div>
+          </div>
+      </td>
+
+
+
+    </tr>
+
+
+  </table>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!--<app-footer></app-footer>-->
