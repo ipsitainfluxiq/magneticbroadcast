@@ -3883,7 +3883,7 @@ textarea::-moz-placeholder { /* Firefox 18- */
 .manage_social_accounts_wrapper{ padding:0 1%!important;}
 
 
-.manage_social_div{ width:31.3%; height:130px;  float:left; margin:15px 1%; background:#eeeeee;}
+.manage_social_div{ width:23%; height:130px;  float:left; margin:15px 1%; background:#eeeeee;}
 
 .manage_social_img{ width:40%; float:left; height:100%; text-align:center; line-height:130px;
     position: relative;}
@@ -3992,6 +3992,40 @@ textarea::-moz-placeholder { /* Firefox 18- */
     background: -ms-linear-gradient(top, rgba(67,172,224,1) 0%, rgba(2,103,154,1) 100%);
     background: linear-gradient(to bottom, rgba(67,172,224,1) 0%, rgba(2,103,154,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#43ace0', endColorstr='#02679a', GradientType=0 );
+}
+
+
+
+
+.tmsocial_div{ border:solid 1px #2d4762!important;}
+
+
+.tmsocial_div .manage_social_img{
+
+
+    background: rgba(116,143,173,1);
+    background: -moz-linear-gradient(top, rgba(116,143,173,1) 0%, rgba(45,71,98,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(116,143,173,1)), color-stop(100%, rgba(45,71,98,1)));
+    background: -webkit-linear-gradient(top, rgba(116,143,173,1) 0%, rgba(45,71,98,1) 100%);
+    background: -o-linear-gradient(top, rgba(116,143,173,1) 0%, rgba(45,71,98,1) 100%);
+    background: -ms-linear-gradient(top, rgba(116,143,173,1) 0%, rgba(45,71,98,1) 100%);
+    background: linear-gradient(to bottom, rgba(116,143,173,1) 0%, rgba(45,71,98,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#748fad', endColorstr='#2d4762', GradientType=0 );
+
+
+}
+
+
+.tmsocial_div  .manage_social_text a{
+    background: rgba(116,143,173,1);
+    background: -moz-linear-gradient(top, rgba(116,143,173,1) 0%, rgba(45,71,98,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(116,143,173,1)), color-stop(100%, rgba(45,71,98,1)));
+    background: -webkit-linear-gradient(top, rgba(116,143,173,1) 0%, rgba(45,71,98,1) 100%);
+    background: -o-linear-gradient(top, rgba(116,143,173,1) 0%, rgba(45,71,98,1) 100%);
+    background: -ms-linear-gradient(top, rgba(116,143,173,1) 0%, rgba(45,71,98,1) 100%);
+    background: linear-gradient(to bottom, rgba(116,143,173,1) 0%, rgba(45,71,98,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#748fad', endColorstr='#2d4762', GradientType=0 );
+
 }
 
 

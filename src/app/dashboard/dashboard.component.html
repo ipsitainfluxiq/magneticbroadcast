@@ -142,8 +142,8 @@
 
                         </div>
 
-                        <div class="manage_social_div lnsocial_div" *ngIf ="this.usernameoftumblr==null">
-                            <div class="manage_social_img"><img src="../assets/images/adminin.png"></div>
+                        <div class="manage_social_div tmsocial_div" *ngIf ="this.usernameoftumblr==null">
+                            <div class="manage_social_img"><img src="../assets/images/tumblr-icon_big.png"></div>
                             <div class="manage_social_text"><div class="manage_social_text_div"><a *ngIf="phplinktumblr" [attr.href]=phplinktumblr> <span> Connect</span></a></div></div>
                             <div class="clearfix"></div>
 
@@ -194,7 +194,7 @@
 
                         <div class="manage_social_div lnsocial_div" *ngIf="this.usernameoftumblr">
                             <div class="manage_social_img">  <img *ngIf="this.imageoftumbler" src="{{this.imageoftumbler}}"  alt="#" class="userprofileimg">
-                                <img src="../assets/images/inicon1.png" alt="#" class="socialicon"></div>
+                                <img src="../assets/images/tumblr-icon.png" alt="#" class="socialicon"></div>
                             <div class="manage_social_text"><div class="manage_social_text_div">
                                 <h2  *ngIf="this.usernameoftumblr">{{this.usernameoftumblr}}</h2>
                                 <a *ngIf="phplinktumblr" [attr.href]=phplinktumblr><span> Update</span></a></div></div>
