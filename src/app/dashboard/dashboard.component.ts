@@ -64,7 +64,7 @@ export class DashboardComponent implements OnInit {
         this.logid = this.cookiedetails._id;
         console.log(this.logid);
         console.log('loginid is' + this.cookiedetails._id);
-        this.phplinktwitter = 'http://magneticbroadcast.com/development/php/twitterconnect.php?id=' + this.logid;
+        this.phplinktwitter = 'http://magneticbroadcast.com/development/php/index.php?id=' + this.logid; // this is for twitter
         this.phplinklinkedin = 'http://magneticbroadcast.com/development/php/linkedinconnect.php?id=' + this.logid;
        // this.phplinktumblr = 'http://magneticbroadcast.com/development/php/connect1.php?id=' + this.logid;
         this.phplinktumblr = '/php/tumblrconnect.php?id=' + this.logid;
