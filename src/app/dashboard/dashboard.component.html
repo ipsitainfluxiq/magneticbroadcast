@@ -122,23 +122,29 @@
                 <div class="row">
                     <div class="container-fluid manage_social_accounts_wrapper">
 
-                        <div class="manage_social_div fbsocial_div" *ngIf !="this.usernameoffb">
+                        <div class="manage_social_div fbsocial_div" *ngIf ="this.usernameoffb==null">
                             <div class="manage_social_img"><img src="../assets/images/adminfacebook.png" alt="#"></div>
                             <div class="manage_social_text"><div class="manage_social_text_div"><a href="javascript:void(0)"><span (click)="loginWithFacebook()"> Connect</span></a></div></div>
 
                             <div class="clearfix"></div>
                         </div>
 
-                        <div class="manage_social_div twsocial_div">
-
+                        <div class="manage_social_div twsocial_div"  *ngIf ="this.usernameoftwitter==null">
                             <div class="manage_social_img"><img src="../assets/images/admintwitter.png" alt="#"></div>
-                            <div class="manage_social_text"><div class="manage_social_text_div"><a href="javascript:void(0)"> <span> Connect</span></a></div></div>
+                            <div class="manage_social_text"><div class="manage_social_text_div"><a *ngIf="phplinktwitter" [attr.href]=phplinktwitter><span> Connect</span></a></div></div>
                             <div class="clearfix"></div>
                         </div>
 
-                        <div class="manage_social_div lnsocial_div">
+                        <div class="manage_social_div lnsocial_div" *ngIf ="this.usernameoflink==null">
                             <div class="manage_social_img"><img src="../assets/images/adminin.png"></div>
-                            <div class="manage_social_text"><div class="manage_social_text_div"><a href="javascript:void(0)"> <span> Connect</span></a></div></div>
+                            <div class="manage_social_text"><div class="manage_social_text_div"><a *ngIf="phplinklinkedin" [attr.href]=phplinklinkedin> <span> Connect</span></a></div></div>
+                            <div class="clearfix"></div>
+
+                        </div>
+
+                        <div class="manage_social_div lnsocial_div" *ngIf ="this.usernameoftumblr==null">
+                            <div class="manage_social_img"><img src="../assets/images/adminin.png"></div>
+                            <div class="manage_social_text"><div class="manage_social_text_div"><a *ngIf="phplinktumblr" [attr.href]=phplinktumblr> <span> Connect</span></a></div></div>
                             <div class="clearfix"></div>
 
                         </div>
@@ -158,7 +164,7 @@
                                 <div class="manage_social_text_div">
                                 <h2  *ngIf="this.usernameoffb">{{this.usernameoffb}}</h2>
 
-                                <a href="javascript:void(0)"><span (click)="loginWithFacebook()"> Update</span></a>
+                                <a href="javascript:void(0)"><span> Update</span></a>
                                 </div>
 
                             </div>
@@ -166,18 +172,32 @@
                             <div class="clearfix"></div>
                         </div>
 
-                        <div class="manage_social_div twsocial_div">
+                        <div class="manage_social_div twsocial_div" *ngIf="this.usernameoftwitter">
 
-                            <div class="manage_social_img">  <img src="https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg" alt="#" class="userprofileimg">
+                            <div class="manage_social_img">  <img *ngIf="this.imageoftwitter" src="{{this.imageoftwitter}}" alt="#" class="userprofileimg">
                                 <img src="../assets/images/twicon1.png" alt="#" class="socialicon"></div>
-                            <div class="manage_social_text"> <div class="manage_social_text_div"><a href="javascript:void(0)"><span> Connect</span></a></div></div>
+                            <div class="manage_social_text"> <div class="manage_social_text_div">
+                                <h2  *ngIf="this.usernameoftwitter">{{this.usernameoftwitter}}</h2>
+                                <a *ngIf="phplinktwitter" [attr.href]=phplinktwitter><span> Update</span></a></div></div>
                             <div class="clearfix"></div>
                         </div>
 
-                        <div class="manage_social_div lnsocial_div">
-                            <div class="manage_social_img">  <img src="https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg" alt="#" class="userprofileimg">
+                        <div class="manage_social_div lnsocial_div" *ngIf="this.usernameoflink">
+                            <div class="manage_social_img">  <img *ngIf="this.imageoflink" src="{{this.imageoflink}}"  alt="#" class="userprofileimg">
                                 <img src="../assets/images/inicon1.png" alt="#" class="socialicon"></div>
-                            <div class="manage_social_text"><div class="manage_social_text_div"><a href="javascript:void(0)"> <span> Connect</span></a></div></div>
+                            <div class="manage_social_text"><div class="manage_social_text_div">
+                                <h2  *ngIf="this.usernameoflink">{{this.usernameoflink}}</h2>
+                                <a *ngIf="phplinklinkedin" [attr.href]=phplinklinkedin><span> Update</span></a></div></div>
+                            <div class="clearfix"></div>
+
+                        </div>
+
+                        <div class="manage_social_div lnsocial_div" *ngIf="this.usernameoftumblr">
+                            <div class="manage_social_img">  <img *ngIf="this.imageoftumbler" src="{{this.imageoftumbler}}"  alt="#" class="userprofileimg">
+                                <img src="../assets/images/inicon1.png" alt="#" class="socialicon"></div>
+                            <div class="manage_social_text"><div class="manage_social_text_div">
+                                <h2  *ngIf="this.usernameoftumblr">{{this.usernameoftumblr}}</h2>
+                                <a *ngIf="phplinktumblr" [attr.href]=phplinktumblr><span> Update</span></a></div></div>
                             <div class="clearfix"></div>
 
                         </div>

@@ -27,7 +27,8 @@
             <th>Action</th>
           </tr>
 
-          <tr *ngFor="let item of datalist | orderBy:orderbyquery:orderbytype | usersearch:listFilter.value; let i = index">
+          <tbody *ngFor="let item of datalist | orderBy:orderbyquery:orderbytype | usersearch:listFilter.value; let i = index">
+          <tr *ngIf=" i>=pagestart && i < pageinitation">
             <td>{{i+1}}</td>
             <td>{{item.firstname}} {{item.lastname}}</td>
             <td><img width="60px" height="60px" src="../../assets/images/uploads/{{item.image}}" ></td>
@@ -35,6 +36,7 @@
            <!-- <td><a [routerLink]="['/editdealership',item._id]">Edit</a>-->
               <td><a href="javascript:void(0);" data-toggle="modal" data-target="#myModal" (click)="delConfirm(item._id)">Delete</a></td>
           </tr>
+          </tbody>
         </table>
       </div>
     </div>
@@ -63,3 +65,35 @@
   </div>
 </div>
 <!--<app-footer></app-footer>-->
+
+<!--  ______________________________________________page_initiation_______________________________________  -->
+
+<div class="pagination paginationdiv">
+  <ul class="pagination--items">
+    <li class="pagination--item">
+      <label>
+        Go to: </label>
+      <input type="text" [(ngModel)]="pageno" (blur)="pageval(3)">
+      <div class="clearfix"></div>
+
+    </li>
+    <li class="pagination--item">
+      <label>
+        Show rows:</label>
+      <select [(ngModel)]="showrows" (click)="chagevalues()">
+        <option>5</option>
+        <option>10</option>
+        <option>25</option>
+      </select>
+      <div class="clearfix"></div>
+
+    </li>
+    <li class="pagination--item" >  <label>Page {{pageno}} of {{totalpage}}</label></li>
+    <li class="pagination--item" >
+      <img src="../../assets/images/pageprev.png" alt="#" (click)="pageval(1)">
+
+      <img src="../../assets/images/pagenext.png" alt="#" (click)="pageval(2)">
+    </li>
+  </ul>
+  <div class="clearfix"></div>
+</div>

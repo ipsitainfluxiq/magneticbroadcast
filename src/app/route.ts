@@ -23,6 +23,7 @@ import {EditpostmanagementComponent} from './editpostmanagement/editpostmanageme
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {Leadpage1Component} from './leadpage1/leadpage1.component';
 import {Leadpage2Component} from './leadpage2/leadpage2.component';
+import {LeadlistComponent} from './leadlist/leadlist.component';
 
 
 const appRoutes: Routes = [
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent},
     { path: 'leadpage1', component: Leadpage1Component},
     { path: 'leadpage2', component: Leadpage2Component},
+    { path: 'leadlist', component: LeadlistComponent},
     { path: 'editpostmanagementcategory/:id', component: EditpostmanagementComponent},
 
 ];

@@ -3,19 +3,19 @@ import { FormGroup, Validators, FormControl, FormBuilder} from '@angular/forms';
 import {Http} from '@angular/http';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import {Commonservices} from '../app.commonservices' ;
+
 @Component({
-  selector: 'app-adminlist',
-  templateUrl: './adminlist.component.html',
-  styleUrls: ['./adminlist.component.css'],
+  selector: 'app-leadlist',
+  templateUrl: './leadlist.component.html',
+  styleUrls: ['./leadlist.component.css'],
   providers: [Commonservices],
 })
-export class AdminlistComponent implements OnInit {
+export class LeadlistComponent implements OnInit {
   private fb;
   public datalist;
   public id;
   orderbyquery: any;
   orderbytype: any;
-  private isModalShown: boolean = false;
   public serverurl;
   public pageno;
   public pagestart;
@@ -24,67 +24,41 @@ export class AdminlistComponent implements OnInit {
   public showrows;
   public list_length;
 
-
   constructor(fb: FormBuilder, private _http: Http,  private router: Router, private _commonservices: Commonservices) {
     this.fb = fb;
-    this.orderbyquery = 'firstname';
+    this.orderbyquery = 'name';
     this.orderbytype = 1;
-    this.serverurl = _commonservices.url;
     this.showrows = 5;
+    this.serverurl = _commonservices.url;
     this.pageno = 1;
     this.pagestart = 0;
     this.pageinitation = 5;
-      this.getAdminList();
+    this.getLeadList();
   }
 
   ngOnInit() {
   }
-  getAdminList() {
-    let link = this.serverurl+'adminlist';
+  getLeadList() {
+    let link = this.serverurl + 'leadlist';
     this._http.get(link)
         .subscribe(res => {
           let result = res.json();
           this.datalist = result.res;
+          console.log(this.datalist);
           this.list_length = result.res.length;
           this.totalpage = this.list_length / this.showrows ;
           if (this.totalpage != parseInt(this.totalpage)) {   // it means if the totalpage is 1.4 or any values that is not round number
             this.totalpage = parseInt(this.totalpage) + 1;
             // console.log('total page  ' + this.totalpage);
           }
-          console.log(this.datalist);
-        }, error => {
+          console.log('this.list_length  ' + this.list_length);
+          console.log('showrows  ' + this.showrows);
+          console.log('total page  ' + this.totalpage);
+
+
+          }, error => {
           console.log('Oooops!');
         });
-  }
-
-  delConfirm(id) {
-    this.id = id;
-    // console.log(this.isModalShown);
-    this.isModalShown = true;
-    console.log(this.isModalShown);
-  }
-
-  onHidden() {
-    this.isModalShown = false;
-  }
-
-  admindel() {
-    console.log('admindel');
-    this.isModalShown = false;
-    console.log('id got' + this.id);
-    let link = this.serverurl+'deleteadmin';
-    let data = {id: this.id};
-    this._http.post(link, data)
-        .subscribe(res => {
-          let result = res;
-          console.log(result);
-          console.log('Data Deleted');
-        }, error => {
-          console.log('Oooops!');
-        });
-    setTimeout(() => {
-      this.getAdminList();
-    }, 100);
   }
 
   getSortClass(value: any) {
@@ -93,7 +67,6 @@ export class AdminlistComponent implements OnInit {
     }
 
     if (this.orderbyquery == value && this.orderbytype == 1) {
-      // console.log('caret-up');
       return 'caret-down';
     }
     return 'caret-up-down';
@@ -143,14 +116,22 @@ export class AdminlistComponent implements OnInit {
   }
 
   chagevalues() {
+    //   setTimeout(() => {
     this.totalpage = this.list_length / this.showrows ;
     if (this.list_length % this.showrows != 0) {
       this.totalpage = this.totalpage + 1;
+      console.log('total  ' + this.totalpage);
       this.totalpage = parseInt(this.totalpage);
+     /* if (this.totalpage != parseInt(this.totalpage)) {
+        this.totalpage = parseInt(this.totalpage) + 1;
+      }*/
+
     }
     this.pageno = 1;
     this.pagestart = 0;
     this.pageinitation = parseInt(this.pagestart) + parseInt(this.showrows);
+
+    //  }, 700);
   }
 
 }

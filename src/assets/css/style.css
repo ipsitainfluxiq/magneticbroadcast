@@ -878,3 +878,20 @@ a:focus {
 
 .popupdivblock{ border-bottom: solid 1px #9d9d9d; padding-bottom: 5px; margin-bottom: 20px;}
 .popupdivblock:last-of-type{ border-bottom: none; padding-bottom: 0px; margin-bottom: 0px;}
+
+/*------------------------------new added--------------------------------*/
+
+
+.paginationdiv{ width: 100%; text-align: right;  background: #d5d5d5; border-radius: 0px!important; margin: 0px!important; padding: 8px 5px!important; }
+
+.paginationdiv  ul{ margin: 0!important; padding: 0!important; min-width: 326px!important; float: right!important; display: block!important;}
+.paginationdiv li{ display: inline-block; list-style: none;  font-size: 14px!important;
+    color: #666666!important;
+    font-family: Calibri!important; margin: 0 2px; float: left;}
+
+.paginationdiv li label{ max-width: inherit!important; width: auto!important; display: inline-block!important; font-size: 14px!important; margin: 0px!important; padding: 6px 6px 0 4px!important;  float: left;}
+
+.paginationdiv li input[type="text"]{  display: inline-block!important; border-radius: 0px!important; border: none!important; height: 26px!important; margin: 0px!important; padding: 0 2px!important;   float: left; width: 35px; text-align: center; font-size: 14px!important;  color: #666666!important;}
+.paginationdiv li select{ display: inline-block!important; border-radius: 0px!important; border: none!important; height: 26px!important; margin: 0px!important; padding: 0 2px!important; float: left;  width: 35px; text-align: center; font-size: 14px!important;  color: #666666!important;}
+
+.paginationdiv li img{ margin: 6px 0 0 0px!important;}

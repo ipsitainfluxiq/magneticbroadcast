@@ -21,11 +21,21 @@ export class PostcategorylistComponent implements OnInit {
   orderbytype: any;
   private isModalShown: boolean = false;
   public serverurl;
+  public pageno;
+  public pagestart;
+  public pageinitation;
+  public totalpage;
+  public showrows;
+  public list_length;
 
   constructor(fb: FormBuilder, private _http: Http, addcookie: CookieService, private router: Router, private _commonservices: Commonservices) {
     this.fb = fb;
     this.orderbyquery = 'firstname';
     this.orderbytype = 1;
+    this.showrows = 5;
+    this.pageno = 1;
+    this.pagestart = 0;
+    this.pageinitation = 5;
     this.addcookie = addcookie ;
     this.serverurl = _commonservices.url;
     this.cookiedetails = this.addcookie.getObject('cookiedetails');
@@ -48,6 +58,11 @@ export class PostcategorylistComponent implements OnInit {
         .subscribe(res => {
           let result = res.json();
           this.datalist = result.res;
+          this.list_length = result.res.length;
+          this.totalpage = this.list_length / this.showrows ;
+          if (this.totalpage != parseInt(this.totalpage)) {
+            this.totalpage = parseInt(this.totalpage) + 1;
+          }
           console.log(this.datalist);
         }, error => {
           console.log('Oooops!');
@@ -110,4 +125,44 @@ export class PostcategorylistComponent implements OnInit {
     }, 100);
   }
 
+  /*______________________________________________page_initiation_______________________________________*/
+
+  pageval(type) {
+
+    if (type == 1 ) {       // for prev page
+      if ((this.pagestart - this.showrows) >= 0) {
+        this.pageno--;
+        this.pagestart = (this.pageno - 1) * this.showrows;
+      }
+    }
+
+    if ( type == 2 ) {      // for next page
+      if (this.list_length - this.showrows - 1 >= this.pagestart) {
+        this.pagestart = this.pageno * this.showrows;
+        this.pageno++;
+      }
+    }
+
+    if ( type == 3 ) {    // for goto input type
+      if ( (this.pageno >0) && (this.pageno <= this.totalpage) ) {
+        this.pagestart = (this.pageno - 1) * this.showrows;
+      } else {
+        this.pageno = 1;
+        this.pagestart = 0;
+      }
+    }
+
+    this.pageinitation = parseInt(this.pagestart) + parseInt(this.showrows);
+  }
+
+  chagevalues() {
+    this.totalpage = this.list_length / this.showrows ;
+    if (this.list_length % this.showrows != 0) {
+      this.totalpage = this.totalpage + 1;
+      this.totalpage = parseInt(this.totalpage);
+    }
+    this.pageno = 1;
+    this.pagestart = 0;
+    this.pageinitation = parseInt(this.pagestart) + parseInt(this.showrows);
+  }
 }

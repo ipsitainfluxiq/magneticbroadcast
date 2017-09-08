@@ -3,15 +3,13 @@
 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 dashboard_right">
   <div class="dashboard_right_wrapper">
     <div class="dashboard1_div1 table-responsive">
-      <h4>Admin List</h4>
+      <h4>Lead Details</h4>
 
       <div style=" padding-bottom: 10px; width: 100%;">
 
         <div class="adminserchdiv">
           <label>Search :</label> <input type="text" #listFilter (keyup)="0">
         </div>
-
-        <a [routerLink]="['/addadmin']" class="adadminlink">Add Admin</a>
 
         <div class="clearfix"></div>
       </div>
@@ -21,20 +19,20 @@
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <th>#</th>
-            <th>Name <b [ngClass]="getSortClass('firstname')" (click)="manageSorting('firstname')" ></b></th>
+            <th>Name <b [ngClass]="getSortClass('name')" (click)="manageSorting('name')" ></b></th>
             <th>Email<b [ngClass]="getSortClass('email')" (click)="manageSorting('email')" ></b></th>
             <th>Phone<b [ngClass]="getSortClass('phone')" (click)="manageSorting('phone')" ></b></th>
-            <th>Action</th>
+            <th>Zip<b [ngClass]="getSortClass('zip')" (click)="manageSorting('zip')" ></b></th>
           </tr>
+
 
           <tbody *ngFor="let item of datalist | orderBy:orderbyquery:orderbytype | usersearch:listFilter.value; let i = index">
           <tr *ngIf=" i>=pagestart && i < pageinitation">
             <td>{{i+1}}</td>
-            <td>{{item.firstname}} {{item.lastname}}</td>
+            <td>{{item.name}}</td>
             <td>{{item.email}}</td>
             <td>{{item.phone}}</td>
-            <td><a [routerLink]="['/editadmin',item._id]">Edit</a>
-              <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal" (click)="delConfirm(item._id)">Delete</a></td>
+            <td>{{item.zip}}</td>
           </tr>
           </tbody>
         </table>
@@ -43,33 +41,6 @@
   </div>
 </div>
 
-<!--<button type="button" class="btn btn-primary" (click)="staticModal.show()">SStatic modal</button>-->
-<div *ngIf="isModalShown" class="modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
-     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title pull-left">Confirm delete</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure to delete this admin?</p>
-        <!--        Click <b>&times;</b> to close modal.-->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="admindel()">Yes</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!--<app-footer></app-footer>-->
-
-<div class="clearfix"></div>
-
-<!--  ______________________________________________page_initiation_______________________________________  -->
 
 <div class="pagination paginationdiv">
   <ul class="pagination--items">
@@ -100,3 +71,4 @@
   </ul>
   <div class="clearfix"></div>
 </div>
+

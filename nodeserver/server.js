@@ -26,7 +26,7 @@ var datetimestamp='';
 var filename='';
 var storage = multer.diskStorage({ //multers disk storage settings
     destination: function (req, file, cb) {
-      //  cb(null, '../uploads/');
+        //  cb(null, '../uploads/');
         cb(null, '../src/assets/images/uploads/');
     },
     filename: function (req, file, cb) {
@@ -34,7 +34,7 @@ var storage = multer.diskStorage({ //multers disk storage settings
 
         console.log('file.originalname'+file.originalname);
         filename=file.originalname.split('.')[0].replace(/ /g,'') + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1];
-       // console.log(filename);
+        // console.log(filename);
         cb(null, filename);
     }
 });
@@ -59,8 +59,8 @@ app.post('/uploads', function(req, res) {
     datetimestamp = Date.now();
     upload(req,res,function(err){
         /*console.log(1);
-        console.log(err);
-        console.log(filename);*/
+         console.log(err);
+         console.log(filename);*/
 
         if(err){
             res.json({error_code:1,err_desc:err});
@@ -99,9 +99,9 @@ var storage1 = multer1.diskStorage({ //multers disk storage settings
     },
     filename: function (req, file, cb) {
         //console.log(cb);
-         console.log('file.originalname------ '+file.originalname);
+        console.log('file.originalname------ '+file.originalname);
         filename1=file.originalname.split('.')[0].replace(/ /g,'') + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1];
-         console.log('filename---------- '+filename);
+        console.log('filename---------- '+filename);
         cb(null, filename1);
     }
 });
@@ -520,16 +520,16 @@ app.post('/deletepostmanagement', function (req, resp) {
 
 
 /*app.get('/postmanagementlist',function (req,resp) {
-    var collection = db.collection('postcategorymanagement');
-    collection.find().toArray(function(err, items) {
-        if (err) {
-            console.log(err);
-            resp.send(JSON.stringify({'res':[]}));
-        } else {
-            resp.send(JSON.stringify({'res':items}));
-        }
-    });
-});*/
+ var collection = db.collection('postcategorymanagement');
+ collection.find().toArray(function(err, items) {
+ if (err) {
+ console.log(err);
+ resp.send(JSON.stringify({'res':[]}));
+ } else {
+ resp.send(JSON.stringify({'res':items}));
+ }
+ });
+ });*/
 
 
 
@@ -551,7 +551,7 @@ app.get('/postmanagementlist', function (req, resp) {
 
 
     collection.toArray(function (err, items) {
-       // console.log(items);
+        // console.log(items);
         resp.send(JSON.stringify(items));
     });
 
@@ -574,12 +574,204 @@ app.get('/getcategorylist', function (req, resp) {
 
 
     collection.toArray(function (err, items) {
-       // console.log(items);
+        // console.log(items);
         resp.send(JSON.stringify(items));
     });
 
 });
+/*--------------------------------------Twitter_Call_START--------------------------------------------*/
+app.get('/leadlist',function (req,resp) {
 
+    var collection = db.collection('lead');
+
+    collection.find().toArray(function(err, items) {
+        if (err) {
+            console.log(err);
+            resp.send(JSON.stringify({'res':[]}));
+        } else {
+            resp.send(JSON.stringify({'res':items}));
+        }
+
+    });
+
+});
+
+app.get('/twitter',function(req,resp){
+    console.log('twitter called..');
+    var collection = db.collection('usersocialdata');
+    var logid = new mongodb.ObjectID(req.query.logid);
+    console.log('login id is    ' + logid);
+    collection.find({loginid:logid}).toArray(function(err, items) {
+        console.log('item  '+ items.length);
+        if(items.length==0){
+            console.log('so new input');
+            collection.insert([{
+                oauth_token: req.query.oauth_token,
+                oauth_token_secret: req.query.oauth_token_secret,
+                loginid: logid,
+            }], function (err, result) {
+                if (err) {
+                    console.log('this is in error block');
+                    resp.send(JSON.stringify({'status':'error'}));
+                } else {
+                    console.log('inserted successfully');
+                    resp.send(JSON.stringify(result));
+                }
+            });
+        }
+        if(items.length>0) {
+            var data = {
+                oauth_token: req.query.oauth_token,
+                oauth_token_secret: req.query.oauth_token_secret,
+            }
+            console.log('updated');
+            collection.update({loginid:logid}, {$set: data}, true, true);
+            //  resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id}));
+            resp.send(JSON.stringify(items));
+        }
+    });
+});
+
+
+app.get('/tumblr',function(req,resp){
+    console.log('tumblr called..');
+    var collection = db.collection('usersocialdata');
+    var logid = new mongodb.ObjectID(req.query.logid);
+    console.log('login id is    ' + logid);
+    collection.find({loginid:logid}).toArray(function(err, items) {
+        console.log('item  '+ items.length);
+        if(items.length==0){
+            console.log('so new input');
+            collection.insert([{
+                tumblr_oauth_token: req.query.oauth_token,
+                tumblr_oauth_token_secret: req.query.oauth_token_secret,
+                loginid: logid,
+            }], function (err, result) {
+                if (err) {
+                    console.log('this is in error block');
+                    resp.send(JSON.stringify({'status':'error'}));
+                } else {
+                    console.log('inserted successfully');
+                    resp.send(JSON.stringify(result));
+                }
+            });
+        }
+        if(items.length>0) {
+            var data = {
+                tumblr_oauth_token: req.query.oauth_token,
+                tumblr_oauth_token_secret: req.query.oauth_token_secret,
+            }
+            console.log('updated');
+            collection.update({loginid:logid}, {$set: data}, true, true);
+            //  resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id}));
+            resp.send(JSON.stringify(items));
+        }
+    });
+});
+
+
+
+
+app.get('/linkedin',function(req,resp){
+    console.log('linkedin called..');
+    var collection = db.collection('usersocialdata');
+    console.log(req.query.logid);
+    var logid = new mongodb.ObjectID(req.query.logid);
+    var req_value = req.query.req_value;
+    var access_value = req.query.access_value;
+
+
+    console.log('login id is    ' + logid);
+    console.log('req_value id is    ' + req_value);
+    var res = req_value.split("||");
+    var access = access_value.split("||");
+
+    var link_req_oauth_token = res[0];
+    var link_req_oauth_token_secret = res[1];
+    var link_oauth_verifier = res[2];
+    var link_access_oauth_token = access[0];
+    var link_access_oauth_token_secret = access[1];
+    var link_access_oauth_expires_in = access[2];
+
+
+
+    collection.find({loginid:logid}).toArray(function(err, items) {
+        console.log('item  '+ items.length);
+        if(items.length==0){
+            console.log('so new input');
+            collection.insert([{
+
+                link_req_oauth_token: link_req_oauth_token,
+                link_req_oauth_token_secret: link_req_oauth_token_secret,
+                link_oauth_verifier: link_oauth_verifier,
+                link_access_oauth_token: link_access_oauth_token,
+                link_access_oauth_token_secret: link_access_oauth_token_secret,
+                link_access_oauth_expires_in: link_access_oauth_expires_in,
+                loginid: logid,
+            }], function (err, result) {
+                if (err) {
+                    console.log('this is in error block');
+                    resp.send(JSON.stringify({'status':'error'}));
+                } else {
+                    console.log('inserted successfully');
+                    resp.send(JSON.stringify(result));
+                }
+            });
+        }
+        if(items.length>0) {
+            var data = {
+                link_req_oauth_token: link_req_oauth_token,
+                link_req_oauth_token_secret: link_req_oauth_token_secret,
+                link_oauth_verifier: link_oauth_verifier,
+                link_access_oauth_token: link_access_oauth_token,
+                link_access_oauth_token_secret: link_access_oauth_token_secret,
+                link_access_oauth_expires_in: link_access_oauth_expires_in,
+            }
+            console.log('updated');
+            collection.update({loginid:logid}, {$set: data}, true, true);
+            //  resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id}));
+            resp.send(JSON.stringify(items));
+        }
+    });
+});
+
+
+app.get('/linkedinmain',function(req,resp){
+    console.log('linkedinmain called..');
+    var collection = db.collection('usersocialdata');
+    console.log(req.query.logid);
+    var logid = new mongodb.ObjectID(req.query.logid);
+
+    collection.find({loginid:logid}).toArray(function(err, items) {
+        console.log('item  '+ items.length);
+        if(items.length==0){
+            console.log('so new input');
+            collection.insert([{
+                link_oauth_token: req.query.oauth_token,
+                link_oauth_token_secret: req.query.oauth_token_secret,
+                loginid: logid,
+            }], function (err, result) {
+                if (err) {
+                    console.log('this is in error block');
+                    resp.send(JSON.stringify({'status':'error'}));
+                } else {
+                    console.log('inserted successfully');
+                    resp.send(JSON.stringify(result));
+                }
+            });
+        }
+        if(items.length>0) {
+            var data = {
+                link_oauth_token: req.query.oauth_token,
+                link_oauth_token_secret: req.query.oauth_token_secret,
+            }
+            console.log('updated');
+            collection.update({loginid:logid}, {$set: data}, true, true);
+            //  resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id}));
+            resp.send(JSON.stringify(items));
+        }
+    });
+});
 /*--------------------------------------Call_START--------------------------------------------*/
 
 app.post('/fbcall',function(req,resp){
@@ -593,47 +785,47 @@ app.post('/fbcall',function(req,resp){
     var graph_url = "https://graph.facebook.com/oauth/access_token?client_id="+client_id+"&client_secret="+client_secret+"&grant_type=fb_exchange_token&fb_exchange_token="+token;
     request( graph_url, function(error2, response, html2){
         console.log('callllllllllllllllllllllllllllllllllllllllll.');
-            if(!error2) {
-                console.log('html2----------------');
-                html2 = JSON.parse(html2); // these are the long access tokens
-                   var collection = db.collection('usersocialdata');
-                collection.find({loginid:loginid}).toArray(function(err, items) {
-                    if (err) {
-                        collection.insert([{
-                            long_access_token: html2.access_token,
-                            expires_in: html2.expires_in,
-                            app_id: client_id,
-                            loginid: loginid,
-                            userid: userid,
+        if(!error2) {
+            console.log('html2----------------');
+            html2 = JSON.parse(html2); // these are the long access tokens
+            var collection = db.collection('usersocialdata');
+            collection.find({loginid:loginid}).toArray(function(err, items) {
+                if (items.length==0) {
+                    collection.insert([{
+                        long_access_token: html2.access_token,
+                        expires_in: html2.expires_in,
+                        app_id: client_id,
+                        loginid: loginid,
+                        userid: userid,
 
 
-                        }], function (err, result) {
-                            if (err) {
-                                console.log('error'+err);
-                                resp.send(JSON.stringify({'status':'error'}));
-                            } else {
-                                console.log(result);
-                                resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id,htmlval:html2}));
-                            }
-                        });
-                    } else {
-                        var data = {
-                            long_access_token: html2.access_token,
-                            expires_in: html2.expires_in,
-                            app_id: client_id,
-                            userid: userid,
+                    }], function (err, result) {
+                        if (err) {
+                            console.log('error'+err);
+                            resp.send(JSON.stringify({'status':'error'}));
+                        } else {
+                            console.log(result);
+                            resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id,htmlval:html2}));
                         }
-                        collection.update({loginid:loginid}, {$set: data}, true, true);
-                      //  resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id,htmlval:html2}));
-                        resp.send(JSON.stringify({'status':'success','htmlval':html2}));
+                    });
+                }  if (items.length>0) {
+                    var data = {
+                        long_access_token: html2.access_token,
+                        expires_in: html2.expires_in,
+                        app_id: client_id,
+                        userid: userid,
                     }
-                });
-            }
-        });
+                    collection.update({loginid:loginid}, {$set: data}, true, true);
+                    //  resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id,htmlval:html2}));
+                    resp.send(JSON.stringify({'status':'success','htmlval':html2}));
+                }
+            });
+        }
+    });
 });
 
 app.post('/socialmedialist',function (req,resp) {
-  //  console.log('socialmedialist');
+    //  console.log('socialmedialist');
     var collection = db.collection('usersocialdata');
     var id = new mongodb.ObjectID(req.body.id);
     collection.find({loginid:id}).toArray(function(err, items) {
@@ -669,6 +861,7 @@ app.post('/lead',function(req,resp){
         }
     });
 });
+
 /*--------------------------------------Leadpage_End--------------------------------------------*/
 
 
@@ -696,9 +889,9 @@ app.post('/login', function (req, resp) {
             return;
         }
         /* if(items.length>0 && items[0].status!=1){
-            resp.send(JSON.stringify({'status':'error','msg':'You are Blocked..'}));
-            return;
-        }*/
+         resp.send(JSON.stringify({'status':'error','msg':'You are Blocked..'}));
+         return;
+         }*/
         if(items.length>0 && items[0].password==hash){
             resp.send(JSON.stringify({'status':'success','msg':items[0]}));
             return;
