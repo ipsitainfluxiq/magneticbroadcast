@@ -38,5 +38,4 @@ $arr['name'] = $userinfo->response->user->name;
 $arr['image'] = $imageurl;
 // print_r(json_encode($arr));
 echo json_encode($arr);
-
 ?>

@@ -122,7 +122,7 @@ export class DealershiplistComponent implements OnInit {
     setTimeout(() => {
       console.log('calling????????????????????? ?');
       this.getManagerList();
-    }, 100);
+    }, 300);
   }
 
   /*______________________________________________page_initiation_______________________________________*/

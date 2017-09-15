@@ -24,6 +24,8 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {Leadpage1Component} from './leadpage1/leadpage1.component';
 import {Leadpage2Component} from './leadpage2/leadpage2.component';
 import {LeadlistComponent} from './leadlist/leadlist.component';
+import {ViewallpostmanagementComponent} from './viewallpostmanagement/viewallpostmanagement.component';
+import {ViewallcategoryComponent} from './viewallcategory/viewallcategory.component';
 
 
 const appRoutes: Routes = [
@@ -45,6 +47,8 @@ const appRoutes: Routes = [
     { path: 'leadpage1', component: Leadpage1Component},
     { path: 'leadpage2', component: Leadpage2Component},
     { path: 'leadlist', component: LeadlistComponent},
+    { path: 'viewallpostmanagement', component: ViewallpostmanagementComponent},
+    { path: 'viewallcategory', component: ViewallcategoryComponent},
     { path: 'editpostmanagementcategory/:id', component: EditpostmanagementComponent},
 
 ];

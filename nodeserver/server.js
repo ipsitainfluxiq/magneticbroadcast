@@ -28,6 +28,7 @@ var storage = multer.diskStorage({ //multers disk storage settings
     destination: function (req, file, cb) {
         //  cb(null, '../uploads/');
         cb(null, '../src/assets/images/uploads/');
+      //  cb(null, '../assets/images/uploads/'); //for server
     },
     filename: function (req, file, cb) {
         //console.log(cb);
@@ -455,6 +456,7 @@ app.post('/postcategorymanagement',function(req,resp){
         link: req.body.link,
         priority: req.body.priority,
         status: req.body.status,
+        image: req.body.image,
     }], function (err, result) {
         if (err) {
             console.log('error'+err);
@@ -493,7 +495,8 @@ app.post('/editpostmanagement',function(req,resp){
         content: req.body.content,
         link: req.body.link,
         priority: req.body.priority,
-        status: req.body.status
+        status: req.body.status,
+        image: req.body.image,
     }
     console.log(data);
     console.log(o_id);
@@ -579,6 +582,60 @@ app.get('/getcategorylist', function (req, resp) {
     });
 
 });
+
+app.get('/getcategorylist_subscribedornot', function (req, resp) {
+    console.log('hi');
+    var collection1 = db.collection('postcategory');
+    var collection = db.collection('postcategory').aggregate([
+
+        {
+            $lookup: {
+                from: "postcategorymanagement",
+                localField: "_id",
+                foreignField: "postlist",
+                as: "Postcategorydetail"
+            }
+        },
+
+        {
+            $lookup: {
+                from: "subscribe",
+                localField: "_id",   // localfield of postcategory
+                foreignField: "categoryid",   //localfield of subscribe
+                as: "Subsdata"
+            }
+        },
+    ]);
+
+    collection.toArray(function (err, items) {
+        // console.log(items);
+        resp.send(JSON.stringify(items));
+    });
+
+});
+
+
+/*app.get('/subscribedornot', function (req, resp) {
+    var log_id = new mongodb.ObjectID(req.query.id);
+    var collection1 = db.collection('postcategory');
+    var collection = db.collection('postcategory').aggregate([
+        //{ "$unwind": "$Subsdata" },
+        //{$match:{"Subsdata.logid":log_id}},
+        {
+            $lookup: {
+                from: "subscribe",
+                localField: "_id",   // localfield of postcategory
+                foreignField: "categoryid",   //localfield of subscribe
+                as: "Subsdata"
+            }
+        },
+         //{$match:{"Subsdata.logid":log_id}},
+
+    ]);
+    collection.toArray(function (err, items) {
+        resp.send(JSON.stringify(items));
+    });
+});*/
 /*--------------------------------------Twitter_Call_START--------------------------------------------*/
 app.get('/leadlist',function (req,resp) {
 
@@ -866,6 +923,49 @@ app.post('/lead',function(req,resp){
 
 
 /*--------------------------------------Common_START--------------------------------------------*/
+app.post('/callsubscribe',function(req,resp){
+    console.log('call callsubscribe');
+    var collection = db.collection('subscribe');
+    var o_id = new mongodb.ObjectID(req.body.logid);
+    var o_category = new mongodb.ObjectID(req.body.categoryid);
+    collection.insert([{
+        logid: o_id,
+        categoryid: o_category,
+    }], function (err, result) {
+        if (err) {
+            console.log('error'+err);
+            resp.send(JSON.stringify({'status':'error'}));
+        } else {
+            console.log(result);
+            resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id}));
+        }
+    });
+});
+
+app.post('/callunsubscribe', function (req, resp) {
+    var o_id = new mongodb.ObjectID(req.body.logid);
+    var category_id = new mongodb.ObjectID(req.body.categoryid);
+    var collection = db.collection('subscribe');
+    console.log(o_id);
+    console.log(category_id);
+    collection.deleteOne(
+        { logid : o_id, categoryid : category_id }
+    );
+
+   /* collection.deleteOne([{
+        logid: o_id,
+        categoryid: category_id,
+    }],function(err, results) {
+        if (err){
+            resp.send("failed");
+            throw err;
+        }
+        else {
+            resp.send("success");
+            //   db.close();
+        }
+    });*/
+});
 
 app.post('/login', function (req, resp) {
     console.log('callloginnn');
@@ -990,6 +1090,7 @@ app.post('/deleteimage', function (req, resp) {
     var fs = require('fs');
     // var filePath = "/home/influxiq/public_html/projects/mzsadie/uploads/" +req.body.image;
     var filePath = "../src/assets/images/uploads/" +req.body.image; // Path set //
+ //   var filePath = "../assets/images/uploads/" +req.body.image; // Path set //
     console.log('filepath is  ' +filePath);
     fs.unlinkSync(filePath);
     resp.send(JSON.stringify({'status': 'success', 'msg': ''}));
@@ -1025,6 +1126,9 @@ app.post('/editmanager',function(req,resp){
     collection.update({_id:o_id}, {$set: data}, true, true);
     resp.send(JSON.stringify({'status':'success'}));
 });
+
+
+
 
 
 app.post('/deletemanager', function (req, resp) {

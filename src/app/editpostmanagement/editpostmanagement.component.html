@@ -3,7 +3,7 @@
 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 dashboard_right">
   <div class="dashboard_right_wrapper">
     <div class="dashboard1_div1 ">
-      <h4> Edit Post Management</h4>
+      <h4> Edit Post</h4>
       <div class="dashboard1form">
 
         <form role="form" novalidate [formGroup]="dataForm" (ngSubmit)="dosubmit(dataForm.value)">
@@ -19,6 +19,32 @@
             <option *ngFor="let item of postcategorylist" value="{{item._id}}">{{item.firstname}}</option>   <!--here firstname is the title-->
           </select>
           <span class="has-error" *ngIf ="dataForm.controls['postlist'].touched && !dataForm.controls['postlist'].valid">Post Category is Required !</span>
+
+
+
+
+
+
+          <label>Image</label>
+          <!--<input type="hidden" class="form-control" [formControl]="dataForm.controls['image']">
+          <span class="has-error" *ngIf ="dataForm.controls['image'].touched && !dataForm.controls['image'].valid">Image is Required !</span>-->
+
+          <div class="col-md-12">
+            <div class="browsefileblock">
+              <div *ngIf="is_error!=1"> <!--   no_image=1   -->
+                <div *ngIf="progress">
+                  Uploading: {{ progress }}%
+                </div>
+                <img src="{{imgsrc}}"/>
+                <input type="button" value="Delete" (click)="deleteimage()">
+              </div>
+              <input type="file" ngFileSelect [options]="basicOptions" (onUpload)="handleUpload($event)">
+            </div>
+          </div>
+
+
+
+
 
 
           <label>Content</label>

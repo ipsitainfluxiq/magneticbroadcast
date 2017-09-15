@@ -9,6 +9,7 @@
 }
 
 
+
 @font-face {
     font-family: 'open_sanssemibold';
     src: url('../fonts/opensans-semibold-webfont.eot');
@@ -65,8 +66,8 @@ h1,h2,h3,h4.h5,h6{ margin: 0px; padding: 0px;}
 
 .landing_top1 .landing_logo1{ width:auto; display:inline-block; float:left;}
 
-.landing_top1 h2{ display:inline-block; float:right; text-align:right; text-transform:uppercase; color:#fff;   font-family: 'open_sansregular'; font-size:22px; padding:17px 0 0 0;} 
-.landing_top1 h2 span{    color:#c90000;}
+.landing_top1 h2{ display:inline-block; float:right; text-align:right; text-transform:uppercase; color:#fff;   font-family: 'open_sansregular'; font-size:22px; padding:0 0 0 0;}
+.landing_top1 h2 span{    color:#c90000; font-size: 36px;}
 .landing_top1 h2 a{ color:#c90000;}
 
 
@@ -117,7 +118,7 @@ h1,h2,h3,h4.h5,h6{ margin: 0px; padding: 0px;}
     display: block;
     font-size: 15px;
     height: 40px;
-    margin: 0px auto; margin-bottom:12px;
+    margin: 6px auto;
     padding: 5px;
     width: 304px;}
 
@@ -205,7 +206,7 @@ font-size:18px; color:#fff; text-transform:uppercase;   text-shadow:0 0 2px #333
 
 .landing_conblock3 .col-lg-4{padding-top:50px; padding-bottom:50px;}
 
-.landing_conblock3 h2{ font-family:'OpenSans-Bold';  color:#fff; font-size:18px; margin:0; padding:0 0 15px 0; text-transform:uppercase; font-size:30px; }
+.landing_conblock3 h2{ font-family:'OpenSans-Bold';  color:#fff; font-size:18px!important; margin:0; padding:0 0 15px 0; text-transform:uppercase; font-size:30px; }
 .landing_conblock3 p{ margin:0; padding:0; font-family: 'open_sansregular'; color:#fff; font-size:14px;}
 
 .landing_conblock3 label{ margin:0 0 4px 0; padding:0 0 0px 15px; font-family: 'open_sansregular'; color:#fff; font-size:14px; font-weight:normal; background:url(../images/landingbullate.png) no-repeat left center;}

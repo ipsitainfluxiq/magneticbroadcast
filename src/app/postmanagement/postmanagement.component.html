@@ -3,7 +3,7 @@
 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 dashboard_right">
   <div class="dashboard_right_wrapper">
     <div class="dashboard1_div1 ">
-      <h4> Add Post Management</h4>
+      <h4> Add Post </h4>
       <div class="dashboard1form">
 
         <form role="form" novalidate [formGroup]="dataForm" (ngSubmit)="dosubmit(dataForm.value)">
@@ -15,15 +15,33 @@
 <!--           <label>Post Category</label>
            <input type="text" class="form-control" placeholder="Last Name" [formControl]="dataForm.controls['lastname']">
            <span class="has-error" *ngIf ="dataForm.controls['lastname'].touched && !dataForm.controls['lastname'].valid">Last Name is Required !</span>-->
-
-
-
             <label>Post Category</label>
             <select name="your-list" id="postlist" [formControl]="dataForm.controls['postlist']" >
               <option value="">Select Post Category</option>
               <option *ngFor="let item of postcategorylist" value="{{item._id}}">{{item.firstname}}</option>   <!--here firstname is the title-->
             </select>
           <span class="has-error" *ngIf ="dataForm.controls['postlist'].touched && !dataForm.controls['postlist'].valid">Post Category is Required !</span>
+
+
+
+
+          <label>Image</label>
+          <input type="hidden" class="form-control" [formControl]="dataForm.controls['image']">
+         <!-- <span class="has-error" *ngIf ="dataForm.controls['image'].touched && !dataForm.controls['image'].valid">Image is Required !</span>-->
+          <div class="col-md-12">
+            <div class="browsefileblock">
+              <input type="file" accept="image/*" ngFileSelect [options]="basicOptions" (onUpload)="handleUpload($event)">
+              <div *ngIf="progress">
+                Uploading: {{ progress }}%
+              </div>
+              <div *ngIf="uploadedfilesrc" class="browsefileblockimg">
+                <img src="{{uploadedfilesrc}}" >
+                <input type="button" value="Delete" (click)="deleteimage(imagename)">
+              </div>
+            </div>
+          </div>
+
+
 
 
           <label>Content</label>
@@ -39,7 +57,7 @@
           <input type="text" appOnlyNumber="true" class="form-control" placeholder="Priority" [formControl]="dataForm.controls['priority']">
           <span class="has-error" *ngIf ="dataForm.controls['priority'].touched && !dataForm.controls['priority'].valid">Priority is Required !</span>
           <br/>
-          <label> <input type="checkbox" [formControl]="dataForm.controls['status']"> Make this category active ?</label>
+          <label> <input type="checkbox" [formControl]="dataForm.controls['status']"> Make this post active ?</label>
 
           <br><input type="submit" value="Save" class="loginbtn2">
         </form>

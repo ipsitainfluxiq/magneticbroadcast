@@ -1,0 +1,89 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Magnetic Broadcast</title>
+
+    &lt;!&ndash; Bootstrap Core CSS &ndash;&gt;
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    &lt;!&ndash; MetisMenu CSS
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">&ndash;&gt;
+
+    &lt;!&ndash; Custom CSS &ndash;&gt;
+    <link href="css/styles_updates.css" rel="stylesheet" type="text/css">
+    <link href="css/media_updates.css" rel="stylesheet" type="text/css">
+
+    &lt;!&ndash; Custom Fonts &ndash;&gt;
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>-->
+
+<app-adminheader></app-adminheader>
+<app-adminleftsidebar></app-adminleftsidebar>
+<div class="page-wrapper">
+  <div class="blockmaininner">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="cusdashboardblock3">
+          <h4>All Posts </h4>
+            <div class="adminserchdiv">
+                <label>Search :</label> <input type="text" #listFilter (keyup)="0">
+            </div>
+          <div class="clearfix"></div>
+          <div class="cusactivediv" *ngFor="let item of datalist  | usersearch:listFilter.value; let i = index">
+              <h2>
+                                <span >
+
+                                    <table width="100%">
+                                        <tr>
+
+
+                                     <td>
+                                    <label class="spandivblock">
+                                    <h6>
+                                    {{item.title}}
+                                    </h6>
+                                        <h3>{{item.content}}</h3>
+                                        <!--<img width="60px" height="60px" src="../../assets/images/uploads/{{item.image}}"  class="td_imgblock">-->
+                                         <td *ngIf="item.image"><img width="60px" height="60px" src="../../assets/images/uploads/{{item.image}}" ></td>
+            <td *ngIf="item.image==''"><img width="60px" height="60px" src="../../assets/images/newlogo.png" ></td>
+                                        <h5> {{item.link}}</h5>
+                                       <div class="socialiconimg_boX"> <img src="../assets/images/fbicon1.png" alt="#" class="socialiconimg">
+                                        <img src="../assets/images/twicon1.png" alt="#" class="socialiconimg">
+                                        <img src="../assets/images/inicon1.png" alt="#" class="socialiconimg">
+                                        <img src="../assets/images/tumblr-icon.png" alt="#" class="socialiconimg">
+                                    </div>
+                                    </label>
+                                            </td>
+
+                                         </tr>
+
+                                    </table>
+                                </span>
+
+
+                <div class="clearfix"></div>
+
+              </h2>
+
+          </div>
+          <div class="clearfix"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+

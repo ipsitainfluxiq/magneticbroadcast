@@ -839,8 +839,9 @@ a:focus {
 .modal .modal-body{  background: #fff!important; border: none; padding: 10px; min-height: inherit; position: inherit; overflow: hidden;}
 
 
-.modal .modal-body h2{ text-align: center; margin: 0; padding: 20px; padding-top: 10px; text-transform: uppercase; color: #d11f1f!important; font-family:'OpenSans-Bold'; font-size: 30px;}
+.modal .modal-body h2{ margin: 0; padding: 0px; text-transform: uppercase; color: #d11f1f!important; font-family:'OpenSans-Bold'; font-size: 22px;}
 
+/*
 .modal .modal-body h2:after {
     content: "";
     display: block;
@@ -848,11 +849,12 @@ a:focus {
     background-color: #d11f1f;
     height: 2px; display: block;; margin: 0 auto; margin-top: 10px;
 }
+*/
 
 
-.modal .modal-body h3{ text-align: center; margin: 0; padding:0px;  color: #000!important; font-family:'OpenSans-Regular'; font-size: 16px;}
+.modal .modal-body h3{margin: 0; padding:0px;  color: #000!important; font-family:'OpenSans-Regular'; font-size: 20px;}
 
-.modal .modal-body h4{ text-align: center; margin: 0; padding:10px;  color: #333!important; font-family:'OpenSans-Regular'; font-size: 14px;}
+.modal .modal-body h4{ margin: 0; padding:10px 0 0 0px;  color: #333!important; font-family:'OpenSans-Regular'; font-size: 16px;}
 
 .modal .modal-body h4 a{color: #333!important; }
 
@@ -895,3 +897,14 @@ a:focus {
 .paginationdiv li select{ display: inline-block!important; border-radius: 0px!important; border: none!important; height: 26px!important; margin: 0px!important; padding: 0 2px!important; float: left;  width: 35px; text-align: center; font-size: 14px!important;  color: #666666!important;}
 
 .paginationdiv li img{ margin: 6px 0 0 0px!important;}
+
+.tablediv td:nth-of-type(1){ width: 5%;}
+.tablediv td:nth-of-type(2){ width: 10%;}
+
+.tablediv td:nth-of-type(3){ width: 20%;}
+.tablediv td:nth-of-type(4){ width: 5%;}
+
+.tablediv td:nth-of-type(5){ width: 60%;}
+.tablediv td:last-of-type{ width: 5%;}
+
+

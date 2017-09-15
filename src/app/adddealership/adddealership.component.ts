@@ -37,7 +37,7 @@ export class AdddealershipComponent implements OnInit {
     this.dataForm = this.fb.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
-      image: ['', Validators.required],
+      image: [''],
       /*link: ['', Validators.required],*/
       email: ['', Validators.compose([Validators.required, AdddealershipComponent.validateEmail])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(8)])],
@@ -78,7 +78,7 @@ export class AdddealershipComponent implements OnInit {
           if (result.length > 1) {
             // this.dataForm.patchValue({image: result.filename});
             this.dataForm.patchValue({image: result});
-            this.uploadedfilesrc = '../../assets/images/uploads/' + resp.replace(/"/g, '');
+            this.uploadedfilesrc = 'assets/images/uploads/' + resp.replace(/"/g, '');
             console.log('upload file location' + this.uploadedfilesrc);
             // this.imagename = result.filename;
             this.imagename = result.replace(/"/g, '');

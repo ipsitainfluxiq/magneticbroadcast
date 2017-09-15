@@ -15,6 +15,7 @@ import { TwitterService } from 'ng2-twitter';
 })
 export class DashboardComponent implements OnInit {
     private addcookie: CookieService;
+    private addcookie1: CookieService;
     private cookiedetails;
     public longterm_token: any;
     public long_token_exp: any;
@@ -24,6 +25,7 @@ export class DashboardComponent implements OnInit {
     public imageoftwitter: any;
     public result: any;
     public oauth_token: any;
+    public phptwpost: any;
     public usernameoflink: any;
     public imageoflink: any;
     public oauth_token_secret: any;
@@ -31,9 +33,12 @@ export class DashboardComponent implements OnInit {
     public link_oauth_token_secret: any;
     public tumblr_oauth_token: any;
     public tumblr_oauth_token_secret: any;
+    public subs: any = [];
     public datalist;
     public allposts;
     public catagorylist;
+    public subscribelist;
+    public catagorylength;
     public showdetailofpost;
     public result44;
     public data;
@@ -51,11 +56,16 @@ export class DashboardComponent implements OnInit {
     public phplinktumblr: any;
     public usernameoftumblr: any;
     public imageoftumbler: any;
+    public usertype: any;
 
-    constructor(addcookie: CookieService, private _http: Http, private router: Router, private _commonservices: Commonservices, private fb: FacebookService, private twitter: TwitterService) {
+    constructor(addcookie: CookieService, addcookie1: CookieService, private _http: Http, private router: Router, private _commonservices: Commonservices, private fb: FacebookService, private twitter: TwitterService) {
         console.log('not?');
+        this.subs = 1;
         this.addcookie = addcookie;
+        this.addcookie1 = addcookie1 ;
         this.cookiedetails = this.addcookie.getObject('cookiedetails');
+        this.usertype = this.addcookie1.getObject('usertype');
+        console.log('++++++++++ '+this.usertype);
         if (typeof(this.cookiedetails) == 'undefined') {
             console.log(this.cookiedetails + '--');
             console.log('hb');
@@ -81,6 +91,36 @@ export class DashboardComponent implements OnInit {
             version: 'v2.10'
         };
         fb.init(initParams);
+       // this.callsubs();
+        /*let link  = this.serverurl + 'subscribedornot';
+            let data = {
+                logid: this.logid,
+            };
+            this._http.post(link, data)
+                .subscribe(res => {
+                    let result = res.json();
+                    console.log('result-------------');
+                    console.log(result);
+                    console.log(result.status);
+
+                    if (result.status == 'not_found') {
+                        for (let j in this.catagorylength) {
+                            this.subs[j] = 1;
+                        }
+                    }
+                    if (result.status == 'successfull') {
+                        console.log(result.items);
+                        for (let j in result.items) {
+                            this.subscribelist = result.items[j].categoryid;
+                        }
+
+                        /!*for (let j in this.catagorylength) {
+                            this.subs[j] = 0;
+                        }*!/
+                    }
+                }, error => {
+                    console.log('Oooops!');
+                });*/
 
 
         let link3 = this.serverurl + 'socialmedialist';
@@ -103,8 +143,8 @@ export class DashboardComponent implements OnInit {
                 // this.link_oauth_verifier = result3.link_oauth_verifier;
                 console.log('userid   ' + this.userid);
                 console.log('longterm_token      ' + this.longterm_token);
-                console.log('oauth_token   ' + this.oauth_token);
-                console.log('oauth_token_secret      ' + this.oauth_token_secret);
+                console.log('twitter oauth_token   ' + this.oauth_token);
+                console.log('twitter oauth_token_secret      ' + this.oauth_token_secret);
                 console.log('link_oauth_token_secret      ' + this.link_oauth_token_secret);
                 console.log('link_oauth_token     ' + this.link_oauth_token);
                 console.log('tumblr_oauth_token     ' + this.tumblr_oauth_token);
@@ -116,11 +156,50 @@ export class DashboardComponent implements OnInit {
 
         setTimeout(() => {
             this.callfbvalues();
-         this.calltwittervalues();
-         this.calllinkedinvalues();
-         this.calltumblrrvalues();
+            this.calltwittervalues();
+            this.calllinkedinvalues();
+            this.calltumblrrvalues();
         }, 1000);
     }
+
+    calltumblrpost() {
+        console.log('called');
+        let link6 = 'http://magneticbroadcast.com/development/php/postvalfortumblr.php?id=' + this.logid + '&oauth_token=' + this.tumblr_oauth_token + '&oauth_token_secret=' + this.tumblr_oauth_token_secret;
+        this.data = {
+            id: this.cookiedetails._id
+        };
+        this._http.post(link6, this.data)
+            .subscribe(res => {
+            }, error => {
+                console.log('Oooops!');
+            });
+    }
+
+    calllinkedinpost() {
+        let link5 = 'http://magneticbroadcast.com/development/php/postvalforlinkedin.php?id=' + this.logid + '&linkoauth_token=' + this.link_oauth_token + '&linkoauth_token_secret=' + this.link_oauth_token_secret;
+        console.log(link5);
+        this.data = {
+            id: this.cookiedetails._id
+        };
+        this._http.post(link5, this.data)
+            .subscribe(res => {
+            }, error => {
+                console.log('Oooops!');
+            });
+    }
+
+    calltwitterpost() {
+        let link4 = 'http://magneticbroadcast.com/development/php/postvalfortwitter.php?id=' + this.logid + '&oauth_token=' + this.oauth_token + '&oauth_token_secret=' + this.oauth_token_secret;
+        this.data = {
+            id: this.cookiedetails._id
+        };
+        this._http.post(link4, this.data)
+            .subscribe(res => {
+            }, error => {
+                console.log('Oooops!');
+            });
+    }
+
 
     callfbvalues() {
         console.log('inside settimeout');
@@ -226,7 +305,7 @@ export class DashboardComponent implements OnInit {
         console.log('fbresponse');
         console.log(this.fb.getAuthResponse());
         if (typeof (this.fb.getAuthResponse()) == 'undefined') {
-
+            console.log('undefined');
 
             this.fb.login()
                 .then((response: LoginResponse) =>
@@ -237,9 +316,13 @@ export class DashboardComponent implements OnInit {
 
 
         } else {
-
+            console.log('value has');
             //   this.addfacebooklogindata(response),
             this.all_details = this.fb.getAuthResponse();
+            console.log('this.fb.getAuthResponse()');
+            console.log(this.fb.getAuthResponse());
+            console.log('this.all_details');
+            console.log(this.all_details);
             if (typeof(this.all_details) != 'undefined') {
                 this.accesstoken = this.all_details.accessToken;
                 this.userid = this.all_details.userID;
@@ -312,36 +395,94 @@ export class DashboardComponent implements OnInit {
         .subscribe(res => {
           let result6 = res.json();
           this.datalist = result6;
-          // console.log(this.datalist);
+           console.log('this.datalist==========9999===');
+           console.log(this.datalist);
         }, error => {
           console.log('Oooops!');
         });
   }
 
   getcategoryList() {
-    let link = this.serverurl + 'getcategorylist';
+   // let link = this.serverurl + 'getcategorylist';
+    let link = this.serverurl + 'getcategorylist_subscribedornot';
     this._http.get(link)
         .subscribe(res => {
           let result = res.json();
           this.catagorylist = result;
-          console.log('this.catagorylist');
+        //  this.catagorylength = this.catagorylist.length;
+          console.log('this.catagorylist----------------++++----');
           console.log(this.catagorylist);
         }, error => {
           console.log('Oooops!');
         });
   }
 
-  showdetails(id) {
+
+
+    checksubscription(val : any){
+      //  console.log(' in check subscription');
+       // console.log(val);
+      //  console.log(val.length);
+        if(val.length==0) return false;
+      //  console.log(this.logid);
+        let x : any;
+        for(x in val){
+         //   console.log(val[x]);
+            if(val[x].logid == this.logid){
+                return true;
+            }
+        }
+        return false;
+    }
+    showdetails(id) {
     this.showdetailofpost = '';
     for ( let i in this.datalist) {
       if (this.datalist[i]._id == id) {
         this.showdetailofpost = this.datalist[i];
       }
     }
-  //  console.log(this.showdetailofpost);
+      console.log('showdetailofpost/////////////');
+      console.log(this.showdetailofpost);
     this.isModalShown1 = true;
   }
 
+    callsubscribe(categoryid) {
+        console.log(this.logid);
+        console.log(categoryid);
+        let link  = this.serverurl + 'callsubscribe';
+        let data = {
+            logid: this.logid,
+            categoryid: categoryid
+        };
+        this._http.post(link, data)
+            .subscribe(res => {
+                let result = res.json();
+                console.log('result');
+                console.log(result);
+            }, error => {
+                console.log('Oooops!');
+            });
+    }
+    callunsubscribe(categoryid) {
+        let link  = this.serverurl + 'callunsubscribe';
+        let data = {
+            logid: this.logid,
+            categoryid: categoryid
+        };
+        console.log(data);
+        console.log('data77777777');
+        this._http.post(link, data)
+            .subscribe(res => {
+               // let result = res.json();
+              //  console.log('result');
+              //  console.log(result);
+            }, error => {
+                console.log('Oooops!');
+            });
+        setTimeout(() => {
+            this.getcategoryList();
+        }, 300);
+    }
 
   showdetails1(id) {
     this.allposts = '';
@@ -354,4 +495,12 @@ export class DashboardComponent implements OnInit {
     console.log(this.allposts);
     this.isModalShown2 = true;
   }
+
+    logout()
+    {
+        this.addcookie.removeAll();
+        this.router.navigateByUrl('/');
+
+    }
+
 }

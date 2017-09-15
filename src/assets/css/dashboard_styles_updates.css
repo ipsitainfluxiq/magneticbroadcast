@@ -93,8 +93,17 @@ h1,h2,h3,h4.h5,h6{ margin: 0px; padding: 0px;}
 /*------dealerdashboard css--------------*/
 .page-wrapper {padding: 0; width: 82%; float: left; padding-bottom: 25px; }
 
-h1.pageheader{font-family: 'open_sansregular'; padding-bottom: 25px;  padding-top: 25px; font-size: 20px; color: #000; width: auto;  text-align: left;font-weight: normal;margin-top: 0px;}
+h1.pageheader{font-family: 'open_sansregular'; padding-bottom: 25px;  padding-top: 25px; font-size: 20px; color: #000; width: auto;  text-align: left;font-weight: normal;margin-top: 0px; display: inline-block; float: left;}
 h1.pageheader span{ color: #c40000; text-transform: uppercase; font-family: 'open_sansregular'; padding-right:6px;}
+
+.newlogoutbtn{ width:94px; float: right; background: rgba(221,23,5,1);
+    background: -moz-linear-gradient(top, rgba(221,23,5,1) 0%, rgba(162,0,0,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(221,23,5,1)), color-stop(100%, rgba(162,0,0,1)));
+    background: -webkit-linear-gradient(top, rgba(221,23,5,1) 0%, rgba(162,0,0,1) 100%);
+    background: -o-linear-gradient(top, rgba(221,23,5,1) 0%, rgba(162,0,0,1) 100%);
+    background: -ms-linear-gradient(top, rgba(221,23,5,1) 0%, rgba(162,0,0,1) 100%);
+    background: linear-gradient(to bottom, rgba(221,23,5,1) 0%, rgba(162,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dd1705', endColorstr='#a20000', GradientType=0 ); font-family: 'open_sansregular'; text-align: center; font-size: 16px ;color: #fff!important; text-transform: uppercase; padding: 5px 0; margin-top: 16px;}
 
 .block1box{
     background: -moz-linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(174,176,177,1) 100%); /* ff3.6+ */
@@ -186,7 +195,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dd1705', end
     border-top: 5px solid #a60000;
     margin-top: 30px;
 }
-.cusdashboardblock3 h4{font-family: 'open_sanssemibold'; padding-bottom: 10px; font-size: 24px; color: #fff; width: auto;  text-align: left;font-weight: normal; display: inline-block; float: left; margin:4px 0px 5px 0;}
+.cusdashboardblock3 h4{font-family: 'open_sanssemibold'; padding-bottom: 10px; font-size: 24px; color: #fff; width: auto;  text-align: left;font-weight: normal; display: inline-block; float: left; margin:0px 0px 5px 0;}
 
 .cusactivity{padding: 0px; margin: 0px;}
 
@@ -229,8 +238,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dd1705', end
 }
 
 /*.cusactivediv h2 span{ background:#272727; padding:20px; display:block; cursor: pointer;}*/
-.cusactivediv h2 span{ background:#272727; padding:20px; display:block; float: left; width: 90%;}
-.cusactivediv h2 input{ width: 10%; float: right; background:#272727; padding: 20px 0; border: none; font-size: 14px; outline: none!important;}
+.cusactivediv h2 span{ background:#272727; padding:0 0 0 20px; display:block;  }
+
+.cusactivediv td:nth-of-type(1){ width: 90%; padding: 20px 20px 20px 0;}
+.cusactivediv td:nth-of-type(2){ width: 10%;   text-align: center; padding: 5px; vertical-align: bottom;  }
+
+
+.cusactivediv2 td:nth-of-type(1){ width: 80%; padding: 20px 20px 20px 0;}
+.cusactivediv2 td:nth-of-type(2){ width: 20%;   text-align: center; padding: 5px; vertical-align: bottom;  }
+
+.socialiconimg{ border: none!important; width: 30px!important; display: inline-block; margin:2px; background: #fff; border-radius: 100px;}
+
+.socialiconimg_boX{ margin: 10px 0 0 0;}
+
 
 .cusactivediv h2 span p{ display: inline; margin: 0; padding: 0 0 0 10px; font-size: 16px; color: #fff;}
 
@@ -4032,3 +4052,58 @@ textarea::-moz-placeholder { /* Firefox 18- */
 .userprofileimg{ width: 80px; height: 80px; border-radius: 100px; border: solid 2px #fff;}
 
 .socialicon{ width: 30px; background: #fff; border-radius: 100px; position: absolute; top: 80px; right: 30px;}
+
+
+.spandivblock h6{ margin: 0; padding: 0px; font-family:Arial, Helvetica, sans-serif; font-size:18px; color:#fff ;}
+
+.spandivblock h3{ margin: 0; padding:10px 0px; font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#858687;}
+
+.spandivblock h5{ margin: 0; padding:10px 0 0 0; font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#ff0000;}
+.spandivblock h5 a{ text-decoration: none; color:#ff0000;}
+.spandivblock h5 a:hover{ text-decoration: underline;}
+.spandivblock .td_imgblock{ display: block; margin: 0 ; width: 100px; border: solid 1px #858687; padding: 2px;}
+
+.new_input_wrapper{  background: #333; display: block;}
+
+.new_input_wrapper .newinput1{ float: none; width: 100%; display: block; background:#272727; padding: 5px; border: none; font-size: 14px; outline: none!important; margin-bottom: 12px;}
+
+
+.wrappercontain2{ width: 100%!important;}
+
+.wrappercontain2 .page-wrapper{ width: 100%!important; float: none!important;}
+
+
+
+.cusactivediv2 .newinput1{ float: none; width: 50%; display: block;  padding: 5px; border: none; font-size: 14px; outline: none!important; margin-bottom:0; float: left; cursor:pointer;}
+
+/*.cusactivediv2 .newinput1:nth-of-type(2){ border-left: solid 1px #858687; border-right: solid 1px #858687;}*/
+
+.cusactivediv2 .new_input_wrapper{ margin-bottom: 12px;}
+
+
+.subscribe_btn{background: rgba(237,3,46,1)!important;
+    background: -moz-linear-gradient(top, rgba(237,3,46,1) 0%, rgba(171,5,38,1) 100%)!important;
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(237,3,46,1)), color-stop(100%, rgba(171,5,38,1)))!important;
+    background: -webkit-linear-gradient(top, rgba(237,3,46,1) 0%, rgba(171,5,38,1) 100%)!important;
+    background: -o-linear-gradient(top, rgba(237,3,46,1) 0%, rgba(171,5,38,1) 100%)!important;
+    background: -ms-linear-gradient(top, rgba(237,3,46,1) 0%, rgba(171,5,38,1) 100%)!important;
+    background: linear-gradient(to bottom, rgba(237,3,46,1) 0%, rgba(171,5,38,1) 100%)!important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed032e', endColorstr='#ab0526', GradientType=0 )!important; }
+
+
+.unsubscribe_btn{ background: rgba(255,175,75,1)!important;
+    background: -moz-linear-gradient(top, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%)!important;
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,175,75,1)), color-stop(100%, rgba(255,146,10,1)))!important;
+    background: -webkit-linear-gradient(top, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%)!important;
+    background: -o-linear-gradient(top, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%)!important;
+    background: -ms-linear-gradient(top, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%)!important;
+    background: linear-gradient(to bottom, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%)!important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff920a', GradientType=0 )!important;}
+
+
+.adminserchdiv2{ display: inline-block; float: right;}
+
+
+.adminserchdiv2 label{font-family: 'open_sanssemibold'; margin: 0; padding: 0; font-size: 16px; color: #fff;    font-family: 'open_sansregular'; line-height: 30px;}
+
+.adminserchdiv2 input{ border: none; height: 30px; padding: 0 5px; background: #fff;}

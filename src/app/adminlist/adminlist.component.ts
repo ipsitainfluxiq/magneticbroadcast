@@ -84,7 +84,7 @@ export class AdminlistComponent implements OnInit {
         });
     setTimeout(() => {
       this.getAdminList();
-    }, 100);
+    }, 300);
   }
 
   getSortClass(value: any) {
@@ -136,7 +136,7 @@ export class AdminlistComponent implements OnInit {
       } else {
         this.pageno = 1;
         this.pagestart = 0;
-      }
+    }
     }
 
     this.pageinitation = parseInt(this.pagestart) + parseInt(this.showrows);

@@ -31,6 +31,8 @@ import { FacebookModule } from 'ngx-facebook';
 import { Leadpage2Component } from './leadpage2/leadpage2.component';
 import { TwitterService } from 'ng2-twitter';
 import { LeadlistComponent } from './leadlist/leadlist.component';
+import { ViewallpostmanagementComponent } from './viewallpostmanagement/viewallpostmanagement.component';
+import { ViewallcategoryComponent } from './viewallcategory/viewallcategory.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { LeadlistComponent } from './leadlist/leadlist.component';
     Leadpage1Component,
     Leadpage2Component,
     LeadlistComponent,
+    ViewallpostmanagementComponent,
+    ViewallcategoryComponent,
 
   ],
   imports: [

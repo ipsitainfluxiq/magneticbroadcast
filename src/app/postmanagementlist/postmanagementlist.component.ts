@@ -56,6 +56,8 @@ export class PostmanagementlistComponent implements OnInit {
         .subscribe(res => {
           let result = res.json();
           this.datalist = result;
+          console.log('datalist------');
+          console.log(this.datalist);
           this.list_length = result.length;
           this.totalpage = this.list_length / this.showrows ;
 
@@ -124,7 +126,7 @@ export class PostmanagementlistComponent implements OnInit {
     setTimeout(() => {
       console.log('calling????????????????????? ?');
       this.getManagerList();
-    }, 100);
+    }, 300);
   }
 
   /*______________________________________________page_initiation_______________________________________*/

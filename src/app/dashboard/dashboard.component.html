@@ -1,494 +1,1024 @@
-<!--<!DOCTYPE html>
-<html lang="en">
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Magnetic Broadcast</title>
-
-    &lt;!&ndash; Bootstrap Core CSS &ndash;&gt;
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    &lt;!&ndash; MetisMenu CSS
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">&ndash;&gt;
-
-    &lt;!&ndash; Custom CSS &ndash;&gt;
-    <link href="css/styles_updates.css" rel="stylesheet" type="text/css">
-    <link href="css/media_updates.css" rel="stylesheet" type="text/css">
-
-    &lt;!&ndash; Custom Fonts &ndash;&gt;
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-</head>
-
-<body>-->
 
 <app-adminheader></app-adminheader>
-<app-adminleftsidebar></app-adminleftsidebar>
-<div class="page-wrapper">
-    <div class="blockmaininner">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="pageheader"><span>Your</span> Dashboard</h1>
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
-        <!-- /.row -->
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="block1box">
-                    <div class="row eqWrap">
-                        <div class="col-lg-4 col-md-2 col-sm-2 col-xs-3 block1box1 vcenter">
-                            <div class="block1boxleftimgwrapper">
-                                <img src="../assets/images/block1box-icon1.png">
-                            </div>
-                        </div>
-                        <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
-                            <h4>Total Auction Wins :</h4>
-                            <h5>$123,000 / <span>75</span></h5>
-                        </div>
-                    </div>
+<!--<app-adminleftsidebar></app-adminleftsidebar>-->
+<div *ngIf="usertype==1"><app-adminleftsidebar></app-adminleftsidebar>
+    <div class="page-wrapper">
+        <div class="blockmaininner">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="pageheader"><span>Your</span> Dashboard</h1>
                 </div>
+                <!-- /.col-lg-12 -->
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="block1box">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-2 col-sm-2 col-xs-3 block1box1 vcenter">
-                            <div class="block1boxleftimgwrapper">
-                                <img src="../assets/images/block1box-icon2.png">
-                            </div>
-                        </div>
-                        <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
-                            <h4>Total Customer Count :</h4>
-                            <h5>412</h5>
-                            <div class="btnview">
-                                <a><span>View Customers</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="block1box">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-2 col-sm-2 col-xs-3 block1box1 vcenter">
-                            <div class="block1boxleftimgwrapper">
-                                <img src="../assets/images/block1box-icon3.png">
-                            </div>
-                        </div>
-                        <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
-                            <h4>Total RSVP to Date :</h4>
-                            <h5>3345</h5>
-                            <div class="btnview">
-                                <a><span>View RSVPs</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="block1box">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-2 col-sm-2 col-xs-3 block1box1 vcenter">
-                            <div class="block1boxleftimgwrapper">
-                                <img src="../assets/images/block1box-icon4.png">
-                            </div>
-                        </div>
-                        <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
-                            <h4>Next Auction Date :</h4>
-                            <h5>24th August</h5>
-                            <div class="btnview">
-                                <a><span>View Auctions</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       <!-- <input type="button" value="login" (click)="loginWithFacebook()">-->
-
-
-        <div class="  manage_social_accounts_body">
-            <div class="yourinboxblock">
-                <div class="yourinboxheader">
-                    <h2>Manage Social  Accounts</h2>
-
-                </div>
-                <div class="row">
-                    <div class="container-fluid manage_social_accounts_wrapper">
-
-                        <div class="manage_social_div fbsocial_div" *ngIf ="this.usernameoffb==null">
-                            <div class="manage_social_img"><img src="../assets/images/adminfacebook.png" alt="#"></div>
-                            <div class="manage_social_text"><div class="manage_social_text_div"><a href="javascript:void(0)"><span (click)="loginWithFacebook()"> Connect</span></a></div></div>
-
-                            <div class="clearfix"></div>
-                        </div>
-
-                        <div class="manage_social_div twsocial_div"  *ngIf ="this.usernameoftwitter==null">
-                            <div class="manage_social_img"><img src="../assets/images/admintwitter.png" alt="#"></div>
-                            <div class="manage_social_text"><div class="manage_social_text_div"><a *ngIf="phplinktwitter" [attr.href]=phplinktwitter><span> Connect</span></a></div></div>
-                            <div class="clearfix"></div>
-                        </div>
-
-                        <div class="manage_social_div lnsocial_div" *ngIf ="this.usernameoflink==null">
-                            <div class="manage_social_img"><img src="../assets/images/adminin.png"></div>
-                            <div class="manage_social_text"><div class="manage_social_text_div"><a *ngIf="phplinklinkedin" [attr.href]=phplinklinkedin> <span> Connect</span></a></div></div>
-                            <div class="clearfix"></div>
-
-                        </div>
-
-                        <div class="manage_social_div tmsocial_div" *ngIf ="this.usernameoftumblr==null">
-                            <div class="manage_social_img"><img src="../assets/images/tumblr-icon_big.png"></div>
-                            <div class="manage_social_text"><div class="manage_social_text_div"><a *ngIf="phplinktumblr" [attr.href]=phplinktumblr> <span> Connect</span></a></div></div>
-                            <div class="clearfix"></div>
-
-                        </div>
-
-                        <div class="clearfix"></div>
-
-                    </div>
-
-                    <div class="container-fluid manage_social_accounts_wrapper">
-
-                        <div class="manage_social_div fbsocial_div" *ngIf="this.usernameoffb">
-                            <div class="manage_social_img">
-                                <img *ngIf="this.dpoffb" src="{{this.dpoffb}}" alt="#" class="userprofileimg">
-                                <img src="../assets/images/fbicon1.png" alt="#" class="socialicon">
-                            </div>
-                            <div class="manage_social_text">
-                                <div class="manage_social_text_div">
-                                <h2  *ngIf="this.usernameoffb">{{this.usernameoffb}}</h2>
-
-                                <a href="javascript:void(0)"><span> Update</span></a>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="block1box">
+                        <div class="row eqWrap">
+                            <div class="col-lg-4 col-md-2 col-sm-2 col-xs-3 block1box1 vcenter">
+                                <div class="block1boxleftimgwrapper">
+                                    <img src="../assets/images/lead_icon1.png">
                                 </div>
-
                             </div>
-
-                            <div class="clearfix"></div>
+                            <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
+                                <h4>Total Leads :</h4>
+                                <h5>150</h5>
+                                <div class="btnview">
+                                    <a><span>View Leads</span></a>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="manage_social_div twsocial_div" *ngIf="this.usernameoftwitter">
-
-                            <div class="manage_social_img">  <img *ngIf="this.imageoftwitter" src="{{this.imageoftwitter}}" alt="#" class="userprofileimg">
-                                <img src="../assets/images/twicon1.png" alt="#" class="socialicon"></div>
-                            <div class="manage_social_text"> <div class="manage_social_text_div">
-                                <h2  *ngIf="this.usernameoftwitter">{{this.usernameoftwitter}}</h2>
-                                <a *ngIf="phplinktwitter" [attr.href]=phplinktwitter><span> Update</span></a></div></div>
-                            <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="block1box">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-2 col-sm-2 col-xs-3 block1box1 vcenter">
+                                <div class="block1boxleftimgwrapper">
+                                    <img src="../assets/images/subscribe_icon3.png">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
+                                <h4>Total Subscribed Categories :</h4>
+                                <h5>4</h5>
+                                <div class="btnview">
+                                    <a><span>View Categories</span></a>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="manage_social_div lnsocial_div" *ngIf="this.usernameoflink">
-                            <div class="manage_social_img">  <img *ngIf="this.imageoflink" src="{{this.imageoflink}}"  alt="#" class="userprofileimg">
-                                <img src="../assets/images/inicon1.png" alt="#" class="socialicon"></div>
-                            <div class="manage_social_text"><div class="manage_social_text_div">
-                                <h2  *ngIf="this.usernameoflink">{{this.usernameoflink}}</h2>
-                                <a *ngIf="phplinklinkedin" [attr.href]=phplinklinkedin><span> Update</span></a></div></div>
-                            <div class="clearfix"></div>
-
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="block1box">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-2 col-sm-2 col-xs-3 block1box1 vcenter">
+                                <div class="block1boxleftimgwrapper">
+                                    <img src="../assets/images/post_icon2.png">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
+                                <h4>Total Available Posts :</h4>
+                                <h5>300</h5>
+                                <div class="btnview">
+                                    <a><span>View Posts</span></a>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="manage_social_div lnsocial_div" *ngIf="this.usernameoftumblr">
-                            <div class="manage_social_img">  <img *ngIf="this.imageoftumbler" src="{{this.imageoftumbler}}"  alt="#" class="userprofileimg">
-                                <img src="../assets/images/tumblr-icon.png" alt="#" class="socialicon"></div>
-                            <div class="manage_social_text"><div class="manage_social_text_div">
-                                <h2  *ngIf="this.usernameoftumblr">{{this.usernameoftumblr}}</h2>
-                                <a *ngIf="phplinktumblr" [attr.href]=phplinktumblr><span> Update</span></a></div></div>
-                            <div class="clearfix"></div>
-
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="block1box">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-2 col-sm-2 col-xs-3 block1box1 vcenter">
+                                <div class="block1boxleftimgwrapper">
+                                    <img src="../assets/images/broadcasts_icon4.png">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
+                                <h4>Total Broadcasts :</h4>
+                                <h5>100</h5>
+                                <div class="btnview">
+                                    <a><span>View Broadcasts</span></a>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="clearfix"></div>
-
                     </div>
                 </div>
             </div>
-        </div>
+            <!-- <input type="button" value="login" (click)="loginWithFacebook()">-->
 
 
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="cusdashboardblock3">
-                    <h4>Recent Posts </h4>
-                    <a class="newviewallbtn">View All</a>
-
-                    <div class="clearfix"></div>
-                    <div class="cusactivediv" *ngFor="let item of datalist ; let i = index">
-                        <div *ngIf= "i<5">
-                            <h2><span >{{item.title}}</span>    <input type="button" value="View Post" (click)="showdetails(item._id)">
-                                <div class="clearfix"></div>
-                            </h2>
-
-                        </div>
-                    </div>
-                    <!-- <div class="cusactivediv">
-                        <h2 ><span>Customer John Doe submited a new RSVP 14 hours back.</span></h2>
-                    </div>
-                    <div class="cusactivediv">
-                        <h2><span>Customer John Doe submited a new RSVP 14 hours back.</span></h2>
-                    </div>
-                    <div class="cusactivediv">
-                        <h2><span>Customer John Doe submited a new RSVP 14 hours back.</span></h2>
-                    </div>
-                    <div class="cusactivediv">
-                        <h2><span>Customer John Doe submited a new RSVP 14 hours back.</span></h2>
-                    </div>
-                    <div class="cusactivediv">
-                        <h2><span>Customer John Doe submited a new RSVP 14 hours back.</span></h2>
-                    </div>-->
-                    <div class="clearfix"></div>
-                  <!--  <div class="cusdashboardblock3links">
-                       <a>View All</a>
-                    </div>-->
-                </div>
-            </div>
-        </div>
-        <!-- /.row -->
-
-
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="cusdashboardblock3">
-                    <h4>Top Categories</h4>
-                    <a class="newviewallbtn">View All</a>
-
-                    <div class="clearfix"></div>
-                    <div class="cusactivediv" *ngFor="let item of catagorylist ; let j = index">
-                        <div *ngIf= "j<5">
-                            <h2><span >{{item.firstname}} <p> ( {{item.Postcategorydetail.length}} posts)</p></span>             <!--   This is the title of list  -->
-                                <input type="button" value="View Posts" (click)="showdetails1(item._id)">
-
-                                <div class="clearfix"></div>
-                            </h2>
-
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-        </div>
-        <!-- /.row -->
-
-
-
-
-        <div class="row equal">
-            <div class="col-lg-4 col-md-4">
+            <div class="  manage_social_accounts_body">
                 <div class="yourinboxblock">
                     <div class="yourinboxheader">
-                        <h2>Your Inbox</h2>
-                        <div class="viewall">
-                            <a>View All</a>
-                        </div>
+                        <h2>Manage Social  Accounts</h2>
+
                     </div>
                     <div class="row">
-                        <div class="col-lg-12 col-md-12">
-                            <ul class="inboxlists">
-                                <li>
-                                    <div class="imgwrapper"><img src="../assets/images/inboximgleft.jpg"></div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis sit amet ligula sit amet variu Loreipsum dolor sit amet.</p>
-                                    <span class="btnreply">
-                        <a>Reply</a>
-                       </span>
-                                </li>
-                                <li>
-                                    <div class="imgwrapper"><img src="../assets/images/inboximgleft.jpg"></div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis sit amet ligula sit amet variu Loreipsum dolor sit.</p>
-                                    <span class="btnreply">
-                        <a>Reply</a>
-                       </span>
-                                </li>
-                            </ul>
+                        <div class="container-fluid manage_social_accounts_wrapper">
 
-                            <div class="searchbox">
-                                <div class = "input-group">
-                                    <input type = "text" class = "form-control input-lg"><span class = "input-group-btn"><a href="writemail.html"><button class = "btn btn-default btnnewmsg" type = "button">New message</button></a>             </span>
-                                </div><!-- /input-group -->
+                            <div class="manage_social_div fbsocial_div" *ngIf ="this.usernameoffb==null">
+                                <div class="manage_social_img"><img src="../assets/images/adminfacebook.png" alt="#"></div>
+                                <div class="manage_social_text"><div class="manage_social_text_div"><a href="javascript:void(0)"><span (click)="loginWithFacebook()"> Connect</span></a></div></div>
+
+                                <div class="clearfix"></div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4">
-                <div class="recentrsvpblock">
-                    <div class="recentrsvpheader">
-                        <h2>Recent RSVP</h2>
-                        <div class="viewall"><a>View All</a></div>
-                    </div>
-                    <div class="recentrsvplists">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
-                                <div class="imgwrapper">
-                                    <img src="../assets/images/inboximgleft.jpg">
-                                    <div class="inactive"></div>
+
+                            <div class="manage_social_div twsocial_div"  *ngIf ="this.usernameoftwitter==null">
+                                <div class="manage_social_img"><img src="../assets/images/admintwitter.png" alt="#"></div>
+                                <div class="manage_social_text"><div class="manage_social_text_div"><a *ngIf="phplinktwitter" [attr.href]=phplinktwitter><span> Connect</span></a></div></div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="manage_social_div lnsocial_div" *ngIf ="this.usernameoflink==null">
+                                <div class="manage_social_img"><img src="../assets/images/adminin.png"></div>
+                                <div class="manage_social_text"><div class="manage_social_text_div"><a *ngIf="phplinklinkedin" [attr.href]=phplinklinkedin> <span> Connect</span></a></div></div>
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                            <div class="manage_social_div tmsocial_div" *ngIf ="this.usernameoftumblr==null">
+                                <div class="manage_social_img"><img src="../assets/images/tumblr-icon_big.png"></div>
+                                <div class="manage_social_text"><div class="manage_social_text_div"><a *ngIf="phplinktumblr" [attr.href]=phplinktumblr> <span> Connect</span></a></div></div>
+                                <div class="clearfix"></div>
+
+                            </div>
+
+
+
+
+                            <div class="manage_social_div fbsocial_div" *ngIf="this.usernameoffb">
+                                <div class="manage_social_img">
+                                    <img *ngIf="this.dpoffb" src="{{this.dpoffb}}" alt="#" class="userprofileimg">
+                                    <img src="../assets/images/fbicon1.png" alt="#" class="socialicon">
                                 </div>
-                                <p>Lorem ipsum.</p>
-                                <span>Yesterday</span>
-                                <span class="inactive"></span>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
-                                <div class="imgwrapper">
-                                    <img src="../assets/images/inboximgleft.jpg">
-                                    <div class="active"></div>
+                                <div class="manage_social_text">
+                                    <div class="manage_social_text_div">
+                                        <h2  *ngIf="this.usernameoffb">{{this.usernameoffb}}</h2>
+
+                                        <a (click)="loginWithFacebook()" ><span> Update</span></a>
+                                    </div>
+
                                 </div>
-                                <p>Lorem ipsum.</p>
-                                <span>Today</span>
-                                <span class="active"></span>
+
+                                <div class="clearfix"></div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
-                                <div class="imgwrapper">
-                                    <img src="../assets/images/inboximgleft.jpg">
-                                    <div class="inactive"></div>
-                                </div>
-                                <p>Lorem ipsum.</p>
-                                <span>12 March</span>
+
+                            <div class="manage_social_div twsocial_div" *ngIf="this.usernameoftwitter">
+
+                                <div class="manage_social_img">  <img *ngIf="this.imageoftwitter" src="{{this.imageoftwitter}}" alt="#" class="userprofileimg">
+                                    <img src="../assets/images/twicon1.png" alt="#" class="socialicon"></div>
+                                <div class="manage_social_text"> <div class="manage_social_text_div">
+                                    <h2  *ngIf="this.usernameoftwitter">{{this.usernameoftwitter}}</h2>
+                                    <a *ngIf="phplinktwitter" [attr.href]=phplinktwitter><span> Update</span></a></div></div>
+                                <div class="clearfix"></div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
-                                <div class="imgwrapper">
-                                    <img src="../assets/images/inboximgleft.jpg">
-                                    <div class="inactive"></div>
-                                </div>
-                                <p>Lorem ipsum.</p>
-                                <span>Yesterday</span>
+
+                            <div class="manage_social_div lnsocial_div" *ngIf="this.usernameoflink">
+                                <div class="manage_social_img">  <img *ngIf="this.imageoflink" src="{{this.imageoflink}}"  alt="#" class="userprofileimg">
+                                    <img src="../assets/images/inicon1.png" alt="#" class="socialicon"></div>
+                                <div class="manage_social_text"><div class="manage_social_text_div">
+                                    <h2  *ngIf="this.usernameoflink">{{this.usernameoflink}}</h2>
+                                    <a *ngIf="phplinklinkedin" [attr.href]=phplinklinkedin><span> Update</span></a></div></div>
+                                <div class="clearfix"></div>
+
                             </div>
+
+                            <div class="manage_social_div lnsocial_div" *ngIf="this.usernameoftumblr">
+                                <div class="manage_social_img">  <img *ngIf="this.imageoftumbler" src="{{this.imageoftumbler}}"  alt="#" class="userprofileimg">
+                                    <img src="../assets/images/tumblr-icon.png" alt="#" class="socialicon"></div>
+                                <div class="manage_social_text"><div class="manage_social_text_div">
+                                    <h2  *ngIf="this.usernameoftumblr">{{this.usernameoftumblr}}</h2>
+                                    <a *ngIf="phplinktumblr" [attr.href]=phplinktumblr><span> Update</span></a></div></div>
+                                <div class="clearfix"></div>
+
+                            </div>
+
                             <div class="clearfix"></div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
-                                <div class="imgwrapper">
-                                    <img src="../assets/images/inboximgleft.jpg">
-                                    <div class="inactive"></div>
-                                </div>
-                                <p>Lorem ipsum.</p>
-                                <span>Yesterday</span>
-                                <span class="inactive"></span>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
-                                <div class="imgwrapper">
-                                    <img src="../assets/images/inboximgleft.jpg">
-                                    <div class="active"></div>
-                                </div>
-                                <p>Lorem ipsum.</p>
-                                <span>Today</span>
-                                <span class="active"></span>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
-                                <div class="imgwrapper">
-                                    <img src="../assets/images/inboximgleft.jpg">
-                                    <div class="inactive"></div>
-                                </div>
-                                <p>Lorem ipsum.</p>
-                                <span>12 March</span>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
-                                <div class="imgwrapper">
-                                    <img src="../assets/images/inboximgleft.jpg">
-                                    <div class="inactive"></div>
-                                </div>
-                                <p>Lorem ipsum.</p>
-                                <span>Yesterday</span>
-                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4">
-                <div class="recentcusblock">
-                    <div class="recentcusheader">
-                        <h2>Recent Customers</h2>
-                        <div class="viewall"><a>View All</a></div>
+
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cusdashboardblock3">
+                        <h4>Recent Posts </h4>
+                        <a [routerLink]="['/viewallpostmanagement']"  class="newviewallbtn">View All</a>
+
+                        <div class="clearfix"></div>
+                        <div class="cusactivediv" *ngFor="let item of datalist ; let i = index">
+                            <div *ngIf= "i<5">
+                                <h2>
+                                <span >
+
+                                    <table width="100%">
+                                        <tr>
+
+
+                                     <td>
+                                    <label class="spandivblock">
+                                    <h6>
+                                    {{item.title}}
+                                    </h6>
+                                        <h3>{{item.content}}</h3>
+                                        <img width="60px" height="60px" src="../../assets/images/uploads/{{item.image}}"  class="td_imgblock">
+                                        <h5> {{item.link}}</h5>
+                                       <div class="socialiconimg_boX"> <img src="../assets/images/fbicon1.png" alt="#" class="socialiconimg">
+                                        <img src="../assets/images/twicon1.png" alt="#" class="socialiconimg" (click)="calltwitterpost()">
+                                        <img src="../assets/images/inicon1.png" alt="#" class="socialiconimg" (click)="calllinkedinpost()">
+                                        <img src="../assets/images/tumblr-icon.png" alt="#" class="socialiconimg" (click)="calltumblrpost()">
+                                    </div>
+                                    </label>
+                                            </td>
+
+                                            <td>
+                                            <div class="new_input_wrapper"> <input class="newinput1" type="button" value="View Post" (click)="showdetails(item._id)"></div>
+                                            </td>
+
+                                         </tr>
+
+                                    </table>
+                                </span>
+
+
+                                    <div class="clearfix"></div>
+
+                                </h2>
+                            </div>
+                        </div>
+                        <!-- <div class="cusactivediv">
+                            <h2 ><span>Customer John Doe submited a new RSVP 14 hours back.</span></h2>
+                        </div>
+                        <div class="cusactivediv">
+                            <h2><span>Customer John Doe submited a new RSVP 14 hours back.</span></h2>
+                        </div>
+                        <div class="cusactivediv">
+                            <h2><span>Customer John Doe submited a new RSVP 14 hours back.</span></h2>
+                        </div>
+                        <div class="cusactivediv">
+                            <h2><span>Customer John Doe submited a new RSVP 14 hours back.</span></h2>
+                        </div>
+                        <div class="cusactivediv">
+                            <h2><span>Customer John Doe submited a new RSVP 14 hours back.</span></h2>
+                        </div>-->
+                        <div class="clearfix"></div>
+                        <!--  <div class="cusdashboardblock3links">
+                             <a>View All</a>
+                          </div>-->
                     </div>
-                    <div class="recentrsvplists">
+                </div>
+            </div>
+            <!-- /.row -->
+
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cusdashboardblock3">
+                        <h4>Top Categories</h4>
+                        <a [routerLink]="['/viewallcategory']" class="newviewallbtn">View All</a>
+
+                        <div class="clearfix"></div>
+                        <!--  <div *ngFor="let item of subscribelist ; let k = index">-->
+                        <div class="cusactivediv cusactivediv2" *ngFor="let item of catagorylist ; let j = index">
+                            <div *ngIf= "j<5">
+                                <h2><span >
+                                    <table width="100%">
+                                        <tr>
+                                            <td>  {{item.firstname}} <p> ( {{item.Postcategorydetail.length}} posts)</p></td>
+
+                                            <td>    <div class="new_input_wrapper">
+                                                <!--<span class="newinput1" (click)="callsubscribe(item._id)">Subscribe</span>
+                                                <span class="newinput1" (click)="callunsubscribe(item._id)">Unsubscribe</span>-->
+
+                                                <span *ngIf="checksubscription(item.Subsdata)==false" class="newinput1 subscribe_btn" (click)="callsubscribe(item._id)">Subscribe</span>
+                                                <span *ngIf="checksubscription(item.Subsdata)== true" class="newinput1  unsubscribe_btn" (click)="callunsubscribe(item._id)">Unsubscribe</span>
+
+
+                                                <input class="newinput1" type="button" value="View Posts" (click)="showdetails1(item._id)">
+                                                <div class="clearfix"></div>
+                                            </div>
+
+
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </span>             <!--   This is the title of list  -->
+
+
+                                    <div class="clearfix"></div>
+                                </h2>
+
+                            </div>
+                        </div>
+                        <!--</div>-->
+
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+
+
+
+            <div class="row equal">
+                <div class="col-lg-4 col-md-4">
+                    <div class="yourinboxblock">
+                        <div class="yourinboxheader">
+                            <h2>Your Inbox</h2>
+                            <div class="viewall">
+                                <a>View All</a>
+                            </div>
+                        </div>
                         <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
-                                <div class="imgwrapper">
-                                    <img src="../assets/images/inboximgleft.jpg">
+                            <div class="col-lg-12 col-md-12">
+                                <ul class="inboxlists">
+                                    <li>
+                                        <div class="imgwrapper"><img src="../assets/images/inboximgleft.jpg"></div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis sit amet ligula sit amet variu Loreipsum dolor sit amet.</p>
+                                        <span class="btnreply">
+                        <a>Reply</a>
+                       </span>
+                                    </li>
+                                    <li>
+                                        <div class="imgwrapper"><img src="../assets/images/inboximgleft.jpg"></div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis sit amet ligula sit amet variu Loreipsum dolor sit.</p>
+                                        <span class="btnreply">
+                        <a>Reply</a>
+                       </span>
+                                    </li>
+                                </ul>
+
+                                <div class="searchbox">
+                                    <div class = "input-group">
+                                        <input type = "text" class = "form-control input-lg"><span class = "input-group-btn"><a href="writemail.html"><button class = "btn btn-default btnnewmsg" type = "button">New message</button></a>             </span>
+                                    </div><!-- /input-group -->
                                 </div>
-                                <p>Lorem ipsum.</p>
-                                <span>Yesterday</span>
-                                <span class="inactive"></span>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
-                                <div class="imgwrapper">
-                                    <img src="../assets/images/inboximgleft.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="recentrsvpblock">
+                        <div class="recentrsvpheader">
+                            <h2>Recent RSVP</h2>
+                            <div class="viewall"><a>View All</a></div>
+                        </div>
+                        <div class="recentrsvplists">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                        <div class="inactive"></div>
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Yesterday</span>
+                                    <span class="inactive"></span>
                                 </div>
-                                <p>Lorem ipsum.</p>
-                                <span>Today</span>
-                                <span class="active"></span>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                        <div class="active"></div>
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Today</span>
+                                    <span class="active"></span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                        <div class="inactive"></div>
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>12 March</span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                        <div class="inactive"></div>
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Yesterday</span>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                        <div class="inactive"></div>
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Yesterday</span>
+                                    <span class="inactive"></span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                        <div class="active"></div>
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Today</span>
+                                    <span class="active"></span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                        <div class="inactive"></div>
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>12 March</span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                        <div class="inactive"></div>
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Yesterday</span>
+                                </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
-                                <div class="imgwrapper">
-                                    <img src="../assets/images/inboximgleft.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="recentcusblock">
+                        <div class="recentcusheader">
+                            <h2>Recent Customers</h2>
+                            <div class="viewall"><a>View All</a></div>
+                        </div>
+                        <div class="recentrsvplists">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Yesterday</span>
+                                    <span class="inactive"></span>
                                 </div>
-                                <p>Lorem ipsum.</p>
-                                <span>12 March</span>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
-                                <div class="imgwrapper">
-                                    <img src="../assets/images/inboximgleft.jpg">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Today</span>
+                                    <span class="active"></span>
                                 </div>
-                                <p>Lorem ipsum.</p>
-                                <span>Yesterday</span>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
-                                <div class="imgwrapper">
-                                    <img src="../assets/images/inboximgleft.jpg">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>12 March</span>
                                 </div>
-                                <p>Lorem ipsum.</p>
-                                <span>Yesterday</span>
-                                <span class="inactive"></span>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
-                                <div class="imgwrapper">
-                                    <img src="../assets/images/inboximgleft.jpg">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Yesterday</span>
                                 </div>
-                                <p>Lorem ipsum.</p>
-                                <span>Today</span>
-                                <span class="active"></span>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
-                                <div class="imgwrapper">
-                                    <img src="../assets/images/inboximgleft.jpg">
+                                <div class="clearfix"></div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Yesterday</span>
+                                    <span class="inactive"></span>
                                 </div>
-                                <p>Lorem ipsum.</p>
-                                <span>12 March</span>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
-                                <div class="imgwrapper">
-                                    <img src="../assets/images/inboximgleft.jpg">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Today</span>
+                                    <span class="active"></span>
                                 </div>
-                                <p>Lorem ipsum.</p>
-                                <span>Yesterday</span>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>12 March</span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Yesterday</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
         </div>
-
-
-
     </div>
 </div>
-<!-- /#page-wrapper -->
+<div *ngIf="usertype==2" ngClass="wrappercontain2">
+    <div class="page-wrapper">
+        <div class="blockmaininner">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="pageheader"><span>Your</span> Dashboard</h1>
+                    <a (click)="logout()" class="newlogoutbtn">Log out</a>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="block1box">
+                        <div class="row eqWrap">
+                            <div class="col-lg-4 col-md-2 col-sm-2 col-xs-3 block1box1 vcenter">
+                                <div class="block1boxleftimgwrapper">
+                                    <img src="../assets/images/lead_icon1.png">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
+                                <h4>Total Leads :</h4>
+                                <h5>150</h5>
+                                <div class="btnview">
+                                    <a><span>View Leads</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="block1box">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-2 col-sm-2 col-xs-3 block1box1 vcenter">
+                                <div class="block1boxleftimgwrapper">
+                                    <img src="../assets/images/subscribe_icon3.png">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
+                                <h4>Total Subscribed Categories :</h4>
+                                <h5>4</h5>
+                                <div class="btnview">
+                                    <a><span>View Categories</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="block1box">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-2 col-sm-2 col-xs-3 block1box1 vcenter">
+                                <div class="block1boxleftimgwrapper">
+                                    <img src="../assets/images/post_icon2.png">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
+                                <h4>Total Available Posts :</h4>
+                                <h5>300</h5>
+                                <div class="btnview">
+                                    <a><span>View Posts</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="block1box">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-2 col-sm-2 col-xs-3 block1box1 vcenter">
+                                <div class="block1boxleftimgwrapper">
+                                    <img src="../assets/images/broadcasts_icon4.png">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
+                                <h4>Total Broadcasts :</h4>
+                                <h5>100</h5>
+                                <div class="btnview">
+                                    <a><span>View Broadcasts</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <input type="button" value="login" (click)="loginWithFacebook()">-->
 
-<!--
 
-&lt;!&ndash; jQuery &ndash;&gt;
-<script src="js/jquery.min.js"></script>
+            <div class="  manage_social_accounts_body">
+                <div class="yourinboxblock">
+                    <div class="yourinboxheader">
+                        <h2>Manage Social  Accounts</h2>
 
-&lt;!&ndash; Bootstrap Core JavaScript &ndash;&gt;
-<script src="js/bootstrap.min.js"></script>
+                    </div>
+                    <div class="row">
+                        <div class="container-fluid manage_social_accounts_wrapper">
 
-</body>
+                            <div class="manage_social_div fbsocial_div" *ngIf ="this.usernameoffb==null">
+                                <div class="manage_social_img"><img src="../assets/images/adminfacebook.png" alt="#"></div>
+                                <div class="manage_social_text"><div class="manage_social_text_div"><a href="javascript:void(0)"><span (click)="loginWithFacebook()"> Connect</span></a></div></div>
 
-</html>
--->
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="manage_social_div twsocial_div"  *ngIf ="this.usernameoftwitter==null">
+                                <div class="manage_social_img"><img src="../assets/images/admintwitter.png" alt="#"></div>
+                                <div class="manage_social_text"><div class="manage_social_text_div"><a *ngIf="phplinktwitter" [attr.href]=phplinktwitter><span> Connect</span></a></div></div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="manage_social_div lnsocial_div" *ngIf ="this.usernameoflink==null">
+                                <div class="manage_social_img"><img src="../assets/images/adminin.png"></div>
+                                <div class="manage_social_text"><div class="manage_social_text_div"><a *ngIf="phplinklinkedin" [attr.href]=phplinklinkedin> <span> Connect</span></a></div></div>
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                            <div class="manage_social_div tmsocial_div" *ngIf ="this.usernameoftumblr==null">
+                                <div class="manage_social_img"><img src="../assets/images/tumblr-icon_big.png"></div>
+                                <div class="manage_social_text"><div class="manage_social_text_div"><a *ngIf="phplinktumblr" [attr.href]=phplinktumblr> <span> Connect</span></a></div></div>
+                                <div class="clearfix"></div>
+
+                            </div>
+
+
+
+
+                            <div class="manage_social_div fbsocial_div" *ngIf="this.usernameoffb">
+                                <div class="manage_social_img">
+                                    <img *ngIf="this.dpoffb" src="{{this.dpoffb}}" alt="#" class="userprofileimg">
+                                    <img src="../assets/images/fbicon1.png" alt="#" class="socialicon">
+                                </div>
+                                <div class="manage_social_text">
+                                    <div class="manage_social_text_div">
+                                        <h2  *ngIf="this.usernameoffb">{{this.usernameoffb}}</h2>
+
+                                        <a (click)="loginWithFacebook()" ><span> Update</span></a>
+                                    </div>
+
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="manage_social_div twsocial_div" *ngIf="this.usernameoftwitter">
+
+                                <div class="manage_social_img">  <img *ngIf="this.imageoftwitter" src="{{this.imageoftwitter}}" alt="#" class="userprofileimg">
+                                    <img src="../assets/images/twicon1.png" alt="#" class="socialicon"></div>
+                                <div class="manage_social_text"> <div class="manage_social_text_div">
+                                    <h2  *ngIf="this.usernameoftwitter">{{this.usernameoftwitter}}</h2>
+                                    <a *ngIf="phplinktwitter" [attr.href]=phplinktwitter><span> Update</span></a></div></div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="manage_social_div lnsocial_div" *ngIf="this.usernameoflink">
+                                <div class="manage_social_img">  <img *ngIf="this.imageoflink" src="{{this.imageoflink}}"  alt="#" class="userprofileimg">
+                                    <img src="../assets/images/inicon1.png" alt="#" class="socialicon"></div>
+                                <div class="manage_social_text"><div class="manage_social_text_div">
+                                    <h2  *ngIf="this.usernameoflink">{{this.usernameoflink}}</h2>
+                                    <a *ngIf="phplinklinkedin" [attr.href]=phplinklinkedin><span> Update</span></a></div></div>
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                            <div class="manage_social_div lnsocial_div" *ngIf="this.usernameoftumblr">
+                                <div class="manage_social_img">  <img *ngIf="this.imageoftumbler" src="{{this.imageoftumbler}}"  alt="#" class="userprofileimg">
+                                    <img src="../assets/images/tumblr-icon.png" alt="#" class="socialicon"></div>
+                                <div class="manage_social_text"><div class="manage_social_text_div">
+                                    <h2  *ngIf="this.usernameoftumblr">{{this.usernameoftumblr}}</h2>
+                                    <a *ngIf="phplinktumblr" [attr.href]=phplinktumblr><span> Update</span></a></div></div>
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cusdashboardblock3">
+                        <h4>Recent Posts </h4>
+                        <a [routerLink]="['/viewallpostmanagement']"  class="newviewallbtn">View All</a>
+
+                        <div class="clearfix"></div>
+                        <div class="cusactivediv" *ngFor="let item of datalist ; let i = index">
+                            <div *ngIf= "i<5">
+                                <h2>
+                                <span >
+
+                                    <table width="100%">
+                                        <tr>
+
+
+                                     <td>
+                                    <label class="spandivblock">
+                                    <h6>
+                                    {{item.title}}
+                                    </h6>
+                                        <h3>{{item.content}}</h3>
+                                        <img width="60px" height="60px" src="../../assets/images/uploads/{{item.image}}"  class="td_imgblock">
+                                        <h5> {{item.link}}</h5>
+                                       <div class="socialiconimg_boX"> <img src="../assets/images/fbicon1.png" alt="#" class="socialiconimg">
+                                        <img src="../assets/images/twicon1.png" alt="#" class="socialiconimg" (click)="twitterpost(item._id)">
+                                        <img src="../assets/images/inicon1.png" alt="#" class="socialiconimg">
+                                        <img src="../assets/images/tumblr-icon.png" alt="#" class="socialiconimg">
+                                    </div>
+                                    </label>
+                                            </td>
+
+                                            <td>
+                                            <div class="new_input_wrapper"> <input class="newinput1" type="button" value="View Post" (click)="showdetails(item._id)"></div>
+                                            </td>
+
+                                         </tr>
+
+                                    </table>
+                                </span>
+
+
+                                    <div class="clearfix"></div>
+
+                                </h2>
+                            </div>
+                        </div>
+                        <!-- <div class="cusactivediv">
+                            <h2 ><span>Customer John Doe submited a new RSVP 14 hours back.</span></h2>
+                        </div>
+                        <div class="cusactivediv">
+                            <h2><span>Customer John Doe submited a new RSVP 14 hours back.</span></h2>
+                        </div>
+                        <div class="cusactivediv">
+                            <h2><span>Customer John Doe submited a new RSVP 14 hours back.</span></h2>
+                        </div>
+                        <div class="cusactivediv">
+                            <h2><span>Customer John Doe submited a new RSVP 14 hours back.</span></h2>
+                        </div>
+                        <div class="cusactivediv">
+                            <h2><span>Customer John Doe submited a new RSVP 14 hours back.</span></h2>
+                        </div>-->
+                        <div class="clearfix"></div>
+                        <!--  <div class="cusdashboardblock3links">
+                             <a>View All</a>
+                          </div>-->
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cusdashboardblock3">
+                        <h4>Top Categories</h4>
+                        <a [routerLink]="['/viewallcategory']" class="newviewallbtn">View All</a>
+
+                        <div class="clearfix"></div>
+                        <!--  <div *ngFor="let item of subscribelist ; let k = index">-->
+                        <div class="cusactivediv cusactivediv2" *ngFor="let item of catagorylist ; let j = index">
+                            <div *ngIf= "j<5">
+                                <h2><span >
+                                    <table width="100%">
+                                        <tr>
+                                            <td>  {{item.firstname}} <p> ( {{item.Postcategorydetail.length}} posts)</p></td>
+
+                                            <td>    <div class="new_input_wrapper">
+                                                <!--<span class="newinput1" (click)="callsubscribe(item._id)">Subscribe</span>
+                                                <span class="newinput1" (click)="callunsubscribe(item._id)">Unsubscribe</span>-->
+
+                                                <span *ngIf="checksubscription(item.Subsdata)==false" class="newinput1 subscribe_btn" (click)="callsubscribe(item._id)">Subscribe</span>
+                                                <span *ngIf="checksubscription(item.Subsdata)== true" class="newinput1  unsubscribe_btn" (click)="callunsubscribe(item._id)">Unsubscribe</span>
+
+
+                                                <input class="newinput1" type="button" value="View Posts" (click)="showdetails1(item._id)">
+                                                <div class="clearfix"></div>
+                                            </div>
+
+
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </span>             <!--   This is the title of list  -->
+
+
+                                    <div class="clearfix"></div>
+                                </h2>
+
+                            </div>
+                        </div>
+                        <!--</div>-->
+
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+
+
+
+            <div class="row equal">
+                <div class="col-lg-4 col-md-4">
+                    <div class="yourinboxblock">
+                        <div class="yourinboxheader">
+                            <h2>Your Inbox</h2>
+                            <div class="viewall">
+                                <a>View All</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <ul class="inboxlists">
+                                    <li>
+                                        <div class="imgwrapper"><img src="../assets/images/inboximgleft.jpg"></div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis sit amet ligula sit amet variu Loreipsum dolor sit amet.</p>
+                                        <span class="btnreply">
+                        <a>Reply</a>
+                       </span>
+                                    </li>
+                                    <li>
+                                        <div class="imgwrapper"><img src="../assets/images/inboximgleft.jpg"></div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis sit amet ligula sit amet variu Loreipsum dolor sit.</p>
+                                        <span class="btnreply">
+                        <a>Reply</a>
+                       </span>
+                                    </li>
+                                </ul>
+
+                                <div class="searchbox">
+                                    <div class = "input-group">
+                                        <input type = "text" class = "form-control input-lg"><span class = "input-group-btn"><a href="writemail.html"><button class = "btn btn-default btnnewmsg" type = "button">New message</button></a>             </span>
+                                    </div><!-- /input-group -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="recentrsvpblock">
+                        <div class="recentrsvpheader">
+                            <h2>Recent RSVP</h2>
+                            <div class="viewall"><a>View All</a></div>
+                        </div>
+                        <div class="recentrsvplists">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                        <div class="inactive"></div>
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Yesterday</span>
+                                    <span class="inactive"></span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                        <div class="active"></div>
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Today</span>
+                                    <span class="active"></span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                        <div class="inactive"></div>
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>12 March</span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                        <div class="inactive"></div>
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Yesterday</span>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                        <div class="inactive"></div>
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Yesterday</span>
+                                    <span class="inactive"></span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                        <div class="active"></div>
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Today</span>
+                                    <span class="active"></span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                        <div class="inactive"></div>
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>12 March</span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentrsvpsinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                        <div class="inactive"></div>
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Yesterday</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="recentcusblock">
+                        <div class="recentcusheader">
+                            <h2>Recent Customers</h2>
+                            <div class="viewall"><a>View All</a></div>
+                        </div>
+                        <div class="recentrsvplists">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Yesterday</span>
+                                    <span class="inactive"></span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Today</span>
+                                    <span class="active"></span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>12 March</span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Yesterday</span>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Yesterday</span>
+                                    <span class="inactive"></span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Today</span>
+                                    <span class="active"></span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>12 March</span>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 recentcussinglelist">
+                                    <div class="imgwrapper">
+                                        <img src="../assets/images/inboximgleft.jpg">
+                                    </div>
+                                    <p>Lorem ipsum.</p>
+                                    <span>Yesterday</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 
 <div *ngIf="isModalShown1" class="modal fade" (onHidden)="onHidden(1)" bsModal #staticModal="bs-modal" [config]="{ show: true}"
      tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -501,9 +1031,9 @@
                 </button>
             </div>
             <div class="modal-body">
+                <p>{{showdetailofpost.title}}</p>
+                <div class="popupimg"><img src="../../assets/images/uploads/{{showdetailofpost.image}}" ></div>
 
-                <div class="popupimg"><img src="../assets/images/newlogo.png"></div>
-                <h2>{{showdetailofpost.title}}</h2>
 
 
              <!--   <p>{{showdetailofpost.PostManegementdata.firstname}}</p>-->

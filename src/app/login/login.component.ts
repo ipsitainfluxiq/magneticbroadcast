@@ -18,15 +18,20 @@ export class LoginComponent implements OnInit {
   private isemailvalidate;
   public is_error;
   private addcookie: CookieService;
+  private addcookie1: CookieService;
   private cookiedetails;
+  private usertype;
   public serverurl;
+  public user: any;
 
 
-  constructor(fb: FormBuilder, addcookie: CookieService, private _http: Http, private router: Router, private _commonservices: Commonservices) {
+  constructor(fb: FormBuilder, addcookie: CookieService, addcookie1: CookieService, private _http: Http, private router: Router, private _commonservices: Commonservices) {
     this.fb = fb;
     this.addcookie = addcookie ;
+    this.addcookie1 = addcookie1 ;
     this.serverurl = _commonservices.url;
     this.cookiedetails = this.addcookie.getObject('cookiedetails');
+    this.usertype = this.addcookie1.getObject('usertype');
      if (typeof (this.cookiedetails) != 'undefined') {
        this.router.navigateByUrl('/adminlist');
      }
@@ -56,10 +61,15 @@ export class LoginComponent implements OnInit {
           .subscribe(res => {
             let result = res.json();
             if (result.status == 'success') {
+              console.log('result8888888888888888');
               this.addcookie.putObject('cookiedetails', result.msg);    // Value of result.msg is inserted to userdetails
               this.cookiedetails = this.addcookie.getObject('cookiedetails');
               console.log('after putobject ');
               console.log(this.cookiedetails);
+              this.addcookie1.putObject('usertype', result.msg.type);
+              this.usertype = this.addcookie1.getObject('usertype');
+              console.log('after putobject9999999 ');
+              console.log(this.usertype);
               this.router.navigateByUrl('/dashboard');
             }
             else {

@@ -164,8 +164,8 @@ try {
                     $linkedin_oauth_token = $response['linkedin']['oauth_token'];
                     //  print_r($response['linkedin']['oauth_token_secret']);
                     $linkedin_oauth_token_secret = $response['linkedin']['oauth_token_secret'];
-                    print_r('value is');
-                    print_r($_SESSION['loginid']);
+                  //  print_r('value is');
+                   // print_r($_SESSION['loginid']);
                    // if ((isset($_SESSION['loginid']))) {
                         if ($linkedin_oauth_token != null || $linkedin_oauth_token_secret != null) {
                             $headers = [];
@@ -253,7 +253,7 @@ try {
             <!DOCTYPE html>
             <html lang="en">
             <head>
-                <title>Simple-LinkedIn Demo</title>
+               <!-- <title>Simple-LinkedIn Demo</title>-->
 
                 <meta charset="utf-8" />
                 <meta name="viewport" content="width=device-width" />
@@ -267,9 +267,9 @@ try {
                 </style>
             </head>
             <body>
-            <h1><a href="<?php echo $_SERVER['PHP_SELF'];?>">Simple-LinkedIn Demo</a></h1>
+            <h1><a href="<?php echo $_SERVER['PHP_SELF'];?>"><!--Simple-LinkedIn Demo--></a></h1>
 
-            <p>Copyright 2010 - 2011, Paul Mennega, fiftyMission Inc. &lt;paul@fiftymission.net&gt;</p>
+          <!--  <p>Copyright 2010 - 2011, Paul Mennega, fiftyMission Inc. &lt;paul@fiftymission.net&gt;</p>
 
             <p>Released under the MIT License - http://www.opensource.org/licenses/mit-license.php</p>
 
@@ -281,13 +281,13 @@ try {
 
             <hr />
 
-            <p style="font-weight: bold;">Demo using: Simple-LinkedIn v<?php echo LINKEDIN::_VERSION;?>, cURL v<?php echo $curl_version;?>, PHP v<?php echo phpversion();?></p>
+            <p style="font-weight: bold;">Demo using: Simple-LinkedIn v<?php /*echo LINKEDIN::_VERSION;*/?>, cURL v<?php /*echo $curl_version;*/?>, PHP v<?php /*echo phpversion();*/?></p>
 
             <ul>
                 <li>Please note: The Simple-LinkedIn class requires PHP 5+</li>
             </ul>
 
-            <hr />
+            <hr />-->
 
             <?php
             $_SESSION['oauth']['linkedin']['authorized'] = (isset($_SESSION['oauth']['linkedin']['authorized'])) ? $_SESSION['oauth']['linkedin']['authorized'] : FALSE;
@@ -297,7 +297,7 @@ try {
                 $OBJ_linkedin->setResponseFormat(LINKEDIN::_RESPONSE_XML);
                 ?>
                 <ul>
-                    <li><a href="#manage">Manage LinkedIn Authorization</a></li>
+                    <!--<li><a href="#manage">Manage LinkedIn Authorization</a></li>
                     <li><a href="#application">Application Information</a></li>
                     <li><a href="#profile">Your Profile</a></li>
                     <li><a href="demo/network.php">Your Network</a>
@@ -329,7 +329,7 @@ try {
                             <li><a href="demo/content.php#contentUpdate">Post Network Update</a></li>
                             <li><a href="demo/content.php#contentShare">Post Share</a></li>
                         </ul>
-                    </li>
+                    </li>-->
                     <?php
 
                     // check if the viewer is a member of the test group
@@ -339,42 +339,42 @@ try {
                         $membership     = $result->{'relation-to-viewer'}->{'membership-state'}->code;
                         $in_demo_group  = (($membership == 'non-member') || ($membership == 'blocked')) ? FALSE : TRUE;
                         ?>
-                        <li><a href="demo/groups.php">Groups API</a>
+                        <!--<li><a href="demo/groups.php">Groups API</a>
                             <ul>
                                 <li><a href="demo/groups.php#groupsSuggested">Suggested Groups</a></li>
                                 <li><a href="demo/groups.php#groupMemberships">Group Memberships</a></li>
-                                <li><a href="demo/groups.php#manageGroup">Manage '<?php echo DEMO_GROUP_NAME;?>' Group Membership</a></li>
+                                <li><a href="demo/groups.php#manageGroup">Manage '<?php /*echo DEMO_GROUP_NAME;*/?>' Group Membership</a></li>
                                 <?php
-                                if($in_demo_group) {
-                                    ?>
+/*                                if($in_demo_group) {
+                                    */?>
                                     <li><a href="demo/groups.php#groupSettings">Group Settings</a></li>
                                     <li><a href="demo/groups.php#groupPosts">Group Posts</a></li>
                                     <li><a href="demo/groups.php#createPost">Create a Group Post</a></li>
                                     <?php
-                                }
-                                ?>
+/*                                }
+                                */?>
                             </ul>
-                        </li>
+                        </li>-->
                         <?php
                     } else {
                         // request failed
-                        echo "Error retrieving group membership information: <br /><br />RESPONSE:<br /><br /><pre>" . print_r ($response, TRUE) . "</pre>";
+                       /* echo "Error retrieving group membership information: <br /><br />RESPONSE:<br /><br /><pre>" . print_r ($response, TRUE) . "</pre>";*/
                     }
                     ?>
                 </ul>
                 <?php
             } else {
                 ?>
-                <ul>
+               <!-- <ul>
                     <li><a href="#manage">Manage LinkedIn Authorization</a></li>
-                </ul>
+                </ul>-->
                 <?php
             }
             ?>
 
             <hr />
 
-            <h2 id="manage">Manage LinkedIn Authorization:</h2>
+           <!-- <h2 id="manage">Manage LinkedIn Authorization:</h2>-->
             <?php
             if($_SESSION['oauth']['linkedin']['authorized'] === TRUE) {
                 // user is already connected
@@ -387,7 +387,7 @@ try {
 
                 <hr />
 
-                <h2 id="application">Application Information:</h2>
+              <!--  <h2 id="application">Application Information:</h2>-->
 
                 <ul>
                     <li>Application Key:
@@ -415,7 +415,8 @@ try {
                 ?>
                 <form id="linkedin_connect_form" action="<?php echo $_SERVER['PHP_SELF'];?>" method="get">
                     <input type="hidden" name="<?php echo LINKEDIN::_GET_TYPE;?>" id="<?php echo LINKEDIN::_GET_TYPE;?>" value="initiate" />
-                    <input type="submit" id="submitlink" value="Connect to LinkedIn" />
+                    <!--<input type="submit" id="submitlink" value="Connect to LinkedIn" />-->
+                    <input type="submit" id="submitlink"/>
                     <input type="hidden" name="id" value="<?php echo $_SESSION['loginid']; ?>">
                 </form>
 
@@ -432,10 +433,10 @@ try {
                 <?php
             }
             ?>
-            <footer>
+           <!-- <footer>
                 <div>Copyright 2010 - 2011, fiftyMission Inc. (Paul Mennega &lt;<a href="mailto:paul@fiftymission.net">paul@fiftymission.net</a>&gt;)</div>
                 <div>Released under the MIT License - <a href="http://www.opensource.org/licenses/mit-license.php">http://www.opensource.org/licenses/mit-license.php</a></div>
-            </footer>
+            </footer>-->
             </body>
             </html>
             <?php
