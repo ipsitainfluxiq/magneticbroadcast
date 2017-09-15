@@ -8,7 +8,6 @@ import {Commonservices} from '../app.commonservices' ;
 @Component({
   selector: 'app-leadpage1',
   templateUrl: './leadpage1.component.html',
- /* styleUrls: ['./assets/css/styles_landingpage.css', 'assets/css/media_landingpage.css'],*/
   styleUrls: ['./leadpage1.component.css'],
   providers: [Commonservices],
 })

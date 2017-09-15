@@ -8,10 +8,10 @@ import { FacebookService, InitParams, LoginResponse } from 'ngx-facebook';
 import { TwitterService } from 'ng2-twitter';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
-  providers: [Commonservices],
+    selector: 'app-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.css'],
+    providers: [Commonservices],
 })
 export class DashboardComponent implements OnInit {
     private addcookie: CookieService;
@@ -76,7 +76,7 @@ export class DashboardComponent implements OnInit {
         console.log('loginid is' + this.cookiedetails._id);
         this.phplinktwitter = 'http://magneticbroadcast.com/development/php/index.php?id=' + this.logid; // this is for twitter
         this.phplinklinkedin = 'http://magneticbroadcast.com/development/php/linkedinconnect.php?id=' + this.logid;
-       // this.phplinktumblr = 'http://magneticbroadcast.com/development/php/connect1.php?id=' + this.logid;
+        // this.phplinktumblr = 'http://magneticbroadcast.com/development/php/connect1.php?id=' + this.logid;
         this.phplinktumblr = '/php/tumblrconnect.php?id=' + this.logid;
         console.log('========' + this.phplinklinkedin);
         this.isModalShown1 = false;
@@ -91,7 +91,7 @@ export class DashboardComponent implements OnInit {
             version: 'v2.10'
         };
         fb.init(initParams);
-       // this.callsubs();
+        // this.callsubs();
         /*let link  = this.serverurl + 'subscribedornot';
             let data = {
                 logid: this.logid,
@@ -227,7 +227,7 @@ export class DashboardComponent implements OnInit {
             .subscribe(res => {
                 this.result44 = res;
                 console.log('result for fb dp');
-               // console.log(this.result44);
+                // console.log(this.result44);
                 this.dpoffb = this.result44.url;
                 console.log(this.dpoffb);
             }, error => {
@@ -291,8 +291,8 @@ export class DashboardComponent implements OnInit {
                 let result5 = res.json();
                 console.log('result5++++++++++++++++++++++++++++++++++++');
                 console.log(result5);
-                 this.usernameoflink = result5.fname + ' ' + result5.lname;
-                 this.imageoflink = result5.image;
+                this.usernameoflink = result5.fname + ' ' + result5.lname;
+                this.imageoflink = result5.image;
                 console.log(this.usernameoflink);
                 console.log(this.imageoflink);
             }, error => {
@@ -334,100 +334,100 @@ export class DashboardComponent implements OnInit {
     }
 
 
-  addfacebooklogindata(response: any) {
-    this.all_details = this.fb.getAuthResponse();                           // 1st call
-    console.log('this.all_details===========');
-   // console.log(this.all_details);
-    if (typeof(this.all_details) != 'undefined') {
-      this.accesstoken = this.all_details.accessToken;
-      this.userid = this.all_details.userID;
+    addfacebooklogindata(response: any) {
+        this.all_details = this.fb.getAuthResponse();                           // 1st call
+        console.log('this.all_details===========');
+        // console.log(this.all_details);
+        if (typeof(this.all_details) != 'undefined') {
+            this.accesstoken = this.all_details.accessToken;
+            this.userid = this.all_details.userID;
 
-      /*console.log('in addfacebook function');
+            /*console.log('in addfacebook function');
       console.log(this.all_details);
       console.log('in addfacebook function');*/
-     // console.log(this.accesstoken);
-     // console.log(this.userid);
-      this.callfunc();
+            // console.log(this.accesstoken);
+            // console.log(this.userid);
+            this.callfunc();
 
+        }
     }
-  }
-  callfunc() {                                                          // 2nd call
-    let link = this.serverurl + 'fbcall';
-    let data = {
-      token: this.accesstoken,
-      client_id: this.client_id,
-      client_secret: this.client_secret,
-      loginid: this.cookiedetails._id,
-      userid: this.userid,
-    };
-    this._http.post(link,data)
-        .subscribe(res => {
-          let result = res.json();
-        //  console.log(result.htmlval.access_token);
-          // this.datalist = result;
-         //  console.log(result);
-          this.longterm_token = result.htmlval.access_token;
-          this.long_token_exp = result.htmlval.expires_in;
-          console.log(this.long_token_exp);
-          console.log(this.longterm_token);
-            this.callfbvalues();
-        }, error => {
-          console.log('Oooops!');
-        });
-  }
-
-
-  ngOnInit() {
-    this.getManagerList();
-    this.getcategoryList();
-  }
-  onHidden(type) {
-    if (type == 1) {
-      this.isModalShown1 = false;
+    callfunc() {                                                          // 2nd call
+        let link = this.serverurl + 'fbcall';
+        let data = {
+            token: this.accesstoken,
+            client_id: this.client_id,
+            client_secret: this.client_secret,
+            loginid: this.cookiedetails._id,
+            userid: this.userid,
+        };
+        this._http.post(link,data)
+            .subscribe(res => {
+                let result = res.json();
+                //  console.log(result.htmlval.access_token);
+                // this.datalist = result;
+                //  console.log(result);
+                this.longterm_token = result.htmlval.access_token;
+                this.long_token_exp = result.htmlval.expires_in;
+                console.log(this.long_token_exp);
+                console.log(this.longterm_token);
+                this.callfbvalues();
+            }, error => {
+                console.log('Oooops!');
+            });
     }
-    if (type == 2) {
-      this.isModalShown2 = false;
-    }
-  }
-  getManagerList() {
-    let link = this.serverurl + 'postmanagementlist';
-    this._http.get(link)
-        .subscribe(res => {
-          let result6 = res.json();
-          this.datalist = result6;
-           console.log('this.datalist==========9999===');
-           console.log(this.datalist);
-        }, error => {
-          console.log('Oooops!');
-        });
-  }
 
-  getcategoryList() {
-   // let link = this.serverurl + 'getcategorylist';
-    let link = this.serverurl + 'getcategorylist_subscribedornot';
-    this._http.get(link)
-        .subscribe(res => {
-          let result = res.json();
-          this.catagorylist = result;
-        //  this.catagorylength = this.catagorylist.length;
-          console.log('this.catagorylist----------------++++----');
-          console.log(this.catagorylist);
-        }, error => {
-          console.log('Oooops!');
-        });
-  }
+
+    ngOnInit() {
+        this.getManagerList();
+        this.getcategoryList();
+    }
+    onHidden(type) {
+        if (type == 1) {
+            this.isModalShown1 = false;
+        }
+        if (type == 2) {
+            this.isModalShown2 = false;
+        }
+    }
+    getManagerList() {
+        let link = this.serverurl + 'postmanagementlist';
+        this._http.get(link)
+            .subscribe(res => {
+                let result6 = res.json();
+                this.datalist = result6;
+                console.log('this.datalist==========9999===');
+                console.log(this.datalist);
+            }, error => {
+                console.log('Oooops!');
+            });
+    }
+
+    getcategoryList() {
+        // let link = this.serverurl + 'getcategorylist';
+        let link = this.serverurl + 'getcategorylist_subscribedornot';
+        this._http.get(link)
+            .subscribe(res => {
+                let result = res.json();
+                this.catagorylist = result;
+                //  this.catagorylength = this.catagorylist.length;
+                console.log('this.catagorylist----------------++++----');
+                console.log(this.catagorylist);
+            }, error => {
+                console.log('Oooops!');
+            });
+    }
 
 
 
     checksubscription(val : any){
-      //  console.log(' in check subscription');
-       // console.log(val);
-      //  console.log(val.length);
+        //  console.log(' in check subscription');
+        // console.log(val);
+        //  console.log(val.length);
         if(val.length==0) return false;
-      //  console.log(this.logid);
+        //  console.log(this.logid);
         let x : any;
         for(x in val){
-         //   console.log(val[x]);
+            //   console.log(val[x]);
             if(val[x].logid == this.logid){
                 return true;
             }
@@ -435,16 +435,16 @@ export class DashboardComponent implements OnInit {
         return false;
     }
     showdetails(id) {
-    this.showdetailofpost = '';
-    for ( let i in this.datalist) {
-      if (this.datalist[i]._id == id) {
-        this.showdetailofpost = this.datalist[i];
-      }
+        this.showdetailofpost = '';
+        for ( let i in this.datalist) {
+            if (this.datalist[i]._id == id) {
+                this.showdetailofpost = this.datalist[i];
+            }
+        }
+        console.log('showdetailofpost/////////////');
+        console.log(this.showdetailofpost);
+        this.isModalShown1 = true;
     }
-      console.log('showdetailofpost/////////////');
-      console.log(this.showdetailofpost);
-    this.isModalShown1 = true;
-  }
 
     callsubscribe(categoryid) {
         console.log(this.logid);
@@ -473,9 +473,9 @@ export class DashboardComponent implements OnInit {
         console.log('data77777777');
         this._http.post(link, data)
             .subscribe(res => {
-               // let result = res.json();
-              //  console.log('result');
-              //  console.log(result);
+                // let result = res.json();
+                //  console.log('result');
+                //  console.log(result);
             }, error => {
                 console.log('Oooops!');
             });
@@ -484,17 +484,17 @@ export class DashboardComponent implements OnInit {
         }, 300);
     }
 
-  showdetails1(id) {
-    this.allposts = '';
-    for ( let i in this.catagorylist) {
-      if (this.catagorylist[i]._id == id) {
-        /*this.allposts = this.catagorylist[i].Postcategorydetail;*/
-        this.allposts = this.catagorylist[i];
-      }
+    showdetails1(id) {
+        this.allposts = '';
+        for ( let i in this.catagorylist) {
+            if (this.catagorylist[i]._id == id) {
+                /*this.allposts = this.catagorylist[i].Postcategorydetail;*/
+                this.allposts = this.catagorylist[i];
+            }
+        }
+        console.log(this.allposts);
+        this.isModalShown2 = true;
     }
-    console.log(this.allposts);
-    this.isModalShown2 = true;
-  }
 
     logout()
     {
