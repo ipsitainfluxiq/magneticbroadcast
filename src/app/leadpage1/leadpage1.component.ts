@@ -3,7 +3,8 @@ import { FormGroup, Validators, FormControl, FormBuilder} from '@angular/forms';
 import {Http} from '@angular/http';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import {Commonservices} from '../app.commonservices' ;
-
+// import { Meta } from '@angular/platform-browser';
+import { MetaService } from 'ng2-meta';
 
 @Component({
   selector: 'app-leadpage1',
@@ -19,11 +20,13 @@ export class Leadpage1Component implements OnInit {
   static blankemail;
   public isModalShown: boolean = false;
 
-  constructor(fb: FormBuilder, private _http: Http, private router: Router, private _commonservices: Commonservices) {
+  constructor(fb: FormBuilder, private _http: Http, private router: Router, private _commonservices: Commonservices, private metaService: MetaService) {
     this.fb = fb;
     this.serverurl = _commonservices.url;
     Leadpage1Component.blankemail = false;
     Leadpage1Component.invalidemail = false;
+    // this.metaService.setTitle({ name: 'property', content: 'content' });
+    this.metaService.setTitle('Product page for product name');
   }
 
   ngOnInit() {
@@ -33,6 +36,8 @@ export class Leadpage1Component implements OnInit {
       phone: [''],
       zip: ['']
     });
+/*    this.metaService.setTitle('Product page for NAME');
+     this.metaService.setTag('og:image', 'hiiie');*/
   }
 
 

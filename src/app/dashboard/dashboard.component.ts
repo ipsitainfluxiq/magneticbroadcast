@@ -188,10 +188,14 @@ export class DashboardComponent implements OnInit {
             });
     }
 
-    calltwitterpost() {
-        let link4 = 'http://magneticbroadcast.com/development/php/postvalfortwitter.php?id=' + this.logid + '&oauth_token=' + this.oauth_token + '&oauth_token_secret=' + this.oauth_token_secret;
+    calltwitterpost(title, linkis) {
+        let link4 = 'http://magneticbroadcast.com/development/php/postvalfortwitter.php';
         this.data = {
-            id: this.cookiedetails._id
+            id: this.cookiedetails._id,
+            linkval: title + ' ' + linkis + '/' + this.cookiedetails._id,
+            oauth_token : this.oauth_token,
+            oauth_token_secret : this.oauth_token_secret,
+          //  logid :  this.logid
         };
         this._http.post(link4, this.data)
             .subscribe(res => {

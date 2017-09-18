@@ -209,7 +209,7 @@
                                                         <img width="60px" height="60px" src="../../assets/images/uploads/{{item.image}}"  class="td_imgblock">
                                                         <h5> {{item.link}}</h5>
                                                         <div class="socialiconimg_boX"> <img src="../assets/images/fbicon1.png" alt="#" class="socialiconimg">
-                                                            <img src="../assets/images/twicon1.png" alt="#" class="socialiconimg" (click)="calltwitterpost()">
+                                                            <img src="../assets/images/twicon1.png" alt="#" class="socialiconimg" (click)="calltwitterpost(item.title,item.link)">
                                                             <img src="../assets/images/inicon1.png" alt="#" class="socialiconimg" (click)="calllinkedinpost()">
                                                             <img src="../assets/images/tumblr-icon.png" alt="#" class="socialiconimg" (click)="calltumblrpost()">
                                                         </div>
@@ -1073,3 +1073,6 @@
         </div>
     </div>
 </div>
+
+
+
