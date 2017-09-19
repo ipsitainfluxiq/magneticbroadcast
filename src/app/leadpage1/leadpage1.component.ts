@@ -5,6 +5,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import {Commonservices} from '../app.commonservices' ;
 // import { Meta } from '@angular/platform-browser';
 import { MetaService } from 'ng2-meta';
+import { MetaModule } from 'ng2-meta';
 
 @Component({
   selector: 'app-leadpage1',
@@ -26,7 +27,6 @@ export class Leadpage1Component implements OnInit {
     Leadpage1Component.blankemail = false;
     Leadpage1Component.invalidemail = false;
     // this.metaService.setTitle({ name: 'property', content: 'content' });
-    this.metaService.setTitle('Product page for product name');
   }
 
   ngOnInit() {
@@ -54,6 +54,7 @@ export class Leadpage1Component implements OnInit {
       return { 'invalidemail': true };
     }
   }
+
 
   getemail(type: any)  {
     if (type == 'invalid') {
