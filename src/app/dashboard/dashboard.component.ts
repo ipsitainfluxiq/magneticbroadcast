@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import {Http} from '@angular/http';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import {CookieService} from 'angular2-cookie/core';
 import { FormGroup, Validators, FormControl, FormBuilder} from '@angular/forms';
 import {Commonservices} from '../app.commonservices' ;
-import { FacebookService, InitParams, LoginResponse } from 'ngx-facebook';
+import { FacebookService, InitParams, LoginResponse, UIParams, UIResponse} from 'ngx-facebook';
 import { TwitterService } from 'ng2-twitter';
 
 @Component({
@@ -17,6 +17,9 @@ export class DashboardComponent implements OnInit {
     private addcookie: CookieService;
     private addcookie1: CookieService;
     private cookiedetails;
+    public subscriberno: any;
+    public availableposts: any;
+    public likepages: any = [];
     public longterm_token: any;
     public long_token_exp: any;
     public client_id: any;
@@ -45,20 +48,27 @@ export class DashboardComponent implements OnInit {
     public serverurl;
     public isModalShown1: boolean = false;
     public isModalShown2: boolean = false;
+    public isModalShown3: boolean = false;
     public all_details;
     public accesstoken;
     public userid;
     public usernameoffb;
     public dpoffb;
     public logid;
+    public leadno: any;
     public phplinktwitter: any;
+    public phplinkfbpagepost: any;
     public phplinklinkedin: any;
     public phplinktumblr: any;
     public usernameoftumblr: any;
     public imageoftumbler: any;
     public usertype: any;
-
+    public text: any;
+    public text2: any;
+    public isCopied1: boolean = false;
+    public isCopied2: boolean = false;
     constructor(addcookie: CookieService, addcookie1: CookieService, private _http: Http, private router: Router, private _commonservices: Commonservices, private fb: FacebookService, private twitter: TwitterService) {
+        // $('head').append('og:title');
         console.log('not?');
         this.subs = 1;
         this.addcookie = addcookie;
@@ -74,8 +84,11 @@ export class DashboardComponent implements OnInit {
         this.logid = this.cookiedetails._id;
         console.log(this.logid);
         console.log('loginid is' + this.cookiedetails._id);
+        this.text = 'http://landing1.magneticbroadcast.com/#/offer1/' + this.cookiedetails._id;
+        this.text2 = 'http://landing2.magneticbroadcast.com/#/offer2/' + this.cookiedetails._id;
         this.phplinktwitter = 'http://magneticbroadcast.com/development/php/index.php?id=' + this.logid; // this is for twitter
         this.phplinklinkedin = 'http://magneticbroadcast.com/development/php/linkedinconnect.php?id=' + this.logid;
+       // this.phplinkfbpagepost = 'http://magneticbroadcast.com/development/php/phpfbpagepost.php?id=' + this.logid;
         // this.phplinktumblr = 'http://magneticbroadcast.com/development/php/connect1.php?id=' + this.logid;
         this.phplinktumblr = '/php/tumblrconnect.php?id=' + this.logid;
         console.log('========' + this.phplinklinkedin);
@@ -153,7 +166,8 @@ export class DashboardComponent implements OnInit {
                 console.log('Oooops!');
             });
 
-
+        this.leadnumbers();
+        this.subscribernumbers();
         setTimeout(() => {
             this.callfbvalues();
             this.calltwittervalues();
@@ -162,11 +176,78 @@ export class DashboardComponent implements OnInit {
         }, 1000);
     }
 
-    calltumblrpost() {
-        console.log('called');
-        let link6 = 'http://magneticbroadcast.com/development/php/postvalfortumblr.php?id=' + this.logid + '&oauth_token=' + this.tumblr_oauth_token + '&oauth_token_secret=' + this.tumblr_oauth_token_secret;
+    leadnumbers() {
+        let link = this.serverurl + 'leadnumbers';
+        let data = {id: this.cookiedetails._id};
+        this._http.post(link, data)
+            .subscribe(res => {
+                let result = res.json();
+                console.log('lead number is  ' + result.length);
+                this.leadno = result.length;
+            }, error => {
+                console.log('Oooops!');
+            });
+    }
+    subscribernumbers() {
+        let link = this.serverurl + 'subscribernumbers';
+        let data = {id: this.cookiedetails._id};
+        this._http.post(link, data)
+            .subscribe(res => {
+                let result = res.json();
+                console.log('subscribernumbers is  ' + result.length);
+                this.subscriberno = result.length;
+            }, error => {
+                console.log('Oooops!');
+            });
+    }
+    fbpagepost(pageid , access_token) {
+        let link = 'http://magneticbroadcast.com/development/php/phpfbpagepost.php';
+        let data = {
+            pageid: pageid,
+            longterm_token :  this.longterm_token,
+            access_token :  access_token
+        };
+        this._http.post(link, data)
+            .subscribe(res => {
+            }, error => {
+                console.log('Oooops!');
+            });
+    }
+    callfblike() {
+        this.isModalShown3 = true;
+        let link6 = 'http://magneticbroadcast.com/development/php/callfblike.php';
         this.data = {
-            id: this.cookiedetails._id
+            id: this.cookiedetails._id,
+            longterm_token :  this.longterm_token,
+        };
+        this._http.post(link6, this.data)
+            .subscribe(res => {
+                let fblikes = res.json();
+                console.log('likepages');
+                // console.log(fblikes);
+                /*for (let k in fblikes.likes.data) {
+                    this.likepages[k] = fblikes.likes.data[k];
+                }*/
+                for (let k in fblikes.accounts.data) {
+                    this.likepages[k] = fblikes.accounts.data[k];
+                }
+                console.log(this.likepages);
+            }, error => {
+                console.log('Oooops!');
+            });
+    }
+    calltumblrpost(title, linkis, contentis, imageis) {
+        console.log('called');
+        let link6 = 'http://magneticbroadcast.com/development/php/postvalfortumblr.php';
+        this.data = {
+            id: this.cookiedetails._id,
+            linkval: linkis + '/' + this.cookiedetails._id,
+            oauth_token : this.tumblr_oauth_token,
+            oauth_token_secret : this.tumblr_oauth_token_secret,
+            title : title,
+            contentis : contentis,
+            image : 'http://development.magneticbroadcast.com/assets/images/uploads/' + imageis,
+            //  logid :  this.logid
         };
         this._http.post(link6, this.data)
             .subscribe(res => {
@@ -175,12 +256,21 @@ export class DashboardComponent implements OnInit {
             });
     }
 
-    calllinkedinpost() {
-        let link5 = 'http://magneticbroadcast.com/development/php/postvalforlinkedin.php?id=' + this.logid + '&linkoauth_token=' + this.link_oauth_token + '&linkoauth_token_secret=' + this.link_oauth_token_secret;
+    calllinkedinpost(titleis, linkis, contentis, imageis) {
+        let link5 = 'http://magneticbroadcast.com/development/php/postvalforlinkedin.php';
+      //  let link5 = 'http://magneticbroadcast.com/development/php/linkedin_try.php';
         console.log(link5);
         this.data = {
-            id: this.cookiedetails._id
+            id: this.cookiedetails._id,
+            linkval: linkis + '/' + this.cookiedetails._id,
+            title : titleis,
+            linkoauth_token : this.link_oauth_token,
+            linkoauth_token_secret : this.link_oauth_token_secret,
+            content : contentis,
+            image : 'http://development.magneticbroadcast.com/assets/images/uploads/' + imageis,
         };
+        console.log('data///////////////////////////////////');
+        console.log(this.data);
         this._http.post(link5, this.data)
             .subscribe(res => {
             }, error => {
@@ -188,14 +278,17 @@ export class DashboardComponent implements OnInit {
             });
     }
 
-    calltwitterpost(title, linkis) {
+    calltwitterpost(title, linkis, imageis) {
         let link4 = 'http://magneticbroadcast.com/development/php/postvalfortwitter.php';
         this.data = {
             id: this.cookiedetails._id,
+           // title: title,
+           // linkval: linkis + '/' + this.cookiedetails._id,
             linkval: title + ' ' + linkis + '/' + this.cookiedetails._id,
             oauth_token : this.oauth_token,
             oauth_token_secret : this.oauth_token_secret,
           //  logid :  this.logid
+            image : 'http://development.magneticbroadcast.com/assets/images/uploads/' + imageis,
         };
         this._http.post(link4, this.data)
             .subscribe(res => {
@@ -308,18 +401,22 @@ export class DashboardComponent implements OnInit {
         console.log('hi');
         console.log('fbresponse');
         console.log(this.fb.getAuthResponse());
+        let options = {
+            scope: 'publish_actions,user_likes,manage_pages,publish_pages',
+             // return_scopes: true
+        }
         if (typeof (this.fb.getAuthResponse()) == 'undefined') {
             console.log('undefined');
 
-            this.fb.login()
+            this.fb.login(options)
                 .then((response: LoginResponse) =>
-                        this.addfacebooklogindata(response),
+                    this.addfacebooklogindata(response),
                     // this.all_details = response.authResponse,
                 )
                 .catch((error: any) => console.error(error));
 
-
-        } else {
+        }
+        else {
             console.log('value has');
             //   this.addfacebooklogindata(response),
             this.all_details = this.fb.getAuthResponse();
@@ -335,9 +432,38 @@ export class DashboardComponent implements OnInit {
                 this.callfunc();
             }
         }
+        // console.log(options);
     }
 
+  /*  fbshare(linkis) {
+        console.log('call fb share');
+        let params: UIParams = {
+            name: 'Facebook Dialogs',
+            link: 'https://developers.facebook.com/docs/dialogs/',
+            picture: 'http://fbrell.com/f8.jpg',
+            caption: 'Reference Documentation',
+            description: 'Dialogs provide a simple, consistent interface for applications to interface with users.',
+            method: 'share'
+        };
 
+        this.fb.ui(params)
+            .then((res: UIResponse) => console.log(res))
+            .catch((e: any) => console.error(e));
+
+    }*/
+    fbshare(linkis) {
+
+        let params: UIParams = {
+            href: 'landing1.magneticbroadcast.com/#/offer1/123',
+            // description: 'Dialogs provide a simple, consistent interface for applications to interface with users.',
+            method: 'share'
+        };
+
+        this.fb.ui(params)
+            .then((res: UIResponse) => console.log(res))
+            .catch((e: any) => console.error(e));
+
+    }
     addfacebooklogindata(response: any) {
         this.all_details = this.fb.getAuthResponse();                           // 1st call
         console.log('this.all_details===========');
@@ -381,6 +507,10 @@ export class DashboardComponent implements OnInit {
     }
 
 
+
+
+
+
     ngOnInit() {
         this.getManagerList();
         this.getcategoryList();
@@ -392,6 +522,9 @@ export class DashboardComponent implements OnInit {
         if (type == 2) {
             this.isModalShown2 = false;
         }
+        if (type == 3) {
+            this.isModalShown3 = false;
+        }
     }
     getManagerList() {
         let link = this.serverurl + 'postmanagementlist';
@@ -401,6 +534,7 @@ export class DashboardComponent implements OnInit {
                 this.datalist = result6;
                 console.log('this.datalist==========9999===');
                 console.log(this.datalist);
+                this.availableposts= this.datalist.length;
             }, error => {
                 console.log('Oooops!');
             });
@@ -466,6 +600,10 @@ export class DashboardComponent implements OnInit {
             }, error => {
                 console.log('Oooops!');
             });
+        setTimeout(() => {
+            this.getcategoryList();
+            this.subscribernumbers();
+        }, 300);
     }
     callunsubscribe(categoryid) {
         let link  = this.serverurl + 'callunsubscribe';
@@ -485,6 +623,7 @@ export class DashboardComponent implements OnInit {
             });
         setTimeout(() => {
             this.getcategoryList();
+            this.subscribernumbers();
         }, 300);
     }
 

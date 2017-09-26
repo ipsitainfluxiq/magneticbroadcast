@@ -13,12 +13,13 @@ import {Commonservices} from '../app.commonservices' ;
 export class Leadpage2Component implements OnInit {
   public dataForm: FormGroup;
   private fb;
+  private parentid: any;
   public serverurl;
   static invalidemail;
   static blankemail;
   public isModalShown: boolean = false;
 
-  constructor(fb: FormBuilder, private _http: Http, private router: Router, private _commonservices: Commonservices) {
+  constructor(fb: FormBuilder, private _http: Http, private router: Router, private route: ActivatedRoute, private _commonservices: Commonservices) {
     this.fb = fb;
     this.serverurl = _commonservices.url;
     Leadpage2Component.blankemail = false;
@@ -26,6 +27,11 @@ export class Leadpage2Component implements OnInit {
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.parentid = params['id']; // this 'id' is from routes.ts
+      console.log('parentid  ' + this.parentid);
+
+    });
     this.dataForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', Validators.compose([Validators.required, Leadpage2Component.validateEmail])],
@@ -60,6 +66,7 @@ export class Leadpage2Component implements OnInit {
 
   onHidden() {
     this.isModalShown = false;
+    this.dataForm.reset();
   }
 
   dosubmit(formval) {
@@ -75,6 +82,7 @@ export class Leadpage2Component implements OnInit {
         email: formval.email,
         phone: formval.phone,
         zip: formval.zip,
+        parentid: this.parentid,
       };
       this._http.post(link, data)
           .subscribe(res => {

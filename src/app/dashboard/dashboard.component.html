@@ -23,7 +23,7 @@
                             </div>
                             <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
                                 <h4>Total Leads :</h4>
-                                <h5>150</h5>
+                                <h5>{{leadno}}</h5>
                                 <div class="btnview">
                                     <a><span>View Leads</span></a>
                                 </div>
@@ -41,7 +41,7 @@
                             </div>
                             <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
                                 <h4>Total Subscribed Categories :</h4>
-                                <h5>4</h5>
+                                <h5 >{{subscriberno}}</h5>
                                 <div class="btnview">
                                     <a><span>View Categories</span></a>
                                 </div>
@@ -59,7 +59,7 @@
                             </div>
                             <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
                                 <h4>Total Available Posts :</h4>
-                                <h5>300</h5>
+                                <h5>{{availableposts}}</h5>
                                 <div class="btnview">
                                     <a><span>View Posts</span></a>
                                 </div>
@@ -175,6 +175,10 @@
 
                             </div>
 
+
+
+
+
                             <div class="clearfix"></div>
 
                         </div>
@@ -208,10 +212,12 @@
                                                         <h3>{{item.content}}</h3>
                                                         <img width="60px" height="60px" src="../../assets/images/uploads/{{item.image}}"  class="td_imgblock">
                                                         <h5> {{item.link}}</h5>
-                                                        <div class="socialiconimg_boX"> <img src="../assets/images/fbicon1.png" alt="#" class="socialiconimg">
-                                                            <img src="../assets/images/twicon1.png" alt="#" class="socialiconimg" (click)="calltwitterpost(item.title,item.link)">
-                                                            <img src="../assets/images/inicon1.png" alt="#" class="socialiconimg" (click)="calllinkedinpost()">
-                                                            <img src="../assets/images/tumblr-icon.png" alt="#" class="socialiconimg" (click)="calltumblrpost()">
+                                                        <div class="socialiconimg_boX"> <img src="../assets/images/fbicon1.png" alt="#" class="socialiconimg" (click)="fbshare(item.link)">
+                                                            <img src="../assets/images/twicon1.png" alt="#" class="socialiconimg" (click)="calltwitterpost(item.title,item.link,item.image)">
+                                                            <img src="../assets/images/inicon1.png" alt="#" class="socialiconimg" (click)="calllinkedinpost(item.title,item.link,item.content,item.image)">
+                                                            <img src="../assets/images/tumblr-icon.png" alt="#" class="socialiconimg" (click)="calltumblrpost(item.title,item.link,item.content,item.image)">
+
+                                                            <img src="../assets/images/new_fbicon.png" alt="#" class="socialiconimg" (click)="callfblike()">
                                                         </div>
                                                     </label>
                                                 </td>
@@ -307,7 +313,84 @@
             <!-- /.row -->
 
 
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cusdashboardblock3">
+                        <h4>Sharelinks</h4>
+                        <!--   <a [routerLink]="['/viewallcategory']" class="newviewallbtn">View All</a>-->
 
+                        <div class="clearfix"></div>
+                        <!--  <div *ngFor="let item of subscribelist ; let k = index">-->
+                        <div class="cusactivediv cusactivediv2 sharelinkstable" >
+                            <div>
+                                <h2><span>
+                                    <table width="100%">
+                                        <tr>
+                                            <td> <img src="../assets/images/landing_1.png" class="landing_img"> </td>
+
+                                            <td> <h6>Offer 1</h6></td>
+                                           <td> <div class="landing_link">http://landing1.magneticbroadcast.com/#/offer1/{{logid}}</div></td>
+
+
+                                             <td>
+                                                 <button class="newinput3" [class.btn-success]= "isCopied1" type="button" value="copy to clipboard"  ngxClipboard [cbContent]="text" (cbOnSuccess)="isCopied1 = true">copy to clipboard</button>
+
+
+
+
+
+                                                 <a href="http://landing1.magneticbroadcast.com/#/offer1/{{logid}}" target="_blank" class="tdpagelink">Go to Page</a>
+                                                <div class="clearfix"></div>
+                                          </td>
+                                        </tr>
+                                    </table>
+
+                                </span>             <!--   This is the title of list  -->
+
+
+                                    <div class="clearfix"></div>
+                                </h2>
+
+                            </div>
+                        </div>
+                        <div class="cusactivediv cusactivediv2 sharelinkstable">
+                            <div>
+                                <h2><span>
+                                    <table width="100%">
+                                        <tr>
+                                             <td> <img src="../assets/images/landing_2.png" class="landing_img"> </td>
+
+                                            <td> <h6>Offer 2</h6></td>
+                                            <td>  <div class="landing_link">http://landing2.magneticbroadcast.com/#/offer2/{{logid}}</div></td>
+
+                                            <td>
+
+
+                                                <!--<input class="newinput3" type="button" value="copy to clipboard">-->
+                                                 <button class="newinput3" [class.btn-success]= "isCopied2" type="button" value="copy to clipboard"  ngxClipboard [cbContent]="text2" (cbOnSuccess)="isCopied2 = true">copy to clipboard</button>
+                                                <a href="http://landing2.magneticbroadcast.com/#/offer2/{{logid}}" target="_blank" class="tdpagelink">Go to Page</a>
+
+
+                                                <div class="clearfix"></div>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </span>             <!--   This is the title of list  -->
+
+
+                                    <div class="clearfix"></div>
+                                </h2>
+
+                            </div>
+                        </div>
+                        <!--</div>-->
+
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
 
             <div class="row equal">
                 <div class="col-lg-4 col-md-4">
@@ -529,7 +612,7 @@
                             </div>
                             <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
                                 <h4>Total Leads :</h4>
-                                <h5>150</h5>
+                                <h5>{{leadno}}</h5>
                                 <div class="btnview">
                                     <a><span>View Leads</span></a>
                                 </div>
@@ -547,7 +630,7 @@
                             </div>
                             <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
                                 <h4>Total Subscribed Categories :</h4>
-                                <h5>4</h5>
+                                <h5 >{{subscriberno}}</h5>
                                 <div class="btnview">
                                     <a><span>View Categories</span></a>
                                 </div>
@@ -565,7 +648,7 @@
                             </div>
                             <div class="col-lg-8 col-md-10 col-sm-10 col-xs-9 block1box1 vcenter">
                                 <h4>Total Available Posts :</h4>
-                                <h5>300</h5>
+                                <h5>{{availableposts}}</h5>
                                 <div class="btnview">
                                     <a><span>View Posts</span></a>
                                 </div>
@@ -681,6 +764,7 @@
 
                             </div>
 
+
                             <div class="clearfix"></div>
 
                         </div>
@@ -714,10 +798,12 @@
                                                         <h3>{{item.content}}</h3>
                                                         <img width="60px" height="60px" src="../../assets/images/uploads/{{item.image}}"  class="td_imgblock">
                                                         <h5> {{item.link}}</h5>
-                                                        <div class="socialiconimg_boX"> <img src="../assets/images/fbicon1.png" alt="#" class="socialiconimg">
-                                                            <img src="../assets/images/twicon1.png" alt="#" class="socialiconimg" (click)="twitterpost(item._id)">
-                                                            <img src="../assets/images/inicon1.png" alt="#" class="socialiconimg">
-                                                            <img src="../assets/images/tumblr-icon.png" alt="#" class="socialiconimg">
+                                                        <div class="socialiconimg_boX"> <img src="../assets/images/fbicon1.png" alt="#" class="socialiconimg" (click)="fbshare(item.link)">
+                                                            <img src="../assets/images/twicon1.png" alt="#" class="socialiconimg" (click)="calltwitterpost(item.title,item.link,item.image)">
+                                                            <img src="../assets/images/inicon1.png" alt="#" class="socialiconimg" (click)="calllinkedinpost(item.title,item.link,item.content,item.image)">
+                                                            <img src="../assets/images/tumblr-icon.png" alt="#" class="socialiconimg" (click)="calltumblrpost(item.title,item.link,item.content,item.image)">
+
+                                                            <img src="../assets/images/new_fbicon.png" alt="#" class="socialiconimg" (click)="callfblike()">
                                                         </div>
                                                     </label>
                                                 </td>
@@ -812,7 +898,84 @@
             </div>
             <!-- /.row -->
 
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cusdashboardblock3">
+                        <h4>Sharelinks</h4>
+                        <!--   <a [routerLink]="['/viewallcategory']" class="newviewallbtn">View All</a>-->
 
+                        <div class="clearfix"></div>
+                        <!--  <div *ngFor="let item of subscribelist ; let k = index">-->
+                        <div class="cusactivediv cusactivediv2 sharelinkstable" >
+                            <div>
+                                <h2><span>
+                                    <table width="100%">
+                                        <tr>
+                                            <td> <img src="../assets/images/landing_1.png" class="landing_img"> </td>
+
+                                            <td> <h6>Offer 1</h6></td>
+                                           <td> <div class="landing_link">http://landing1.magneticbroadcast.com/#/offer1/{{logid}}</div></td>
+
+
+                                             <td>
+                                                 <button class="newinput3" [class.btn-success]= "isCopied1" type="button" value="copy to clipboard"  ngxClipboard [cbContent]="text" (cbOnSuccess)="isCopied1 = true">copy to clipboard</button>
+
+
+
+
+
+                                                 <a href="http://landing1.magneticbroadcast.com/#/offer1/{{logid}}" target="_blank" class="tdpagelink">Go to Page</a>
+                                                <div class="clearfix"></div>
+                                          </td>
+                                        </tr>
+                                    </table>
+
+                                </span>             <!--   This is the title of list  -->
+
+
+                                    <div class="clearfix"></div>
+                                </h2>
+
+                            </div>
+                        </div>
+                        <div class="cusactivediv cusactivediv2 sharelinkstable">
+                            <div>
+                                <h2><span>
+                                    <table width="100%">
+                                        <tr>
+                                             <td> <img src="../assets/images/landing_2.png" class="landing_img"> </td>
+
+                                            <td> <h6>Offer 2</h6></td>
+                                            <td>  <div class="landing_link">http://landing2.magneticbroadcast.com/#/offer2/{{logid}}</div></td>
+
+                                            <td>
+
+
+                                                <!--<input class="newinput3" type="button" value="copy to clipboard">-->
+                                                 <button class="newinput3" [class.btn-success]= "isCopied2" type="button" value="copy to clipboard"  ngxClipboard [cbContent]="text2" (cbOnSuccess)="isCopied2 = true">copy to clipboard</button>
+                                                <a href="http://landing2.magneticbroadcast.com/#/offer2/{{logid}}" target="_blank" class="tdpagelink">Go to Page</a>
+
+
+                                                <div class="clearfix"></div>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </span>             <!--   This is the title of list  -->
+
+
+                                    <div class="clearfix"></div>
+                                </h2>
+
+                            </div>
+                        </div>
+                        <!--</div>-->
+
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
 
 
             <div class="row equal">
@@ -1033,9 +1196,6 @@
             <div class="modal-body">
                 <p>{{showdetailofpost.title}}</p>
                 <div class="popupimg"><img src="../../assets/images/uploads/{{showdetailofpost.image}}" ></div>
-
-
-
                 <!--   <p>{{showdetailofpost.PostManegementdata.firstname}}</p>-->
                 <h3>{{showdetailofpost.content}}</h3>
                 <h4>{{showdetailofpost.link}}</h4>
@@ -1074,5 +1234,93 @@
     </div>
 </div>
 
+<div *ngIf="isModalShown3" class="modal fade" (onHidden)="onHidden(3)" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h4 class="modal-title pull-left">Show Details</h4>-->
+                <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body facebook_conwrapper">
+
+                <ul>
+                  <li *ngFor="let item of likepages ; let i = index">
+                   <div class="fb_img"><div><img src="https://graph.facebook.com/{{item.id}}/picture" ></div></div>
+                      <h6>{{item.global_brand_page_name}}</h6>
+                      <p *ngIf="item.about">{{item.about.substr(0,20)}}</p>
+                      <!--<p>{{item.about.substr(0,20)}}</p>-->
+                      <input type="button" value="Post" (click)="fbpagepost(item.id,item.access_token)">
+                  </li>
+
+                    <!--<li>
+                        <img src="../assets/images/inboximgleft.jpg" class="fb_img">
+                        <h6>Demo text</h6>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+                        <input type="button" value="Post">
+                    </li>
+                    <li>
+                        <img src="../assets/images/inboximgleft.jpg" class="fb_img">
+                        <h6>Demo text</h6>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+                        <input type="button" value="Post">
+                    </li>
+                    <li>
+                        <img src="../assets/images/inboximgleft.jpg" class="fb_img">
+                        <h6>Demo text</h6>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+                        <input type="button" value="Post">
+                    </li>
 
 
+                    <li>
+                        <img src="../assets/images/inboximgleft.jpg" class="fb_img">
+                        <h6>Demo text</h6>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+                        <input type="button" value="Post">
+                    </li>
+
+                    <li>
+                        <img src="../assets/images/inboximgleft.jpg" class="fb_img">
+                        <h6>Demo text</h6>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+                        <input type="button" value="Post">
+                    </li>-->
+
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="row">
+    <div class="col-sm-12">
+        <h3>Copy from text &#45;&#45; text</h3> Click this button, it will copy the text from the input by referring to the <strong>text content</strong>
+        <div class="input-group">
+            <input type="text" class="form-control" [(ngModel)]="text" placeholder="content will be copy after click the copy button">
+            <span class="input-group-btn">
+        <button class="btn btn-default" [class.btn-success]= "isCopied1" type="button" ngxClipboard [cbContent]="text" (cbOnSuccess)="isCopied1 = true">copy</button>
+      </span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Copy from text &#45;&#45; target</h3> Click this button, it will copy the text from the input by referring to the <strong>input element</strong>
+        <div class="input-group">
+            <input type="text" class="form-control" [(ngModel)]="text2" placeholder="content will be copy after click the copy button"
+                   #inputTarget>
+            <span class="input-group-btn">
+        <button class="btn btn-default" [class.btn-success]= "isCopied2" type="button" [ngxClipboard]="inputTarget" (cbOnSuccess)="isCopied2 = true">copy</button>
+      </span>
+        </div>
+    </div>
+</div>-->

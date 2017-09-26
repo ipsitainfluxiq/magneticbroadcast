@@ -12,6 +12,7 @@ import {Commonservices} from '../app.commonservices' ;
 })
 export class ViewallcategoryComponent implements OnInit {
   private addcookie: CookieService;
+  private addcookie1: CookieService;
   private cookiedetails;
   public result: any;
   public catagorylist;
@@ -19,10 +20,14 @@ export class ViewallcategoryComponent implements OnInit {
   public allposts;
   public isModalShown2: boolean = false;
   public logid;
+  public usertype: any;
 
-  constructor(addcookie: CookieService, private _http: Http, private router: Router, private _commonservices: Commonservices) {
+  constructor(addcookie: CookieService, private _http: Http, addcookie1: CookieService, private router: Router, private _commonservices: Commonservices) {
     this.isModalShown2 = false;
     this.addcookie = addcookie;
+    this.addcookie1 = addcookie1 ;
+    this.usertype = this.addcookie1.getObject('usertype');
+    console.log('++++++++++ '+this.usertype);
     this.cookiedetails = this.addcookie.getObject('cookiedetails');
     this.serverurl = _commonservices.url;
     if (typeof(this.cookiedetails) == 'undefined') {

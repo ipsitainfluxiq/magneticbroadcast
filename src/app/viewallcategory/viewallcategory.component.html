@@ -1,6 +1,7 @@
 
 <app-adminheader></app-adminheader>
-<app-adminleftsidebar></app-adminleftsidebar>
+
+<div *ngIf="usertype==1"><app-adminleftsidebar></app-adminleftsidebar>
 <div class="page-wrapper">
   <div class="blockmaininner">
     <div class="row">
@@ -10,6 +11,7 @@
           <div class="adminserchdiv2">
             <label>Search :</label> <input type="text" #listFilter (keyup)="0">
           </div>
+
           <div class="clearfix"></div>
           <!--  <div *ngFor="let item of subscribelist ; let k = index">-->
           <div class="cusactivediv cusactivediv2" *ngFor="let item of catagorylist | usersearch:listFilter.value; let j = index">
@@ -51,11 +53,6 @@
         </div>
       </div>
     </div>
-
-
-
-
-
 <!--
 <div class="row">
   <div class="col-lg-12">
@@ -94,15 +91,105 @@
   </div>
 </div>
     -->
-
-
-
-
-
-
+  </div>
   </div>
 </div>
 
+
+<div *ngIf="usertype==2" ngClass="wrappercontain2">
+    <div class="page-wrapper">
+        <div class="blockmaininner">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cusdashboardblock3">
+                        <h4>All Categories</h4>
+                        <div class="adminserchdiv2">
+                            <label>Search :</label> <input type="text" #listFilter (keyup)="0">
+                        </div>
+                        <!--<a (click)="logout()" class="newlogoutbtn">Log out</a>-->
+                        <!--<a [routerLink]="['/dashboard']"  class="newviewallbtn">Dashboard</a>-->
+                        <div class="clearfix"></div>
+                        <!--  <div *ngFor="let item of subscribelist ; let k = index">-->
+                        <div class="cusactivediv cusactivediv2" *ngFor="let item of catagorylist | usersearch:listFilter.value; let j = index">
+                            <div *ngIf= "j<5">
+                                <h2><span >
+                                    <table width="100%">
+                                        <tr>
+                                            <td>  {{item.firstname}} <p> ( {{item.Postcategorydetail.length}} posts)</p></td>
+
+                                            <td>    <div class="new_input_wrapper">
+                                                <!--<span class="newinput1" (click)="callsubscribe(item._id)">Subscribe</span>
+                                                <span class="newinput1" (click)="callunsubscribe(item._id)">Unsubscribe</span>-->
+
+                                                <span *ngIf="checksubscription(item.Subsdata)==false" class="newinput1 subscribe_btn" (click)="callsubscribe(item._id)">Subscribe</span>
+                <span *ngIf="checksubscription(item.Subsdata)== true" class="newinput1  unsubscribe_btn" (click)="callunsubscribe(item._id)">Unsubscribe</span>
+
+
+                                               <input class="newinput1" type="button" value="View Posts" (click)="showdetails1(item._id)">
+                                                <div class="clearfix"></div>
+                                            </div>
+
+
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </span>             <!--   This is the title of list  -->
+
+
+                                    <div class="clearfix"></div>
+                                </h2>
+
+                            </div>
+                        </div>
+                        <!--</div>-->
+
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="cusdashboardblock3">
+                  <h4>All Categories</h4>
+                  <div class="adminserchdiv">
+                    <label>Search :</label> <input type="text" #listFilter (keyup)="0">
+                  </div>
+                  <div class="clearfix"></div>
+
+                  <div class="cusactivediv" *ngFor="let item of catagorylist | usersearch:listFilter.value; let j = index">
+
+                    <h2><span >
+
+                      <table width="100%">
+                        <tr>
+                          <td>  {{item.firstname}} <p> ( {{item.Postcategorydetail.length}} posts)</p></td>
+
+
+                          <td>    <div class="new_input_wrapper">
+                            <span *ngIf="checksubscription(item.Subsdata)==false" class="newinput1 subscribe_btn" (click)="callsubscribe(item._id)">Subscribe</span>
+                            <span *ngIf="checksubscription(item.Subsdata)== true" class="newinput1  unsubscribe_btn" (click)="callunsubscribe(item._id)">Unsubscribe</span>
+                            <input class="newinput1" type="button" value="View Posts" (click)="showdetails1(item._id)"></div></td>
+                        </tr>
+                      </table>
+
+                    </span>
+
+
+                      <div class="clearfix"></div>
+                    </h2>
+
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>
+                -->
+        </div>
+    </div>
+</div>
 
 <div *ngIf="isModalShown2" class="modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
      tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">

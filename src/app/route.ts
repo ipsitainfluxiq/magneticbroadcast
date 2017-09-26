@@ -27,7 +27,6 @@ import {LeadlistComponent} from './leadlist/leadlist.component';
 import {ViewallpostmanagementComponent} from './viewallpostmanagement/viewallpostmanagement.component';
 import {ViewallcategoryComponent} from './viewallcategory/viewallcategory.component';
 
-
 const appRoutes: Routes = [
     { path: 'addadmin', component: AddadminComponent},
     { path: 'adminheader', component: AdminheaderComponent},
@@ -53,29 +52,6 @@ const appRoutes: Routes = [
 
 ];
 
-/*const routes: Routes = [
- {
-  path: 'offer1/:id',
-  component: Leadpage1Component,
-  data: {
-   meta: {
-    title: 'Lead page',
-    description: 'Description of the Lead page'
-   }
-  }
- },
- {
-  path: 'offer2/:id',
-  component: Leadpage2Component,
-  data: {
-   meta: {
-    title: 'Dashboard',
-    description: 'Description of the dashboard page',
-    'og:image': 'http://example.com/dashboard-image.png'
-   }
-  }
- }
-];*/
 
 export const appRoutingProviders: any[] = [
 ];

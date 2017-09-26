@@ -33,18 +33,8 @@ import { TwitterService } from 'ng2-twitter';
 import { LeadlistComponent } from './leadlist/leadlist.component';
 import { ViewallpostmanagementComponent } from './viewallpostmanagement/viewallpostmanagement.component';
 import { ViewallcategoryComponent } from './viewallcategory/viewallcategory.component';
-// import { MetaModule } from 'ng2-meta';
-// import { MetaConfig, MetaService } from 'ng2-meta';
-
-/*const metaConfig: MetaConfig = {
-  useTitleSuffix: true,
-  defaults: {
-    title: 'Default title for pages without meta in their route',
-    titleSuffix: ' | Site Name',
-    'og:image': 'http://example.com/default-image.png',
-    'any other': 'arbitrary tag can be used'
-  }
-};*/
+import { MetaComponent } from './meta/meta.component';
+import { ClipboardModule } from 'ngx-clipboard';
 
 @NgModule({
   declarations: [
@@ -72,8 +62,9 @@ import { ViewallcategoryComponent } from './viewallcategory/viewallcategory.comp
     LeadlistComponent,
     ViewallpostmanagementComponent,
     ViewallcategoryComponent,
-
+    MetaComponent,
   ],
+
   imports: [
     BrowserModule,
     FormsModule,
@@ -82,10 +73,11 @@ import { ViewallcategoryComponent } from './viewallcategory/viewallcategory.comp
     ReactiveFormsModule,
     ModalModule.forRoot(),
     Ng2UploaderModule,
+    ClipboardModule,
     FacebookModule.forRoot(),
    // MetaModule.forRoot()
   ],
   providers: [appRoutingProviders, CookieService, TwitterService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -899,7 +899,25 @@ app.post('/socialmedialist',function (req,resp) {
 });
 /*--------------------------------------Call_END--------------------------------------------*/
 
+app.post('/leadnumbers', function (req, resp) {
+    var o_id = new mongodb.ObjectID(req.body.id);
+    var collection = db.collection('lead');
+    collection.find({parentid: o_id}).toArray(function(err, items) {
+        //  console.log(JSON.stringify(items));
+        resp.send(JSON.stringify(items));
+    });
+});
 
+app.post('/subscribernumbers', function (req, resp) {
+    var o_id = new mongodb.ObjectID(req.body.id);
+    console.log('?');
+    console.log(o_id);
+    var collection = db.collection('subscribe');
+    collection.find({logid: o_id}).toArray(function(err, items) {
+        // console.log(JSON.stringify(items));
+        resp.send(JSON.stringify(items));
+    });
+});
 /*--------------------------------------Leadpage_Start--------------------------------------------*/
 app.post('/lead',function(req,resp){
     console.log('call lead');
@@ -909,6 +927,7 @@ app.post('/lead',function(req,resp){
         email: req.body.email,
         phone: req.body.phone,
         zip: req.body.zip,
+        parentid: req.body.parentid,
     }], function (err, result) {
         if (err) {
             console.log('error'+err);
