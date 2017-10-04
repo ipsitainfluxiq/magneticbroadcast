@@ -1,0 +1,30 @@
+<div class="container-fluid login_bgnewwrapper">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td valign="middle">
+        <img src="../assets/images/newlogo.png"  alt="#" class="loginlogo"/>
+        <div class="loginlockicon"> <img src="../assets/images/lockicon.png"  alt="#" /></div>
+
+        <div class="login_wrapper_body">
+          <div class="login_heading">
+            <div class="login_heading_sub">
+              <h2> Access Code </h2>
+            </div>
+          </div>
+
+
+
+          <div class="login_formbox_wrapper">
+            <form novalidate [formGroup]="dataForm" (ngSubmit)="dosubmit(dataForm.value)">
+              <div class="error_class2" *ngIf="is_error">{{is_error}}</div>
+              <label>Access Code:</label>
+              <input type="text" class="inputtext"  maxlength="255" value="" placeholder="Access Code"  [formControl]="dataForm.controls['accesscode']">
+              <span *ngIf ="dataForm.controls['accesscode'].touched && !dataForm.controls['accesscode'].valid" class="errortext">Access code is Required !</span>
+              <input type="submit" value="Submit" class="loginbtnnew">
+            </form>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

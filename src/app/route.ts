@@ -26,6 +26,14 @@ import {Leadpage2Component} from './leadpage2/leadpage2.component';
 import {LeadlistComponent} from './leadlist/leadlist.component';
 import {ViewallpostmanagementComponent} from './viewallpostmanagement/viewallpostmanagement.component';
 import {ViewallcategoryComponent} from './viewallcategory/viewallcategory.component';
+import {MyleadsComponent} from './myleads/myleads.component';
+import {SubscribedcategoriesComponent} from './subscribedcategories/subscribedcategories.component';
+import {SubscribedpostsComponent} from './subscribedposts/subscribedposts.component';
+import {ChangepasswordComponent} from './changepassword/changepassword.component';
+import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { AccesscodeComponent } from './accesscode/accesscode.component';
+import { NewpasswordComponent } from './newpassword/newpassword.component';
+import { EditdealershipComponent } from './editdealership/editdealership.component';
 
 const appRoutes: Routes = [
     { path: 'addadmin', component: AddadminComponent},
@@ -46,9 +54,17 @@ const appRoutes: Routes = [
     { path: 'offer1/:id', component: Leadpage1Component},
     { path: 'offer2/:id', component: Leadpage2Component},
     { path: 'leadlist', component: LeadlistComponent},
+    { path: 'myleads', component: MyleadsComponent},
     { path: 'viewallpostmanagement', component: ViewallpostmanagementComponent},
     { path: 'viewallcategory', component: ViewallcategoryComponent},
+    { path: 'subscribedcategories', component: SubscribedcategoriesComponent},
+    { path: 'subscribedposts', component: SubscribedpostsComponent},
+    { path: 'changepassword', component: ChangepasswordComponent},
+    { path: 'forgetpassword', component: ForgetpasswordComponent},
+    { path: 'accesscode', component: AccesscodeComponent},
+    { path: 'newpassword', component: NewpasswordComponent},
     { path: 'editpostmanagementcategory/:id', component: EditpostmanagementComponent},
+    { path: 'editdealership/:id', component: EditdealershipComponent},
 
 ];
 

@@ -37,6 +37,7 @@ export class DashboardComponent implements OnInit {
     public tumblr_oauth_token: any;
     public tumblr_oauth_token_secret: any;
     public subs: any = [];
+    public leaddetails: any = [];
     public datalist;
     public allposts;
     public catagorylist;
@@ -182,6 +183,7 @@ export class DashboardComponent implements OnInit {
         this._http.post(link, data)
             .subscribe(res => {
                 let result = res.json();
+              //  this.leaddetails = result;
                 console.log('lead number is  ' + result.length);
                 this.leadno = result.length;
             }, error => {
@@ -194,6 +196,8 @@ export class DashboardComponent implements OnInit {
         this._http.post(link, data)
             .subscribe(res => {
                 let result = res.json();
+                console.log('subscribe is  ' );
+                console.log(result);
                 console.log('subscribernumbers is  ' + result.length);
                 this.subscriberno = result.length;
             }, error => {
@@ -224,7 +228,7 @@ export class DashboardComponent implements OnInit {
             .subscribe(res => {
                 let fblikes = res.json();
                 console.log('likepages');
-                // console.log(fblikes);
+                 console.log(fblikes);
                 /*for (let k in fblikes.likes.data) {
                     this.likepages[k] = fblikes.likes.data[k];
                 }*/
@@ -402,7 +406,7 @@ export class DashboardComponent implements OnInit {
         console.log('fbresponse');
         console.log(this.fb.getAuthResponse());
         let options = {
-            scope: 'publish_actions,user_likes,manage_pages,publish_pages',
+            scope: 'publish_actions,user_likes,manage_pages,publish_pages,pages_show_list',
              // return_scopes: true
         }
         if (typeof (this.fb.getAuthResponse()) == 'undefined') {
@@ -454,7 +458,7 @@ export class DashboardComponent implements OnInit {
     fbshare(linkis) {
 
         let params: UIParams = {
-            href: 'landing1.magneticbroadcast.com/#/offer1/123',
+            href: 'landing1.magneticbroadcast.com/#/offer1/123456789101',
             // description: 'Dialogs provide a simple, consistent interface for applications to interface with users.',
             method: 'share'
         };

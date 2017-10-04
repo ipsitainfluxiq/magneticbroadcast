@@ -19,7 +19,7 @@ export class PostmanagementlistComponent implements OnInit {
   private cookiedetails;
   orderbyquery: any;
   orderbytype: any;
-  private isModalShown: boolean = false;
+  private isModalShown1: boolean = false;
   public serverurl;
   public pageno;
   public pagestart;
@@ -27,6 +27,9 @@ export class PostmanagementlistComponent implements OnInit {
   public totalpage;
   public showrows;
   public list_length;
+  public logid;
+  public contentdetails;
+  public isModalShown2: boolean = false;
 
   constructor(fb: FormBuilder, private _http: Http, addcookie: CookieService, private router: Router, private _commonservices: Commonservices) {
     this.fb = fb;
@@ -45,6 +48,8 @@ export class PostmanagementlistComponent implements OnInit {
       this.getManagerList();
 
     }
+    this.logid = this.cookiedetails._id;
+    console.log('loginid is' + this.cookiedetails._id);
   }
 
   ngOnInit() {
@@ -73,17 +78,31 @@ export class PostmanagementlistComponent implements OnInit {
           console.log('Oooops!');
         });
   }
-
+  showcontents(itemid) {
+    this.contentdetails = '';
+    for ( let i in this.datalist) {
+      if (this.datalist[i]._id == itemid) {
+        this.contentdetails = this.datalist[i];
+      }
+    }
+    console.log('this.contentdetails');
+    console.log(this.contentdetails);
+    this.isModalShown2 = true;
+  }
   delConfirm(id) {
     this.id = id;
-    this.isModalShown = true;
-    console.log(this.isModalShown);
+    this.isModalShown1 = true;
+    console.log(this.isModalShown1);
   }
 
-  onHidden() {
-    this.isModalShown = false;
+  onHidden(type) {
+    if(type == 1){
+      this.isModalShown1 = false;
+    }
+    if(type == 2){
+      this.isModalShown2 = false;
+    }
   }
-
   getSortClass(value: any) {
     if (this.orderbyquery == value && this.orderbytype == -1) {
       return 'caret-up';
@@ -111,7 +130,7 @@ export class PostmanagementlistComponent implements OnInit {
 
   postcategorydel() {
     console.log('admindel');
-    this.isModalShown = false;
+    this.isModalShown1 = false;
     console.log('id got' + this.id);
     let link = this.serverurl+'deletepostmanagement';
     let data = {id: this.id};

@@ -25,7 +25,7 @@
                                 <h4>Total Leads :</h4>
                                 <h5>{{leadno}}</h5>
                                 <div class="btnview">
-                                    <a><span>View Leads</span></a>
+                                    <a  [routerLink]="['/myleads']" ><span>View Leads</span></a>
                                 </div>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                                 <h4>Total Subscribed Categories :</h4>
                                 <h5 >{{subscriberno}}</h5>
                                 <div class="btnview">
-                                    <a><span>View Categories</span></a>
+                                    <a [routerLink]="['/subscribedcategories']" ><span>View Categories</span></a>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +61,8 @@
                                 <h4>Total Available Posts :</h4>
                                 <h5>{{availableposts}}</h5>
                                 <div class="btnview">
-                                    <a><span>View Posts</span></a>
+                                   <!-- <a><span>View Posts</span></a>-->
+                                    <a [routerLink]="['/subscribedposts']" ><span>View Posts</span></a>
                                 </div>
                             </div>
                         </div>
@@ -392,7 +393,7 @@
                 </div>
             </div>
 
-            <div class="row equal">
+           <!-- <div class="row equal">
                 <div class="col-lg-4 col-md-4">
                     <div class="yourinboxblock">
                         <div class="yourinboxheader">
@@ -423,7 +424,7 @@
                                 <div class="searchbox">
                                     <div class = "input-group">
                                         <input type = "text" class = "form-control input-lg"><span class = "input-group-btn"><a href="writemail.html"><button class = "btn btn-default btnnewmsg" type = "button">New message</button></a>             </span>
-                                    </div><!-- /input-group -->
+                                    </div>&lt;!&ndash; /input-group &ndash;&gt;
                                 </div>
                             </div>
                         </div>
@@ -583,7 +584,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
 
 
@@ -596,7 +597,21 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="pageheader"><span>Your</span> Dashboard</h1>
-                    <a (click)="logout()" class="newlogoutbtn">Log out</a>
+
+                  <ul class="new_right_menu">
+                      <li>
+                         <label>Menu &#9776;</label>
+                          <div class="clearfix"></div>
+                          <ul>
+
+                              <!--<li><a [routerLink]="['/postmanagement']" class="newlogoutbtn">Add Post</a></li>-->
+                              <li><a [routerLink]="['/changepassword']" class="newlogoutbtn">Change Password</a></li>
+                              <li> <a (click)="logout()" class="newlogoutbtn">Log out</a></li>
+
+                          </ul>
+                      </li>
+                  </ul>
+                     <div class="clearfix"></div>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -614,7 +629,7 @@
                                 <h4>Total Leads :</h4>
                                 <h5>{{leadno}}</h5>
                                 <div class="btnview">
-                                    <a><span>View Leads</span></a>
+                                    <a  [routerLink]="['/myleads']" ><span>View Leads</span></a>
                                 </div>
                             </div>
                         </div>
@@ -632,7 +647,7 @@
                                 <h4>Total Subscribed Categories :</h4>
                                 <h5 >{{subscriberno}}</h5>
                                 <div class="btnview">
-                                    <a><span>View Categories</span></a>
+                                    <a [routerLink]="['/subscribedcategories']" ><span>View Categories</span></a>
                                 </div>
                             </div>
                         </div>
@@ -650,7 +665,8 @@
                                 <h4>Total Available Posts :</h4>
                                 <h5>{{availableposts}}</h5>
                                 <div class="btnview">
-                                    <a><span>View Posts</span></a>
+                                    <!--<a><span>View Posts</span></a>-->
+                                    <a [routerLink]="['/subscribedposts']" ><span>View Posts</span></a>
                                 </div>
                             </div>
                         </div>
@@ -978,7 +994,7 @@
             </div>
 
 
-            <div class="row equal">
+            <!--<div class="row equal">
                 <div class="col-lg-4 col-md-4">
                     <div class="yourinboxblock">
                         <div class="yourinboxheader">
@@ -1009,7 +1025,7 @@
                                 <div class="searchbox">
                                     <div class = "input-group">
                                         <input type = "text" class = "form-control input-lg"><span class = "input-group-btn"><a href="writemail.html"><button class = "btn btn-default btnnewmsg" type = "button">New message</button></a>             </span>
-                                    </div><!-- /input-group -->
+                                    </div>&lt;!&ndash; /input-group &ndash;&gt;
                                 </div>
                             </div>
                         </div>
@@ -1169,7 +1185,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
 
 

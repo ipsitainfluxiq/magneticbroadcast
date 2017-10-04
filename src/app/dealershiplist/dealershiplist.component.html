@@ -36,7 +36,9 @@
             <td *ngIf="item.image==''"><img width="100%" src="../../assets/images/newlogo.png" ></td>
             <td>{{item.link}}</td>
            <!-- <td><a [routerLink]="['/editdealership',item._id]">Edit</a>-->
-              <td><a href="javascript:void(0);" data-toggle="modal" data-target="#myModal" (click)="delConfirm(item._id)">Delete</a></td>
+              <td>
+                <a [routerLink]="['/editdealership',item._id]">Edit</a>
+                <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal" (click)="delConfirm(item._id)">Delete</a></td>
           </tr>
           </tbody>
         </table>

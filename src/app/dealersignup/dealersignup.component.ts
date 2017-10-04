@@ -37,7 +37,7 @@ export class DealersignupComponent implements OnInit {
     this.dataForm = this.fb.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
-      image: ['', Validators.required],
+      image: [''],
       /*link: ['', Validators.required],*/
       email: ['', Validators.compose([Validators.required, DealersignupComponent.validateEmail])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(8)])],

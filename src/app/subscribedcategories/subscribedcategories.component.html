@@ -1,0 +1,102 @@
+<app-adminheader></app-adminheader>
+<div *ngIf="usertype==1"><app-adminleftsidebar></app-adminleftsidebar>
+  <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 dashboard_right">
+<div class="row">
+  <div class="col-lg-12">
+    <div class="cusdashboardblock3">
+      <h4>Top Categories</h4>
+   <!--   <a [routerLink]="['/viewallcategory']" class="newviewallbtn">View All</a>-->
+
+      <div class="clearfix"></div>
+      <!--  <div *ngFor="let item of subscribelist ; let k = index">-->
+      <div class="cusactivediv cusactivediv2" *ngFor="let item of catagorylist ; let j = index">
+        <!--<div *ngIf= "j<5">-->
+          <h2><span >
+                                    <table width="100%">
+                                        <tr>
+                                            <td>  {{item.firstname}} <p> ( {{item.Postcategorydetail.length}} posts)</p></td>
+
+                                            <td>    <div class="new_input_wrapper">
+                                                <!--<span class="newinput1" (click)="callsubscribe(item._id)">Subscribe</span>
+                                                <span class="newinput1" (click)="callunsubscribe(item._id)">Unsubscribe</span>-->
+
+                                                <span *ngIf="checksubscription(item.Subsdata)==false" class="newinput1 subscribe_btn" (click)="callsubscribe(item._id)">Subscribe</span>
+                                                <span *ngIf="checksubscription(item.Subsdata)== true" class="newinput1  unsubscribe_btn" (click)="callunsubscribe(item._id)">Unsubscribe</span>
+
+
+                                                <input class="newinput1" type="button" value="View Posts" (click)="showdetails1(item._id)">
+                                                <div class="clearfix"></div>
+                                            </div>
+
+
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </span>             <!--   This is the title of list  -->
+
+
+            <div class="clearfix"></div>
+          </h2>
+
+        </div>
+      </div>
+      <!--</div>-->
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div *ngIf="usertype==2" ngClass="wrappercontain2">
+  <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 dashboard_right">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="cusdashboardblock3">
+        <h4>Top Categories</h4>
+        <!--   <a [routerLink]="['/viewallcategory']" class="newviewallbtn">View All</a>-->
+
+        <div class="clearfix"></div>
+        <!--  <div *ngFor="let item of subscribelist ; let k = index">-->
+        <div class="cusactivediv cusactivediv2" *ngFor="let item of catagorylist ; let j = index">
+          <!--<div *ngIf= "j<5">-->
+          <h2><span >
+                                    <table width="100%">
+                                        <tr>
+                                            <td>  {{item.firstname}} <p> ( {{item.Postcategorydetail.length}} posts)</p></td>
+
+                                            <td>    <div class="new_input_wrapper">
+                                                <!--<span class="newinput1" (click)="callsubscribe(item._id)">Subscribe</span>
+                                                <span class="newinput1" (click)="callunsubscribe(item._id)">Unsubscribe</span>-->
+
+                                                <span *ngIf="checksubscription(item.Subsdata)==false" class="newinput1 subscribe_btn" (click)="callsubscribe(item._id)">Subscribe</span>
+                                                <span *ngIf="checksubscription(item.Subsdata)== true" class="newinput1  unsubscribe_btn" (click)="callunsubscribe(item._id)">Unsubscribe</span>
+
+
+                                                <input class="newinput1" type="button" value="View Posts" (click)="showdetails1(item._id)">
+                                                <div class="clearfix"></div>
+                                            </div>
+
+
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </span>             <!--   This is the title of list  -->
+
+
+            <div class="clearfix"></div>
+          </h2>
+
+        </div>
+      </div>
+      <!--</div>-->
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  </div>
+</div>

@@ -262,6 +262,7 @@ app.post('/details',function(req,resp){        // this is for editadmin page
     });
 });
 
+
 app.post('/editadmin',function(req,resp){
     var collection = db.collection('admin');
     var data = {
@@ -358,6 +359,42 @@ app.post('/deletedealer', function (req, resp) {
     });
 });
 
+app.post('/detailsofdealer',function(req,resp){        // this is for editdealer page
+    console.log("details from server.js called");
+    var resitem = {};
+    var collection = db.collection('admin');
+    var o_id = new mongodb.ObjectID(req.body._id);
+
+    collection.find({_id:o_id}).toArray(function(err, items) {
+        if (err) {
+            resp.send(JSON.stringify({'status':'error','id':0}));
+        } else {
+            resitem = items[0];
+            resp.send(JSON.stringify({'status':'success','item':resitem}));
+        }
+    });
+});
+
+app.post('/editdealer',function(req,resp){
+    console.log('editdealer');
+    var collection = db.collection('admin');
+    var o_id = new mongodb.ObjectID(req.body.id);
+    var data = {
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip,
+        phone: req.body.phone,
+        link: req.body.link,
+        image: req.body.image,
+    }
+    console.log(data);
+    console.log(o_id);
+    collection.update({_id:o_id}, {$set: data}, true, true);
+    resp.send(JSON.stringify({'status':'success'}));
+});
 /*--------------------------------------Post_Category_START--------------------------------------------*/
 
 
@@ -534,7 +571,32 @@ app.post('/deletepostmanagement', function (req, resp) {
  });
  });*/
 
+app.post('/subscribedposts', function (req, resp) {
+    var logid = new mongodb.ObjectID(req.query.loginid);
+    console.log(logid);
+    var collection1 = db.collection('subscribe');
+    var collection = db.collection('subscribe').aggregate([
+     /*   { "$match": { "logid": logid } },*/
 
+        {
+            $lookup: {
+                from: "postcategorymanagement",
+                localField: "categoryid",   // localfield of subscribe
+                foreignField: "postlist",   //localfield of postcategorymanagement
+                as: "PostManegementdata"
+            }
+        },
+    /*    { "$unwind": "$PostManegementdata" },*/
+
+    ]);
+
+
+    collection.toArray(function (err, items) {
+         console.log(items);
+        resp.send(JSON.stringify(items));
+    });
+
+});
 
 app.get('/postmanagementlist', function (req, resp) {
     var collection1 = db.collection('postcategorymanagement');
@@ -901,9 +963,10 @@ app.post('/socialmedialist',function (req,resp) {
 
 app.post('/leadnumbers', function (req, resp) {
     var o_id = new mongodb.ObjectID(req.body.id);
+    console.log(o_id);
     var collection = db.collection('lead');
     collection.find({parentid: o_id}).toArray(function(err, items) {
-        //  console.log(JSON.stringify(items));
+          console.log(JSON.stringify(items));
         resp.send(JSON.stringify(items));
     });
 });
@@ -1018,7 +1081,108 @@ app.post('/login', function (req, resp) {
     });
 });
 
+app.post('/changepassword', function (req, resp) {
+    console.log('has-error');
+    var cryptoold = require('crypto');
+    var secretold = req.body.oldpassword;
+    var hashold = cryptoold.createHmac('sha256', secretold)
+        .update('password')
+        .digest('hex');
 
+
+    var cryptonew = require('crypto');
+    var secretnew = req.body.password;
+    var hashnew = cryptonew.createHmac('sha256', secretnew)
+        .update('password')
+        .digest('hex');
+    var data = {
+        password: hashnew
+    }
+
+    var collection = db.collection('admin');
+    var logid = new mongodb.ObjectID(req.body.logid);
+
+    collection.find({_id: logid, password: hashold}).toArray(function (err, items) {
+
+        if(items.length==0) {
+            resp.send(JSON.stringify({'status': 'error', 'msg': 'Old password doesnot match'}));
+            return;
+        }
+        else {
+            collection.update({_id: logid}, {$set: data}, true, true);
+            resp.send(JSON.stringify({'status': 'success', 'msg':items[0]}));
+        }
+    });
+});
+
+app.post('/forgetpassword', function (req, resp) {
+    console.log('forgt pass');
+    var collection = db.collection('admin');
+    collection.find({ email:req.body.email }).toArray(function(err, items) {
+        if(items.length>0){
+            var randomstring = require("randomstring");
+            var generatedcode=randomstring.generate();
+            var data = {
+                accesscode: generatedcode,
+            }
+            collection.update({ email:req.body.email}, {$set: data}, true, true);
+            var smtpTransport = mailer.createTransport("SMTP", {
+                service: "Gmail",
+                auth: {
+                    user: "itplcc40@gmail.com",
+                    pass: "DevelP7@"
+                }
+            });
+            var mail = {
+                from: "Admin <ipsitaghosal1@gmail.com>",
+                  to: req.body.email,
+                // to: 'ipsita.influxiq@gmail.com',
+                subject: 'Access code',
+                html: 'Access code is given -->  '+generatedcode
+            }
+            smtpTransport.sendMail(mail, function (error, response) {
+                console.log('send');
+                smtpTransport.close();
+            });
+            resp.send(JSON.stringify({'status':'success','msg':items[0]}));
+        }
+        if(items.length==0){
+            resp.send(JSON.stringify({'status':'error','msg':'Emailid invalid...'}));
+            return;
+        }
+    });
+});
+
+
+app.post('/accesscodecheck', function (req, resp) {
+    var collection = db.collection('admin');
+    var logid = new mongodb.ObjectID(req.body.logid);
+    collection.find({ _id:logid, accesscode:req.body.accesscode}).toArray(function(err, items) {
+        console.log(items.length);
+        if(items.length>0) {
+            resp.send(JSON.stringify({'status': 'success', 'msg': ''}));
+        }
+        if(items.length==0){
+            resp.send(JSON.stringify({'status':'error','msg':'Wrong access code'}));
+            return;
+        }
+    });
+});
+
+app.post('/newpassword', function (req, resp) {
+    var collection = db.collection('admin');
+    var crypto = require('crypto');
+    var secret = req.body.password;
+    var hash = crypto.createHmac('sha256', secret)
+        .update('password')
+        .digest('hex');
+    var data = {
+        password: hash
+    }
+    var logid = new mongodb.ObjectID(req.body.logid);
+    collection.update({_id:logid}, {$set: data}, true, true);
+    resp.send(JSON.stringify({'status': 'success', 'msg':''}));
+});
 /*--------------------------------------Common_END--------------------------------------------*/
 
 

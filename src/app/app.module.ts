@@ -31,10 +31,18 @@ import { FacebookModule } from 'ngx-facebook';
 import { Leadpage2Component } from './leadpage2/leadpage2.component';
 import { TwitterService } from 'ng2-twitter';
 import { LeadlistComponent } from './leadlist/leadlist.component';
+import { MyleadsComponent } from './myleads/myleads.component';
+import { SubscribedcategoriesComponent } from './subscribedcategories/subscribedcategories.component';
+import { SubscribedpostsComponent } from './subscribedposts/subscribedposts.component';
 import { ViewallpostmanagementComponent } from './viewallpostmanagement/viewallpostmanagement.component';
 import { ViewallcategoryComponent } from './viewallcategory/viewallcategory.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { MetaComponent } from './meta/meta.component';
 import { ClipboardModule } from 'ngx-clipboard';
+import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { AccesscodeComponent } from './accesscode/accesscode.component';
+import { NewpasswordComponent } from './newpassword/newpassword.component';
+import { EditdealershipComponent } from './editdealership/editdealership.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +70,15 @@ import { ClipboardModule } from 'ngx-clipboard';
     LeadlistComponent,
     ViewallpostmanagementComponent,
     ViewallcategoryComponent,
+    SubscribedcategoriesComponent,
     MetaComponent,
+    MyleadsComponent,
+    SubscribedpostsComponent,
+    ChangepasswordComponent,
+    ForgetpasswordComponent,
+    AccesscodeComponent,
+    NewpasswordComponent,
+    EditdealershipComponent,
   ],
 
   imports: [

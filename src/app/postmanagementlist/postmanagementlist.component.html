@@ -17,7 +17,7 @@
       </div>
       <div class="clearfix"></div>
 
-      <div class="tablediv">
+      <div class=" tabledivnew">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <th>#</th>
@@ -30,11 +30,11 @@
             <th>Status</th>
             <th>Action</th>
           </tr>
-<!--<p #textcontent id="read-more">{{item.content}}</p>-->
+          <!--<p #textcontent id="read-more">{{item.content}}</p>-->
           <tbody *ngFor="let item of datalist | orderBy:orderbyquery:orderbytype | usersearch:listFilter.value; let i = index">
           <tr *ngIf=" i>=pagestart && i < pageinitation">
             <td>{{i+1}}</td>
-         <!--   <div class="read-more-link">
+            <!--   <div class="read-more-link">
 		 <a readMore [readMore-length]="430" [readMore-element]="textcontent">
 		 	<span class="less">Less <i class="fa fa-angle-right" aria-hidden="true"></i></span>
 		 	<span class="more">More <i class="fa fa-angle-right" aria-hidden="true"></i></span>
@@ -44,8 +44,8 @@
             <td>{{item.PostManegementdata.firstname}}</td>
             <td *ngIf="item.image"><img width="100%" src="../../assets/images/uploads/{{item.image}}" ></td>
             <td *ngIf="item.image==''"><img  width="100%" src="../../assets/images/newlogo.png" ></td>
-            <td>{{item.content}}</td>
-            <td>{{item.link}}</td>
+            <td>{{item.content.substr(0,35)}} <p (click)="showcontents(item._id)" class="viewmorelink">view more</p></td>
+            <td><a href="{{item.link}}/{{this.logid}}" target="_blank" class="newlink1">{{item.link}}</a></td>
             <td>{{item.priority}}</td>
             <td *ngIf="item.status==true">Active</td>
             <td *ngIf="item.status==false">Inactive</td>
@@ -89,7 +89,7 @@
 </div>
 
 
-<div *ngIf="isModalShown" class="modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+<div *ngIf="isModalShown1" class="modal fade" (onHidden)="onHidden(1)" bsModal #staticModal="bs-modal" [config]="{ show: true}"
      tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -111,5 +111,23 @@
 </div>
 <!--<app-footer></app-footer>-->
 
-<!--  ______________________________________________page_initiation_______________________________________  -->
+<div *ngIf="isModalShown2" class="modal fade" (onHidden)="onHidden(2)" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="popupdivblock">
+          <div class="popupimg"><img src="../assets/images/newlogo.png"></div>
+          <p>1</p>
+          <h3>{{contentdetails.content}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
