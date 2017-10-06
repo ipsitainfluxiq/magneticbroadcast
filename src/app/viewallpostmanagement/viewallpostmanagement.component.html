@@ -27,18 +27,20 @@
                                     </h6>
                                         <h3>{{item.content}}</h3>
                                         <!--<img width="60px" height="60px" src="../../assets/images/uploads/{{item.image}}"  class="td_imgblock">-->
-                                         <td *ngIf="item.image"><img width="60px" height="60px" src="../../assets/images/uploads/{{item.image}}" ></td>
-            <td *ngIf="item.image==''"><img width="60px" height="60px" src="../../assets/images/newlogo.png" ></td>
-                                        <h5> {{item.link}}</h5>
-                                       <div class="socialiconimg_boX"> <img src="../assets/images/fbicon1.png" alt="#" class="socialiconimg">
-                                        <img src="../assets/images/twicon1.png" alt="#" class="socialiconimg" (click)="calltwitterpost(item.title,item.link, item.image)">
-                                        <img src="../assets/images/inicon1.png" alt="#" class="socialiconimg" (click)="calllinkedinpost(item.title,item.link,item.content,item.image)">
-                                        <img src="../assets/images/tumblr-icon.png" alt="#" class="socialiconimg" (click)="calltumblrpost(item.title,item.link,item.content,item.image)">
-                                    </div>
-                                    </label>
+                                            <td *ngIf="item.image"><img width="60px" height="60px" src="../../assets/images/uploads/{{item.image}}" ></td>
+                                            <td *ngIf="item.image==''"><img width="60px" height="60px" src="../../assets/images/newlogo.png" ></td>
+                                            <!-- <h5> {{item.link}}</h5>-->
+                                            <h5><a href="{{item.link}}/{{logid}}" target="_blank" class="newlink1">{{item.link}}</a></h5>
+                                            <div class="socialiconimg_boX"> <img src="../assets/images/fbicon1.png" alt="#" class="socialiconimg">
+                                                <img src="../assets/images/twicon1.png" alt="#" class="socialiconimg" (click)="calltwitterpost(item.title,item.link, item.image)">
+                                                <img src="../assets/images/inicon1.png" alt="#" class="socialiconimg" (click)="calllinkedinpost(item.title,item.link,item.content,item.image)">
+                                                <img src="../assets/images/tumblr-icon.png" alt="#" class="socialiconimg" (click)="calltumblrpost(item.title,item.link,item.content,item.image)">
+                                                <img src="../assets/images/new_fbicon.png" alt="#" class="socialiconimg" (click)="callfblike()">
+                                            </div>
+                                            </label>
                                             </td>
 
-                                         </tr>
+                                        </tr>
 
                                     </table>
                                 </span>
@@ -88,11 +90,13 @@
                                         <!--<img width="60px" height="60px" src="../../assets/images/uploads/{{item.image}}"  class="td_imgblock">-->
                                          <td *ngIf="item.image"><img width="60px" height="60px" src="../../assets/images/uploads/{{item.image}}" ></td>
             <td *ngIf="item.image==''"><img width="60px" height="60px" src="../../assets/images/newlogo.png" ></td>
-                                        <h5> {{item.link}}</h5>
+                                       <!-- <h5> {{item.link}}</h5>-->
+                                            <h5><a href="{{item.link}}/{{logid}}" target="_blank" class="newlink1">{{item.link}}</a></h5>
                                        <div class="socialiconimg_boX"> <img src="../assets/images/fbicon1.png" alt="#" class="socialiconimg">
                                         <img src="../assets/images/twicon1.png" alt="#" class="socialiconimg" (click)="calltwitterpost(item.title,item.link, item.image)">
                                         <img src="../assets/images/inicon1.png" alt="#" class="socialiconimg" (click)="calllinkedinpost(item.title,item.link,item.content,item.image)">
                                         <img src="../assets/images/tumblr-icon.png" alt="#" class="socialiconimg" (click)="calltumblrpost(item.title,item.link,item.content,item.image)">
+                                             <img src="../assets/images/new_fbicon.png" alt="#" class="socialiconimg" (click)="callfblike()">
                                     </div>
                                             </label>
                                             </td>
@@ -119,4 +123,31 @@
 
 
 
+<div *ngIf="isModalShown3" class="modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h4 class="modal-title pull-left">Show Details</h4>-->
+                <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body facebook_conwrapper">
+
+                <ul>
+                    <li *ngFor="let item of likepages ; let i = index">
+                        <div class="fb_img"><div><img src="https://graph.facebook.com/{{item.id}}/picture" ></div></div>
+                        <h6>{{item.global_brand_page_name}}</h6>
+                        <p *ngIf="item.about">{{item.about.substr(0,20)}}</p>
+                        <!--<p>{{item.about.substr(0,20)}}</p>-->
+                        <input type="button" value="Post" (click)="fbpagepost(item.id,item.access_token)">
+                    </li>
+
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
 

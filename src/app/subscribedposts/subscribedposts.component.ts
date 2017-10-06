@@ -18,6 +18,7 @@ export class SubscribedpostsComponent implements OnInit {
   public serverurl;
   public usertype: any;
   public datalist;
+  public datalist7;
   public logid;
 
   constructor(addcookie: CookieService, addcookie1: CookieService, private _http: Http, private router: Router, private _commonservices: Commonservices) {
@@ -37,6 +38,7 @@ export class SubscribedpostsComponent implements OnInit {
 
   ngOnInit() {
     this.getManagerList();
+    this.getList();
   }
   getManagerList() {
     let link = this.serverurl + 'subscribedposts';
@@ -47,10 +49,26 @@ export class SubscribedpostsComponent implements OnInit {
         .subscribe(res => {
           let result6 = res.json();
           this.datalist = result6;
-          console.log('this.datalist==========9999===');
-          console.log(this.datalist);
+         // console.log('this.datalist==========9999===');
+      //    console.log(this.datalist);
         }, error => {
           console.log('Oooops!');
         });
   }
+
+
+  getList() {
+    let link = this.serverurl + 'broadcastposts';
+    this._http.get(link)
+        .subscribe(res => {
+          let result67 = res.json();
+          this.datalist7 = result67;
+          console.log('this.datalist==========9999===');
+          console.log(this.datalist7);
+          console.log(this.datalist7.length);
+        }, error => {
+          console.log('Oooops!');
+        });
+  }
+
 }

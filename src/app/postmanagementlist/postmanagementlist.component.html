@@ -45,7 +45,7 @@
             <td *ngIf="item.image"><img width="100%" src="../../assets/images/uploads/{{item.image}}" ></td>
             <td *ngIf="item.image==''"><img  width="100%" src="../../assets/images/newlogo.png" ></td>
             <td>{{item.content.substr(0,35)}} <p (click)="showcontents(item._id)" class="viewmorelink">view more</p></td>
-            <td><a href="{{item.link}}/{{this.logid}}" target="_blank" class="newlink1">{{item.link}}</a></td>
+            <td><a href="{{item.link}}/{{logid}}" target="_blank" class="newlink1">{{item.link}}</a></td>
             <td>{{item.priority}}</td>
             <td *ngIf="item.status==true">Active</td>
             <td *ngIf="item.status==false">Inactive</td>

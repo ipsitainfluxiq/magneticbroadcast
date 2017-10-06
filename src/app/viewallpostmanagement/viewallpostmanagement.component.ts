@@ -27,6 +27,9 @@ export class ViewallpostmanagementComponent implements OnInit {
   public tumblr_oauth_token: any;
   public tumblr_oauth_token_secret: any;
     public usertype: any;
+    public logid;
+    public likepages: any = [];
+    public isModalShown3: boolean = false;
 
   constructor(addcookie: CookieService, addcookie1: CookieService, private _http: Http, private router: Router, private _commonservices: Commonservices) {
     this.addcookie = addcookie;
@@ -40,6 +43,7 @@ export class ViewallpostmanagementComponent implements OnInit {
       console.log('hb');
       this.router.navigateByUrl('/');
     }
+      this.logid = this.cookiedetails._id;
 
     let link3 = this.serverurl + 'socialmedialist';
     this.data = {
@@ -87,7 +91,9 @@ export class ViewallpostmanagementComponent implements OnInit {
           console.log('Oooops!');
         });
   }
-
+    onHidden() {
+        this.isModalShown3 = false;
+    }
   calltumblrpost(title, linkis, contentis, imageis) {
     console.log('called');
     let link6 = 'http://magneticbroadcast.com/development/php/postvalfortumblr.php';
@@ -149,6 +155,28 @@ export class ViewallpostmanagementComponent implements OnInit {
                 console.log('Oooops!');
             });
     }
-
+    callfblike() {
+        this.isModalShown3 = true;
+        let link6 = 'http://magneticbroadcast.com/development/php/callfblike.php';
+        this.data = {
+            id: this.cookiedetails._id,
+            longterm_token :  this.longterm_token,
+        };
+        this._http.post(link6, this.data)
+            .subscribe(res => {
+                let fblikes = res.json();
+                console.log('likepages');
+                console.log(fblikes);
+                /*for (let k in fblikes.likes.data) {
+                 this.likepages[k] = fblikes.likes.data[k];
+                 }*/
+                for (let k in fblikes.accounts.data) {
+                    this.likepages[k] = fblikes.accounts.data[k];
+                }
+                console.log(this.likepages);
+            }, error => {
+                console.log('Oooops!');
+            });
+    }
 
 }

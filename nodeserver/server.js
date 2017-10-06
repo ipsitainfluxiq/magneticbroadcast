@@ -646,7 +646,7 @@ app.get('/getcategorylist', function (req, resp) {
 });
 
 app.get('/getcategorylist_subscribedornot', function (req, resp) {
-    console.log('hi');
+   // console.log('hi');
     var collection1 = db.collection('postcategory');
     var collection = db.collection('postcategory').aggregate([
 
@@ -1018,12 +1018,53 @@ app.post('/callsubscribe',function(req,resp){
             console.log('error'+err);
             resp.send(JSON.stringify({'status':'error'}));
         } else {
-            console.log(result);
-            resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id}));
+           // console.log(result);
+            console.log('call calltonewdb');
+            calltonewdb(o_id, o_category);
+           // resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id}));
         }
     });
 });
 
+function calltonewdb(o_id,o_category){
+    console.log('called calltonewdb');
+    console.log(o_category);
+    console.log(o_id);
+    var collection = db.collection('postcategorymanagement');
+    collection.find({postlist:o_category}).toArray(function(err, items) {
+        if (err) {
+            console.log('err');
+            console.log(err);
+           // resp.send(JSON.stringify({'res':[]}));
+        } else {
+          //  console.log(items);
+          //  console.log(items[0].content);
+
+            var collection1 = db.collection('broadcast');
+            for(eachval in items){
+              //  console.log('eachval');
+              //  console.log(items[eachval].content);
+               // console.log(' ');
+                collection1.insert([{
+                    logid: o_id,
+                    categoryid: o_category,
+                    postid: items[eachval]._id,
+                    status: 0,
+                }], function (err, result) {
+                    if (err) {
+                        console.log('error'+err);
+                      //  resp.send(JSON.stringify({'status':'error'}));
+                    } else {
+                        // console.log(result);
+                       // calltonewdb(o_id);
+                        // resp.send(JSON.stringify({'status':'success','id':result.ops[0]._id}));
+                    }
+                });
+            }
+        }
+
+    });
+}
 app.post('/callunsubscribe', function (req, resp) {
     var o_id = new mongodb.ObjectID(req.body.logid);
     var category_id = new mongodb.ObjectID(req.body.categoryid);
@@ -1033,7 +1074,10 @@ app.post('/callunsubscribe', function (req, resp) {
     collection.deleteOne(
         { logid : o_id, categoryid : category_id }
     );
-
+    var collection1 = db.collection('broadcast');
+    collection1.remove(
+        { logid : o_id, categoryid : category_id }
+    );
    /* collection.deleteOne([{
         logid: o_id,
         categoryid: category_id,
@@ -1048,6 +1092,31 @@ app.post('/callunsubscribe', function (req, resp) {
         }
     });*/
 });
+
+app.get('/broadcastposts', function (req, resp) {
+    //   var collection = db.collection('broadcast').distinct('logid');
+ //   db.collection('broadcast').distinct('logid');
+    var collection = db.collection('broadcast').aggregate([
+        // collection.aggregate([
+        { "$match": { "status": 0 } },
+
+        {
+            $lookup: {
+                from: "postcategorymanagement",
+                localField: "postid",   // localfield of broadcast
+                foreignField: "_id",   //localfield of postcategorymanagement
+                as: "BroadcastManegement"
+            }
+        },
+        { "$unwind": "$BroadcastManegement" },
+
+    ]);
+    collection.toArray(function (err, items) {
+        resp.send(JSON.stringify(items));
+    });
+
+});
+
 
 app.post('/login', function (req, resp) {
     console.log('callloginnn');

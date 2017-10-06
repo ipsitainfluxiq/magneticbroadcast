@@ -94,8 +94,8 @@ export class ViewallcategoryComponent implements OnInit {
     this._http.post(link, data)
         .subscribe(res => {
           let result = res.json();
-          console.log('result');
-          console.log(result);
+         // console.log('result');
+         // console.log(result);
         }, error => {
           console.log('Oooops!');
         });

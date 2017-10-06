@@ -517,6 +517,7 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit() {
         this.getManagerList();
+        this.getList();
         this.getcategoryList();
     }
     onHidden(type) {
@@ -538,7 +539,22 @@ export class DashboardComponent implements OnInit {
                 this.datalist = result6;
                 console.log('this.datalist==========9999===');
                 console.log(this.datalist);
-                this.availableposts= this.datalist.length;
+               // this.availableposts= this.datalist.length;
+            }, error => {
+                console.log('Oooops!');
+            });
+    }
+
+    getList() {
+        let link = this.serverurl + 'broadcastposts';
+        this._http.get(link)
+            .subscribe(res => {
+                let result67 = res.json();
+               // this.datalist7 = result67;
+               // console.log('this.datalist==========9999===');
+              //  console.log(this.datalist7);
+                console.log(result67.length);
+                this.availableposts = result67.length;
             }, error => {
                 console.log('Oooops!');
             });
