@@ -623,6 +623,7 @@ export class DashboardComponent implements OnInit {
         setTimeout(() => {
             this.getcategoryList();
             this.subscribernumbers();
+            this.getList();
         }, 300);
     }
     callunsubscribe(categoryid) {
@@ -644,6 +645,7 @@ export class DashboardComponent implements OnInit {
         setTimeout(() => {
             this.getcategoryList();
             this.subscribernumbers();
+            this.getList();
         }, 300);
     }
 
