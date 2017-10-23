@@ -14,10 +14,15 @@ $x= require_once('../php/codebird-php-develop/src/codebird.php');
 $val = file_get_contents("php://input");
 //print_r($val);
 $data=json_decode($val);
-
+/*echo "<br>";
+print_r (strlen($data -> linkval));
+echo "<br>";
+print_r (strlen($data -> title));*/
+//$title = $data -> title;
 $linkval = $data -> linkval;
 $oauth_token = $data -> oauth_token;
 $oauth_token_secret = $data -> oauth_token_secret;
+$image = $data -> image;
 /*$logid = $_GET["id"];
 $linkval = $_GET["linkval"];
 $oauth_token = $_GET["oauth_token"];
@@ -72,9 +77,17 @@ $params1 = array(
 $reply = $cb->statuses_update($params1);*/
 
 
-$params1 = array(
-    'status' => $linkval
+
+/*$params1 = array(
+    'status' => $linkval,
    // 'status' => 'hiiiiiiiiiiii'
 );
 $reply = $cb->statuses_update($params1);
+print_r($reply);*/
+
+$params1 = array(
+    'status' => $linkval,
+    'media[]' => $image
+);
+$reply = $cb->statuses_updateWithMedia($params1);
 print_r($reply);

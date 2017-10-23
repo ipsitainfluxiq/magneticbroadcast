@@ -1,0 +1,16 @@
+[21-Sep-2017 11:29:23 UTC] PHP Fatal error:  Call to undefined function oauth_session_exists() in /home/mbroadcast/public_html/development/php/demo/content.php on line 22
+[21-Sep-2017 11:29:48 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/demo/content.php(49): LinkedIn->share('new', Array, false)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 11:31:18 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/demo/content.php(49): LinkedIn->share('new', Array, false)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 11:31:22 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/demo/content.php(49): LinkedIn->share('new', Array, false)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276

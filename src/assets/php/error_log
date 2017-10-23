@@ -1077,3 +1077,817 @@ Stack trace:
 #2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(38): Codebird\Codebird->account_settings()
 #3 {main}
   thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[20-Sep-2017 12:08:18 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(38): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(38): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[20-Sep-2017 12:19:09 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(38): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(38): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[20-Sep-2017 13:01:42 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(42): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(42): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[20-Sep-2017 13:04:11 UTC] PHP Fatal error:  Call to undefined method LinkedIn::post() in /home/mbroadcast/public_html/development/php/postvalforlinkedin.php on line 67
+[20-Sep-2017 13:04:12 UTC] PHP Fatal error:  Call to undefined method LinkedIn::post() in /home/mbroadcast/public_html/development/php/postvalforlinkedin.php on line 67
+[21-Sep-2017 05:57:27 UTC] PHP Fatal error:  Call to undefined method LinkedIn::PostUpdate() in /home/mbroadcast/public_html/development/php/postvalforlinkedin.php on line 71
+[21-Sep-2017 05:59:58 UTC] PHP Fatal error:  Call to undefined method LinkedIn::PostUpdate() in /home/mbroadcast/public_html/development/php/postvalforlinkedin.php on line 71
+[21-Sep-2017 06:11:23 UTC] PHP Fatal error:  Call to undefined method LinkedIn::linkedInStatus() in /home/mbroadcast/public_html/development/php/postvalforlinkedin.php on line 73
+[21-Sep-2017 06:18:33 UTC] PHP Warning:  Missing argument 2 for LinkedIn::createPost(), called in /home/mbroadcast/public_html/development/php/postvalforlinkedin.php on line 74 and defined in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 526
+[21-Sep-2017 06:18:33 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->createPost(): bad data passed, $gid must be of type string.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:528
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/postvalforlinkedin.php(74): LinkedIn->createPost(NULL)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 528
+[21-Sep-2017 06:19:35 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->createPost(): bad data passed, $title must be a non-empty string.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:531
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/postvalforlinkedin.php(74): LinkedIn->createPost('1234444', NULL)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 531
+[21-Sep-2017 06:20:05 UTC] PHP Fatal error:  Call to undefined method LinkedIn::linkedInStatus() in /home/mbroadcast/public_html/development/php/postvalforlinkedin.php on line 70
+[21-Sep-2017 08:00:36 UTC] PHP Fatal error:  Call to undefined function searchPeople() in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 1924
+[21-Sep-2017 08:00:36 UTC] PHP Fatal error:  Call to undefined function searchPeople() in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 1924
+[21-Sep-2017 08:03:25 UTC] PHP Fatal error:  Call to undefined function searchPeople() in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 1924
+[21-Sep-2017 08:05:08 UTC] PHP Fatal error:  Call to undefined function searchPeople() in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 1924
+[21-Sep-2017 09:18:45 UTC] PHP Fatal error:  Call to undefined method LinkedIn::post() in /home/mbroadcast/public_html/development/php/postvalforlinkedin.php on line 80
+[21-Sep-2017 09:27:41 UTC] PHP Warning:  parse_url() expects parameter 1 to be string, array given in /home/mbroadcast/public_html/development/php/OAuth.php on line 247
+[21-Sep-2017 09:27:41 UTC] PHP Warning:  parse_url() expects parameter 1 to be string, array given in /home/mbroadcast/public_html/development/php/OAuth.php on line 398
+[21-Sep-2017 09:29:43 UTC] PHP Warning:  parse_url() expects parameter 1 to be string, array given in /home/mbroadcast/public_html/development/php/OAuth.php on line 247
+[21-Sep-2017 09:29:43 UTC] PHP Warning:  parse_url() expects parameter 1 to be string, array given in /home/mbroadcast/public_html/development/php/OAuth.php on line 398
+[21-Sep-2017 09:43:26 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/postvalforlinkedin.php(75): LinkedIn->share('new', NULL, NULL)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 09:45:00 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/postvalforlinkedin.php(75): LinkedIn->share('new', NULL, NULL)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 09:45:04 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/postvalforlinkedin.php(75): LinkedIn->share('new', NULL, NULL)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 09:46:21 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2185
+[21-Sep-2017 09:46:21 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2210
+[21-Sep-2017 09:46:21 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing data constraints not met; check that you have supplied valid content and combinations of content to share.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2272
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/postvalforlinkedin.php(76): LinkedIn->share('new', '??is it', 'ya')
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2272
+[21-Sep-2017 10:07:41 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): share action is an invalid value, must be one of: share, reshare.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2245
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/postvalforlinkedin.php(81): LinkedIn->share('v1/people/~/sha...', Array)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2245
+[21-Sep-2017 10:13:10 UTC] PHP Warning:  Missing argument 2 for LinkedIn::share(), called in /home/mbroadcast/public_html/development/php/postvalforlinkedin.php on line 81 and defined in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2163
+[21-Sep-2017 10:13:10 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/postvalforlinkedin.php(81): LinkedIn->share('https://www.lin...')
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 10:43:09 UTC] PHP Warning:  require_once(../linkedin_3.2.0.class.php): failed to open stream: No such file or directory in /home/mbroadcast/public_html/development/php/linkedin_try.php on line 11
+[21-Sep-2017 10:43:09 UTC] PHP Fatal error:  require_once(): Failed opening required '../linkedin_3.2.0.class.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/mbroadcast/public_html/development/php/linkedin_try.php on line 11
+[21-Sep-2017 10:43:09 UTC] PHP Warning:  require_once(../linkedin_3.2.0.class.php): failed to open stream: No such file or directory in /home/mbroadcast/public_html/development/php/linkedin_try.php on line 11
+[21-Sep-2017 10:43:09 UTC] PHP Fatal error:  require_once(): Failed opening required '../linkedin_3.2.0.class.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/mbroadcast/public_html/development/php/linkedin_try.php on line 11
+[21-Sep-2017 10:43:43 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(65): LinkedIn->share('new', Array, false)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 10:50:25 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2185
+[21-Sep-2017 10:50:25 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2210
+[21-Sep-2017 10:50:25 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing data constraints not met; check that you have supplied valid content and combinations of content to share.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2272
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(66): LinkedIn->share('new', 'content', 'private')
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2272
+[21-Sep-2017 10:51:28 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2185
+[21-Sep-2017 10:51:28 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2210
+[21-Sep-2017 10:51:28 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing data constraints not met; check that you have supplied valid content and combinations of content to share.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2272
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(66): LinkedIn->share('new', 'content', 'private')
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2272
+[21-Sep-2017 10:53:12 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2185
+[21-Sep-2017 10:53:12 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2210
+[21-Sep-2017 10:53:12 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing data constraints not met; check that you have supplied valid content and combinations of content to share.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2272
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(66): LinkedIn->share('new', 'content', true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2272
+[21-Sep-2017 10:53:12 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2185
+[21-Sep-2017 10:53:12 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2210
+[21-Sep-2017 10:53:12 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing data constraints not met; check that you have supplied valid content and combinations of content to share.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2272
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(66): LinkedIn->share('new', 'content', true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2272
+[21-Sep-2017 11:06:33 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing data constraints not met; check that you have supplied valid content and combinations of content to share.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2272
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(76): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2272
+[21-Sep-2017 11:06:34 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing data constraints not met; check that you have supplied valid content and combinations of content to share.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2272
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(76): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2272
+[21-Sep-2017 11:16:57 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2185
+[21-Sep-2017 11:16:57 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2210
+[21-Sep-2017 11:16:57 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing data constraints not met; check that you have supplied valid content and combinations of content to share.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2272
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(76): LinkedIn->share('new', 'content', true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2272
+[21-Sep-2017 11:16:57 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2185
+[21-Sep-2017 11:16:57 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2210
+[21-Sep-2017 11:16:57 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing data constraints not met; check that you have supplied valid content and combinations of content to share.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2272
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(76): LinkedIn->share('new', 'content', true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2272
+[21-Sep-2017 11:19:33 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(80): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 11:19:48 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(42): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(42): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[21-Sep-2017 11:19:54 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(80): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 11:21:11 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): share action is an invalid value, must be one of: share, reshare.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2245
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(80): LinkedIn->share('q', 'new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2245
+[21-Sep-2017 11:21:33 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): share action is an invalid value, must be one of: share, reshare.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2245
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(80): LinkedIn->share('share', 'new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2245
+[21-Sep-2017 11:22:48 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): share action is an invalid value, must be one of: share, reshare.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2245
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(80): LinkedIn->share('share', 'new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2245
+[21-Sep-2017 11:23:23 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): share action is an invalid value, must be one of: share, reshare.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2245
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(80): LinkedIn->share('share', 'new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2245
+[21-Sep-2017 11:23:28 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): share action is an invalid value, must be one of: share, reshare.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2245
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(80): LinkedIn->share('share', 'new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2245
+[21-Sep-2017 11:31:08 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(80): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 11:31:08 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(80): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 11:34:31 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(72): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 11:37:26 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(73): LinkedIn->share('new', Array, true, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 11:37:31 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(73): LinkedIn->share('new', Array, true, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 11:39:10 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(73): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 11:39:16 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(73): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 11:39:27 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(73): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 11:39:31 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2276
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(73): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2276
+[21-Sep-2017 11:39:57 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing data constraints not met; check that you have supplied valid content and combinations of content to share.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2272
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(73): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2272
+[21-Sep-2017 11:40:01 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing data constraints not met; check that you have supplied valid content and combinations of content to share.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2272
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(73): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2272
+[21-Sep-2017 11:42:18 UTC] PHP Warning:  log() expects parameter 1 to be double, string given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2165
+[21-Sep-2017 11:42:18 UTC] PHP Warning:  log() expects parameter 1 to be double, array given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2166
+[21-Sep-2017 11:42:18 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing...' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2281
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(73): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2281
+[21-Sep-2017 11:42:18 UTC] PHP Warning:  log() expects parameter 1 to be double, string given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2165
+[21-Sep-2017 11:42:18 UTC] PHP Warning:  log() expects parameter 1 to be double, array given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2166
+[21-Sep-2017 11:42:18 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing...' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2281
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(73): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2281
+[21-Sep-2017 11:42:58 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing...' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2281
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(73): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2281
+[21-Sep-2017 11:43:53 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(42): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(42): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[21-Sep-2017 11:43:56 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing...' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2282
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(73): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2282
+[21-Sep-2017 11:44:37 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing...' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2286
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(73): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2286
+[21-Sep-2017 11:46:51 UTC] PHP Warning:  log() expects parameter 1 to be double, string given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2175
+[21-Sep-2017 12:01:45 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/mbroadcast/public_html/development/php/linkedin_try.php on line 106
+[21-Sep-2017 12:01:46 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/mbroadcast/public_html/development/php/linkedin_try.php on line 106
+[21-Sep-2017 12:02:01 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/mbroadcast/public_html/development/php/linkedin_try.php on line 106
+[21-Sep-2017 12:02:04 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/mbroadcast/public_html/development/php/linkedin_try.php on line 106
+[21-Sep-2017 12:02:49 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/mbroadcast/public_html/development/php/linkedin_try.php on line 106
+[21-Sep-2017 12:02:56 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/mbroadcast/public_html/development/php/linkedin_try.php on line 106
+[21-Sep-2017 12:04:54 UTC] PHP Warning:  Missing argument 2 for LinkedIn::share(), called in /home/mbroadcast/public_html/development/php/linkedin_try.php on line 46 and defined in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2163
+[21-Sep-2017 12:04:54 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): sharing action or shared content is missing...' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2285
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/linkedin_try.php(46): LinkedIn->share('~:(id,first-nam...')
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2285
+[21-Sep-2017 12:38:43 UTC] PHP Warning:  log() expects parameter 1 to be double, object given in /home/mbroadcast/public_html/development/php/postvalforlinkedin.php on line 25
+[21-Sep-2017 12:47:26 UTC] PHP Warning:  stripslashes() expects parameter 1 to be string, array given in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2221
+[22-Sep-2017 04:30:38 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(42): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(42): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[22-Sep-2017 04:41:25 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[22-Sep-2017 05:59:20 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[22-Sep-2017 06:06:31 UTC] PHP Fatal error:  Uncaught exception 'LinkedInException' with message 'LinkedIn->share(): comment length is too long - max length is 700 characters.' in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php:2223
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/postvalforlinkedin.php(79): LinkedIn->share('new', Array, true)
+#1 {main}
+  thrown in /home/mbroadcast/public_html/development/php/linkedin_3.2.0.class.php on line 2223
+[22-Sep-2017 06:20:08 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[26-Sep-2017 15:08:40 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[26-Sep-2017 15:31:57 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[26-Sep-2017 15:31:57 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[26-Sep-2017 15:34:29 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[26-Sep-2017 15:46:09 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[26-Sep-2017 15:46:09 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 05:26:10 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 05:26:11 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 05:26:18 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 05:26:39 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:51:19 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:51:20 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:51:22 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:51:23 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:51:23 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:51:23 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:51:25 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:51:44 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:51:56 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:51:59 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:51:59 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:52:08 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:52:08 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:52:08 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:52:08 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:52:09 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:52:52 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:55:45 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 10:55:46 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 12:20:03 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 12:20:03 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 12:20:04 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 12:20:04 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 12:20:05 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[03-Oct-2017 12:20:05 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[04-Oct-2017 04:50:09 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[04-Oct-2017 04:50:09 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[04-Oct-2017 04:54:50 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[04-Oct-2017 04:54:50 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[04-Oct-2017 04:57:45 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246
+[04-Oct-2017 10:12:54 UTC] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/mbroadcast/public_html/development/php/autopost.php on line 34
+[04-Oct-2017 10:19:08 UTC] PHP Warning:  in_array() expects parameter 2 to be array, integer given in /home/mbroadcast/public_html/development/php/autopost.php on line 35
+[04-Oct-2017 10:19:08 UTC] PHP Warning:  in_array() expects parameter 2 to be array, integer given in /home/mbroadcast/public_html/development/php/autopost.php on line 35
+[04-Oct-2017 10:19:08 UTC] PHP Warning:  in_array() expects parameter 2 to be array, integer given in /home/mbroadcast/public_html/development/php/autopost.php on line 35
+[04-Oct-2017 10:19:08 UTC] PHP Warning:  in_array() expects parameter 2 to be array, integer given in /home/mbroadcast/public_html/development/php/autopost.php on line 35
+[04-Oct-2017 10:19:08 UTC] PHP Warning:  in_array() expects parameter 2 to be array, integer given in /home/mbroadcast/public_html/development/php/autopost.php on line 35
+[04-Oct-2017 10:19:08 UTC] PHP Warning:  in_array() expects parameter 2 to be array, integer given in /home/mbroadcast/public_html/development/php/autopost.php on line 35
+[04-Oct-2017 10:19:08 UTC] PHP Warning:  in_array() expects parameter 2 to be array, integer given in /home/mbroadcast/public_html/development/php/autopost.php on line 35
+[04-Oct-2017 10:19:08 UTC] PHP Warning:  in_array() expects parameter 2 to be array, integer given in /home/mbroadcast/public_html/development/php/autopost.php on line 35
+[04-Oct-2017 10:19:08 UTC] PHP Warning:  in_array() expects parameter 2 to be array, integer given in /home/mbroadcast/public_html/development/php/autopost.php on line 35
+[04-Oct-2017 10:19:08 UTC] PHP Warning:  in_array() expects parameter 2 to be array, integer given in /home/mbroadcast/public_html/development/php/autopost.php on line 35
+[04-Oct-2017 10:19:08 UTC] PHP Warning:  in_array() expects parameter 2 to be array, integer given in /home/mbroadcast/public_html/development/php/autopost.php on line 35
+[04-Oct-2017 10:19:08 UTC] PHP Warning:  in_array() expects parameter 2 to be array, integer given in /home/mbroadcast/public_html/development/php/autopost.php on line 35
+[04-Oct-2017 10:19:08 UTC] PHP Warning:  in_array() expects parameter 2 to be array, integer given in /home/mbroadcast/public_html/development/php/autopost.php on line 35
+[04-Oct-2017 10:19:08 UTC] PHP Warning:  in_array() expects parameter 2 to be array, integer given in /home/mbroadcast/public_html/development/php/autopost.php on line 35
+[04-Oct-2017 10:19:08 UTC] PHP Warning:  in_array() expects parameter 2 to be array, integer given in /home/mbroadcast/public_html/development/php/autopost.php on line 35
+[04-Oct-2017 10:24:13 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:24:13 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:24:13 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:24:13 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:24:13 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:24:13 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:24:13 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:24:13 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:24:13 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:24:13 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:24:13 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:24:13 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:24:13 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:24:13 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:24:13 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:02 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:02 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:02 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:02 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:02 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:02 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:02 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:02 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:02 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:02 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:02 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:02 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:02 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:02 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:02 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:04 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:04 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:04 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:04 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:04 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:04 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:04 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:04 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:04 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:04 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:04 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:04 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:04 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:04 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:04 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, object given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 10:25:45 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 43
+[04-Oct-2017 10:25:45 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 43
+[04-Oct-2017 10:25:45 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 43
+[04-Oct-2017 10:25:45 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 43
+[04-Oct-2017 10:25:45 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 43
+[04-Oct-2017 10:25:45 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 43
+[04-Oct-2017 10:25:45 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 43
+[04-Oct-2017 10:25:45 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 43
+[04-Oct-2017 10:25:45 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 43
+[04-Oct-2017 10:25:45 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 43
+[04-Oct-2017 10:25:45 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 43
+[04-Oct-2017 10:25:45 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 43
+[04-Oct-2017 10:25:45 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 43
+[04-Oct-2017 10:25:45 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 43
+[04-Oct-2017 10:25:45 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 43
+[04-Oct-2017 10:26:31 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 10:26:31 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 10:26:31 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 10:26:31 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 10:26:31 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 10:26:31 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 10:26:31 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 10:26:31 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 10:26:31 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 10:26:31 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 10:26:31 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 10:26:31 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 10:26:31 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 10:26:31 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 10:26:31 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 10:26:58 UTC] PHP Fatal error:  Call to undefined function int() in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 10:32:11 UTC] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 10:32:46 UTC] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/mbroadcast/public_html/development/php/autopost.php on line 48
+[04-Oct-2017 10:33:15 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 51
+[04-Oct-2017 10:33:15 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 51
+[04-Oct-2017 10:33:15 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 51
+[04-Oct-2017 10:33:15 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 51
+[04-Oct-2017 10:33:15 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 51
+[04-Oct-2017 10:33:15 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 51
+[04-Oct-2017 10:33:15 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 51
+[04-Oct-2017 10:33:15 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 51
+[04-Oct-2017 10:33:15 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 51
+[04-Oct-2017 10:33:15 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 51
+[04-Oct-2017 10:33:15 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 51
+[04-Oct-2017 10:33:15 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 51
+[04-Oct-2017 10:33:15 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 51
+[04-Oct-2017 10:33:15 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 51
+[04-Oct-2017 10:33:15 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 51
+[04-Oct-2017 10:55:44 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 52
+[04-Oct-2017 10:55:44 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 52
+[04-Oct-2017 10:55:44 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 52
+[04-Oct-2017 10:55:44 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 52
+[04-Oct-2017 10:55:44 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 52
+[04-Oct-2017 10:55:44 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 52
+[04-Oct-2017 10:55:44 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 52
+[04-Oct-2017 10:55:44 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 52
+[04-Oct-2017 10:55:44 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 52
+[04-Oct-2017 10:55:44 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 52
+[04-Oct-2017 10:55:44 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 52
+[04-Oct-2017 10:55:44 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 52
+[04-Oct-2017 10:55:44 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 52
+[04-Oct-2017 10:55:44 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 52
+[04-Oct-2017 11:17:53 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/mbroadcast/public_html/development/php/autopost.php on line 34
+[04-Oct-2017 11:33:03 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:33:03 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:33:03 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:33:03 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:33:03 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:33:03 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:33:03 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:33:03 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:33:03 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:33:03 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:33:03 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:33:03 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:33:03 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:33:03 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:33:03 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:34:56 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:34:56 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:34:56 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:34:56 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:34:56 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:34:56 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:34:56 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:34:56 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:34:56 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:34:56 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:34:56 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:34:56 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:34:56 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:34:56 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:34:56 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/mbroadcast/public_html/development/php/autopost.php on line 44
+[04-Oct-2017 11:35:47 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 11:35:51 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/mbroadcast/public_html/development/php/autopost.php on line 41
+[04-Oct-2017 11:37:38 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 11:37:40 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[04-Oct-2017 12:29:41 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/mbroadcast/public_html/development/php/autopost.php on line 42
+[06-Oct-2017 12:29:31 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'To call this API, the OAuth access token must be set.' in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php:1246
+Stack trace:
+#0 /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php(456): Codebird\Codebird->_callApi('GET', 'account/setting...', Array, false, false, false)
+#1 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->__call('account_setting...', Array)
+#2 /home/mbroadcast/public_html/development/php/postvalfortwitter.php(43): Codebird\Codebird->account_settings()
+#3 {main}
+  thrown in /home/mbroadcast/public_html/development/php/codebird-php-develop/src/codebird.php on line 1246

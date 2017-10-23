@@ -15,25 +15,53 @@ $API_CONFIG = array(
     'appSecret' => 'UWR1TiVxRQZspxFK',
     'callbackUrl' => NULL
 );
-define('CONNECTION_COUNT', 20);
-define('PORT_HTTP', '80');
-define('PORT_HTTP_SSL', '443');
-define('UPDATE_COUNT', 10);
+    define('CONNECTION_COUNT', 20);
+    define('PORT_HTTP', '80');
+    define('PORT_HTTP_SSL', '443');
+    define('UPDATE_COUNT', 10);
 
-$val = file_get_contents("php://input");
-$data=json_decode($val);
-//print_r($data);
-$linkval = $data -> linkval;
-$contentofpost = $data -> content;
-$image = $data -> image;
-$title = $data -> title;
-$logid = $data -> id;
 
-$arr1['oauth_token'] =  $data ->linkoauth_token;
-$arr1['oauth_token_secret'] = $data ->linkoauth_token_secret;
+
+    $val = file_get_contents("php://input");
+    $data=json_decode($val);
+  //  print_r($data);
+    $linkval = $data -> linkval;
+    $title = $data -> title;
+    $logid = $data -> id;
+    $arr1['oauth_token'] =  $data ->linkoauth_token;
+    $arr1['oauth_token_secret'] = $data ->linkoauth_token_secret;
+
+
+
+
+
+
 
 $OBJ_linkedin = new LinkedIn($API_CONFIG);
 $OBJ_linkedin->setTokenAccess($arr1);
+
+
+
+/*$OBJ_linkedin->setResponseFormat(LINKEDIN::_RESPONSE_XML);
+$response = $OBJ_linkedin->profile('~:(id,first-name,last-name,picture-url)');
+if($response['success'] === TRUE) {
+    $response['linkedin'] = new SimpleXMLElement($response['linkedin']);
+    //    echo "<pre>" . print_r($response['linkedin'], TRUE) . "</pre>";
+    $i = $response['linkedin'];
+
+    function object2array($object)
+    {
+        return @json_decode(@json_encode($object), 1);
+    }
+
+    $xml_array = object2array($i);
+
+    $arrnew['fname'] = $xml_array['first-name'];
+    $arrnew['lname'] = $xml_array['last-name'];
+    $arrnew['image'] = $xml_array['picture-url'];
+    print_r(json_encode($arrnew));
+
+}*/
 
 
 $content = array();
@@ -56,17 +84,11 @@ if(!empty($_POST['sdescription'])) {
 }*/
 
 
-/*$content['comment'] = 'this is the comment';
+$content['comment'] = 'this is the comment';
 $content['title'] = 'this is the title';
 $content['description'] = 'this is the sdescription';
 $content['submitted-url'] = 'https://stackoverflow.com/questions/37806237/getting-s-412-precondition-failed-invalid-arguments-error-in-linkedin-share-api';
-$content['submitted-image-url'] = 'https://www.cleverfiles.com/howto/wp-content/uploads/2016/08/mini.jpg';*/
-
-$content['comment'] = $contentofpost;
-$content['title'] = $title;
-$content['description'] = '';
-$content['submitted-url'] = $linkval;
-$content['submitted-image-url'] = $image;
+$content['submitted-image-url'] = 'https://www.cleverfiles.com/howto/wp-content/uploads/2016/08/mini.jpg';
 
 
 if(!empty($_POST['sprivate'])) {
@@ -76,8 +98,16 @@ if(!empty($_POST['sprivate'])) {
 }
 $private = TRUE;
 
+
+
+
 $response = $OBJ_linkedin->share('new', $content, $private);
 print_r($response);
 
+/*if($response['success'] === TRUE) {
+    header('Location: ' . $_SERVER['PHP_SELF']);
+} else {
+   print_r($OBJ_linkedin);
+}*/
 
 ?>
